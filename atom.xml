@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-04-16T23:53:51+08:00</updated>
+  <updated>2016-04-17T01:00:42+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -14,10 +14,21 @@
 
   
   <entry>
+    <title type="html"><![CDATA[论文引用生成工具]]></title>
+    <link href="http://www.imlc.me/14608257960114.html"/>
+    <updated>2016-04-17T00:56:36+08:00</updated>
+    <id>http://www.imlc.me/14608257960114.html</id>
+    <content type="html"><![CDATA[
+<p>占个位置先</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Java Integer 缓存机制的小坑点]]></title>
-    <link href="http://www.imlc.me/605.html.html"/>
+    <link href="http://www.imlc.me/605.html"/>
     <updated>2016-04-16T23:52:11+08:00</updated>
-    <id>http://www.imlc.me/605.html.html</id>
+    <id>http://www.imlc.me/605.html</id>
     <content type="html"><![CDATA[
 <p>Integer 是 Java 5 引入的新特性，该特性能节省内存和改善性能。同样被引入缓存机制的还有 Byte，Short，Long，Character，缓存范围都是在 [-128,127] （Character是在[0,127]）之间。</p>
 

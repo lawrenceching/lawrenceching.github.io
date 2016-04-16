@@ -2,11 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://www.imlc.me/</loc>
-  <lastmod>2016-04-16T23:54:21+08:00</lastmod>
+  <lastmod>2016-04-17T01:01:16+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/605.html.html</loc>
+  <loc>http://www.imlc.me/14608257960114.html</loc>
+  <lastmod>2016-04-17T00:56:36+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/605.html</loc>
   <lastmod>2016-04-16T23:52:11+08:00</lastmod>
 </url>
 
@@ -16,6 +21,15 @@
 </url>
 
 
+<url>
+  <loc>http://www.imlc.me/myworks.html</loc>
+  <lastmod>2016-04-17T00:15:37+08:00</lastmod>
+</url>
+
+
+<url>
+  <loc>http://www.imlc.me/paperreference.html</loc>
+</url>
 
 
 </urlset>
