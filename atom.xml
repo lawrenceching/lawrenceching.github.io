@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-04-17T01:36:36+08:00</updated>
+  <updated>2016-04-17T13:23:44+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Imports TSMessages into Swift project]]></title>
+    <link href="http://www.imlc.me/600.html"/>
+    <updated>2016-04-17T13:11:38+08:00</updated>
+    <id>http://www.imlc.me/600.html</id>
+    <content type="html"><![CDATA[
+<p>Following the document of TSMessages, I meet a trouble:<br/>
+Could not read TSMessages config file from main bundle with name<br/>
+As mentioned on the page GitHub issue, I fixed the first trouble I met.<br/>
+Change pod file to:</p>
+
+<pre><code>pod &#39;TSMessages&#39;, :git =&gt; &#39;https://github.com/KrauseFx/TSMessages.git&#39;
+</code></pre>
+
+<p>The problem has been fixed in the master branch but the author do not commit it to Pod yet.<br/>
+ <br/>
+The second problem is that the easiest way to use TSMessages do not works.</p>
+
+<pre><code>[TSMessage showNotificationWithTitle:@&quot;Your Title&quot;
+                                subtitle:@&quot;A description&quot;
+                                    type:TSMessageNotificationTypeError];
+</code></pre>
+
+<p>in swift:</p>
+
+<pre><code>TSMessage.showNotificationWithTitle(&quot;Title&quot;, subtitle:&quot;subtitle&quot;, type:TSMessageNotificationType.Error)
+</code></pre>
+
+<p>Do nothing on my project.<br/>
+I has to use an another method and it works fine.</p>
+
+<pre><code>TSMessage.showNotificationInViewController(self, title: &quot;Title&quot;, subtitle: &quot;Subtitle&quot;, type: TSMessageNotificationType.Error)
+</code></pre>
+
+<p>I do not figure it out why.</p>
+
+<p>TAG: iOS, TSMessages, Swift</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[论文引用生成工具]]></title>
