@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-04-18T03:32:17+08:00</updated>
+  <updated>2016-04-18T11:57:15+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题]]></title>
+    <link href="http://www.imlc.me/593.html"/>
+    <updated>2016-04-18T12:00:18+08:00</updated>
+    <id>http://www.imlc.me/593.html</id>
+    <content type="html"><![CDATA[
+<p>这么重要的问题竟然没有事先说明，太过分了。<br/>
+今天更新了 Android 6.0 的 SDK 后发现项目一片红，吓尿了。<br/>
+直接引用把：<a href="http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client">http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client</a><br/>
+Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your <strong>build.gradle</strong> file:</p>
+
+<pre><code>android {
+    useLibrary &#39;org.apache.http.legacy&#39;
+}
+</code></pre>
+
+<p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MX4 PRO DDMS 无法访问data文件夹]]></title>
