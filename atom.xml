@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-04-18T03:31:29+08:00</updated>
+  <updated>2016-04-18T03:32:17+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MX4 PRO DDMS 无法访问data文件夹]]></title>
+    <link href="http://www.imlc.me/596.html"/>
+    <updated>2016-04-18T11:55:50+08:00</updated>
+    <id>http://www.imlc.me/596.html</id>
+    <content type="html"><![CDATA[
+<ol>
+<li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
+<li><p>在 Terminal 下定位到 sdk/platform-tools 文件夹下，运行</p></li>
+</ol>
+
+<pre><code>su
+chmod 777 /data
+</code></pre>
+
+<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且&hellip;我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
+
+<ol>
+<li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Imports TSMessages into Swift project]]></title>

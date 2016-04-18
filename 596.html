@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	Archives - IMLC.ME
+  	MX4 PRO DDMS 无法访问data文件夹 - IMLC.ME
   	
 	</title>
 
@@ -123,88 +123,29 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-	<div itemscope itemtype="http://schema.org/Blog">
-		<section class="archives">
 
-		
-			 
-			  	<h1 style="top: auto;" class="year">2016</h1>
-			
-			
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">MX4 PRO DDMS 无法访问data文件夹</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<ol>
+<li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
+<li><p>在 Terminal 下定位到 sdk/platform-tools 文件夹下，运行</p></li>
+</ol>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-18T11:55:50+08:00" itemprop="datePublished">4月 18</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="596.html">
-					MX4 PRO DDMS 无法访问data文件夹</a></h1>
-				</article>
-	 	
-			
-			
+<pre><code>su
+chmod 777 /data
+</code></pre>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T13:11:38+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="600.html">
-					Imports TSMessages into Swift project</a></h1>
-				</article>
-	 	
-			
-			
+<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且&hellip;我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T00:56:36+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='paperreference.html'>论文参考文献生成工具</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="reference-generator.html">
-					论文参考文献生成工具</a></h1>
-				</article>
-	 	
-			
-			
+<ol>
+<li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
+</ol>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-16T23:52:11+08:00" itemprop="datePublished">4月 16</time></span>
-						<br>
-						 
-						
-						 
-						
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="605.html">
-					Java Integer 缓存机制的小坑点</a></h1>
-				</article>
-	 	
-
-	  </section>
+		</div>
+	</article>
+	<div class="share-comment">
+	
 	</div>
 </div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
