@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://www.imlc.me/</loc>
-  <lastmod>2016-04-18T12:05:06+08:00</lastmod>
+  <lastmod>2016-04-22T18:33:42+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/javascript-an-approach-of-class-definition.html</loc>
+  <lastmod>2016-04-22T17:31:02+08:00</lastmod>
 </url>
 
 <url>
@@ -38,15 +43,19 @@
 
 
 <url>
+  <loc>http://www.imlc.me/JavaScript/JQuery.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/Android.html</loc>
+</url>
+
+<url>
   <loc>http://www.imlc.me/paperreference.html</loc>
 </url>
 
 <url>
   <loc>http://www.imlc.me/iOS.html</loc>
-</url>
-
-<url>
-  <loc>http://www.imlc.me/Android.html</loc>
 </url>
 
 

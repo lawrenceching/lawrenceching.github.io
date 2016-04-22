@@ -129,6 +129,92 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-04-22T17:31:02+08:00" itemprop="datePublished">2016/4/22</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='JavaScript/JQuery.html'>JavaScript/JQuery</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="javascript-an-approach-of-class-definition.html" itemprop="url">
+		JavaScript 定义 class 的一种解决方案</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>这是由荷兰程序员 Gabor de Mooij 提出的一种比较简单的方法。Gabor de Mooij 称之为 minimalist approach。现摘录如下：</p>
+
+<h5 id="toc_0">定义一个 Foo 类</h5>
+
+<pre><code>var Foo = {
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;;
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+</code></pre>
+
+<h5 id="toc_1">创建一个 Foo 实例</h5>
+
+<pre><code>var foo = Foo.createNew();
+foo.bar();
+</code></pre>
+
+<h5 id="toc_2">类的继承</h5>
+
+<pre><code>var NewFoo = {
+    createNew = function(){
+        var instance = Foo.createNew();
+        instance.title = &quot;A new title&quot;;
+        instance.newBar = function(){
+            alert(instance.description);
+        };
+    }
+}
+</code></pre>
+
+<h5 id="toc_3">私有方法和属性</h5>
+
+<pre><code>var Foo = {
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;; //description 是私有的，只有通过 bar() 来访问
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+</code></pre>
+
+<h5 id="toc_4">静态成员变量</h5>
+
+<pre><code>var Foo = {
+    id: 101010; // id 在多个实例间共享
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;; //description 是私有的，只有通过 bar() 来访问
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+
+var foo1 = Foo.createNew();
+var foo2 = Foo.createNew();
+foo2.id = 233333;
+console.log(&quot;Foo id:&quot;+foo1.id);
+
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-04-18T12:00:18+08:00" itemprop="datePublished">2016/4/18</time>
 			</div>
 			<div class="tags">posted in 
