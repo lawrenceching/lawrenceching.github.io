@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	Archives - IMLC.ME
+  	MX4 PRO 无法连接 adb 问题的解决办法 - IMLC.ME
   	
 	</title>
 
@@ -123,183 +123,55 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-	<div itemscope itemtype="http://schema.org/Blog">
-		<section class="archives">
 
-		
-			 
-			  	<h1 style="top: auto;" class="year">2016</h1>
-			
-			
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">MX4 PRO 无法连接 adb 问题的解决办法</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
+ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-25T03:02:10+08:00" itemprop="datePublished">4月 25</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="536.html">
-					MX4 PRO 无法连接 adb 问题的解决办法</a></h1>
-				</article>
-	 	
-			
-			
+<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
+<strong>0x2a45</strong><br/>
+<img src="media/14615245305239/adb_usb.ini.png" alt="adb_usb.ini"/></p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-25T02:57:30+08:00" itemprop="datePublished">4月 25</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="532.html">
-					Mac ADB 环境变量配置</a></h1>
-				</article>
-	 	
-			
-			
+<p>保存退出。<br/>
+在命令行下依次输入：</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-24T13:57:10+08:00" itemprop="datePublished">4月 24</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='JavaScript/JQuery.html'>JavaScript/JQuery</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="save-load-object-in-localStorage.html">
-					Save and load object in localStorage</a></h1>
-				</article>
-	 	
-			
-			
+<pre><code>adb kill-server
+adb devices
+</code></pre>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-22T17:31:02+08:00" itemprop="datePublished">4月 22</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='JavaScript/JQuery.html'>JavaScript/JQuery</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="javascript-an-approach-of-class-definition.html">
-					JavaScript 定义 class 的一种解决方案</a></h1>
-				</article>
-	 	
-			
-			
+<p>这时会显示<br/>
+<img src="media/14615245305239/terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-18T12:00:18+08:00" itemprop="datePublished">4月 18</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="593.html">
-					Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题</a></h1>
-				</article>
-	 	
-			
-			
+<p>此时，adb 识别到手机，但是提示未认证。<br/>
+在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
+ <br/>
+如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
+可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
+ <br/>
+参考：<br/>
+<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-18T11:55:50+08:00" itemprop="datePublished">4月 18</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="596.html">
-					MX4 PRO DDMS 无法访问data文件夹</a></h1>
-				</article>
-	 	
-			
-			
-
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T13:11:38+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="600.html">
-					Imports TSMessages into Swift project</a></h1>
-				</article>
-	 	
-			
-			
-
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T00:56:36+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='paperreference.html'>论文参考文献生成工具</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="reference-generator.html">
-					论文参考文献生成工具</a></h1>
-				</article>
-	 	
-			
-			
-
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-16T23:52:11+08:00" itemprop="datePublished">4月 16</time></span>
-						<br>
-						 
-						
-						 
-						
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="605.html">
-					Java Integer 缓存机制的小坑点</a></h1>
-				</article>
-	 	
-
-	  </section>
+		</div>
+	</article>
+	<div class="share-comment">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lawrenceching"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
 	</div>
 </div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
