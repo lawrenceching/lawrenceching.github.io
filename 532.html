@@ -127,14 +127,18 @@
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 		<h1 class="title" itemprop="name">Mac ADB 环境变量配置</h1>
 		<div class="entry-content" itemprop="articleBody">
-			<h3 id="toc_0">记录 adb 所在目录位置 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</h3>
+			<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
 
-<h3 id="toc_1">创建 .bash_profile 文件 terminal 中输入</h3>
+<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
 
-<pre><code>touch .bash_profile
-</code></pre>
+<h2 id="toc_1">2. #创建 .bash_profile 文件</h2>
 
-<h3 id="toc_2">打开 .bash_profile 文件</h3>
+<p> terminal 中输入<br/>
+<code><br/>
+touch .bash_profile<br/>
+</code></p>
+
+<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
 
 <pre><code>open -e .bash_profile
 </code></pre>
@@ -152,12 +156,12 @@
 
 <p>保存后关闭。</p>
 
-<h3 id="toc_3">添加环境变量</h3>
+<h3 id="toc_3">4. 添加环境变量</h3>
 
 <pre><code>source .bash_profile
 </code></pre>
 
-<h3 id="toc_4">在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
+<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
 
 		</div>
 	</article>
