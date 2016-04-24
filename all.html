@@ -129,6 +129,52 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-04-24T13:57:10+08:00" itemprop="datePublished">2016/4/24</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='JavaScript/JQuery.html'>JavaScript/JQuery</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="save-load-object-in-localStorage.html" itemprop="url">
+		Save and load object in localStorage</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>As for the reason only string can be stored in localStorage, an object need to be converted to string format (JSON text).</p>
+
+<h3 id="toc_0">Save object</h3>
+
+<pre><code>var books = [{id:3, name:&quot;From Zero To One&quot;}, {id:4, name:&quot;Head First Java&quot;}];
+localStorage.setItem(&quot;books&quot;, JSON.stringify(books));
+</code></pre>
+
+<h3 id="toc_1">Load object</h3>
+
+<pre><code>var booksJSON = localStorage.getItem(&quot;books&quot;);
+if( booksJSON == null ){
+    // No data stored in the localStorage
+    return;
+}
+var books = JSON.parse(booksJSON);
+for(var i=0; i &lt; books.length; ++i) {
+    var book = books[i];
+    var id = book.id;
+    var name = book.name;
+}
+
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-04-22T17:31:02+08:00" itemprop="datePublished">2016/4/22</time>
 			</div>
 			<div class="tags">posted in 
