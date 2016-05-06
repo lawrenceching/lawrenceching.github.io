@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	Archives - IMLC.ME
+  	[Swift] Convert custom class to NSData - IMLC.ME
   	
 	</title>
 
@@ -123,202 +123,100 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-	<div itemscope itemtype="http://schema.org/Blog">
-		<section class="archives">
 
-		
-			 
-			  	<h1 style="top: auto;" class="year">2016</h1>
-			
-			
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">[Swift] Convert custom class to NSData</h1>
+		<div class="entry-content" itemprop="articleBody">
+			<p>It&rsquo;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-05-07T00:52:55+08:00" itemprop="datePublished">5月 07</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="swift-convert-custom-class-to-nsdata.html">
-					[Swift] Convert custom class to NSData</a></h1>
-				</article>
-	 	
-			
-			
+<p>Here shows steps to do it.</p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-25T03:02:10+08:00" itemprop="datePublished">4月 25</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="536.html">
-					MX4 PRO 无法连接 adb 问题的解决办法</a></h1>
-				</article>
-	 	
-			
-			
+<h5 id="toc_0">1. Define your class</h5>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-25T02:57:30+08:00" itemprop="datePublished">4月 25</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="532.html">
-					Mac ADB 环境变量配置</a></h1>
-				</article>
-	 	
-			
-			
+<pre><code>class Book: NSObject, NSCoding {
+    var id:Int
+    var name:String?
+    var author:String?
+    
+    private static let KeyId = &quot;key_id&quot;
+    private static let KeyName = &quot;key_name&quot;
+    private static let KeyAuthor = &quot;key_author&quot;
+    
+    init(id: Int){
+        self.id = id
+    }
+    
+    required init? (coder aDecoder: NSCoder){
+        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
+        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
+        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(id, forKey: Book.KeyId)
+        aCoder.encodeObject(name, forKey: Book.KeyName)
+        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
+    }
+}
+</code></pre>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-24T13:57:10+08:00" itemprop="datePublished">4月 24</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='JavaScriptAndJQuery.html'>JavaScript/JQuery</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="save-load-object-in-localStorage.html">
-					Save and load object in localStorage</a></h1>
-				</article>
-	 	
-			
-			
+<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-22T17:31:02+08:00" itemprop="datePublished">4月 22</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='JavaScriptAndJQuery.html'>JavaScript/JQuery</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="javascript-an-approach-of-class-definition.html">
-					JavaScript 定义 class 的一种解决方案</a></h1>
-				</article>
-	 	
-			
-			
+<h5 id="toc_1">2. Save data</h5>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-18T12:00:18+08:00" itemprop="datePublished">4月 18</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="593.html">
-					Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题</a></h1>
-				</article>
-	 	
-			
-			
+<pre><code>let book = Book(id: 1)
+book.name = &quot;The first book&quot;
+book.author = &quot;IMLC.ME&quot;
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-18T11:55:50+08:00" itemprop="datePublished">4月 18</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='Android.html'>Android</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="596.html">
-					MX4 PRO DDMS 无法访问data文件夹</a></h1>
-				</article>
-	 	
-			
-			
+let book2 = Book(id:2)
+book.name = &quot;The second book&quot;
+book.author = &quot;IMLC.ME&quot;
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T13:11:38+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="600.html">
-					Imports TSMessages into Swift project</a></h1>
-				</article>
-	 	
-			
-			
+let books = [book, book2]
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-17T00:56:36+08:00" itemprop="datePublished">4月 17</time></span>
-						<br>
-						 
-						<span class="tags">posted in 
-						
-						    <a class='category' href='paperreference.html'>论文参考文献生成工具</a>&nbsp;
-						 
-						</span>
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="reference-generator.html">
-					论文参考文献生成工具</a></h1>
-				</article>
-	 	
-			
-			
+let ud = NSUserDefaults.standardUserDefaults()
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
+</code></pre>
 
-				<article itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-					<div class="meta">
-						<span class="date"><time datetime="2016-04-16T23:52:11+08:00" itemprop="datePublished">4月 16</time></span>
-						<br>
-						 
-						
-						 
-						
-					    
-					</div>
-					<h1 class="title" itemprop="name"><a href="605.html">
-					Java Integer 缓存机制的小坑点</a></h1>
-				</article>
-	 	
+<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
 
-	  </section>
+<h5 id="toc_2">3. Restore data</h5>
+
+<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
+    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
+    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
+    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
+    
+    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
+}
+</code></pre>
+
+<hr/>
+
+<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&rsquo;t give an another sample here.</p>
+
+<p>TAG: Swift, NSData, Convert, Custom class</p>
+
+		</div>
+	</article>
+	<div class="share-comment">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lawrenceching"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
 	</div>
 </div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
