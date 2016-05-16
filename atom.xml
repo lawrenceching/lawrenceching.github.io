@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-04-27T20:16:48+08:00</updated>
+  <updated>2016-05-16T16:54:20+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[OS X] 使用 Alfred 快捷键打开应用程序]]></title>
+    <link href="http://www.imlc.me/hotkey-to-launch-apps.html"/>
+    <updated>2016-05-16T16:28:59+08:00</updated>
+    <id>http://www.imlc.me/hotkey-to-launch-apps.html</id>
+    <content type="html"><![CDATA[
+<p>写着写着代码，终于忍受不了在Xcode、Emulator、Chrome、Dash等应用中切来切去的麻烦。Dock栏可不是那么好点的。于是花了一段时间查找Mac上有哪些App可以实现快捷键切换应用程序。<br/>
+最后，终于挑定了一款应用的时候，突然想起来 Alfred 来。于是尝试了一下，效果完美。</p>
+
+<p><strong>Alfred 无愧神器之名：）</strong></p>
+
+<hr/>
+
+<h5 id="toc_0">Step 1: Create Blank Workflow</h5>
+
+<p>Add a blank workflow, fill the name, description and other field Alfred required.</p>
+
+<h5 id="toc_1">Step 2: Add Hotkey Trigger</h5>
+
+<p>Click the &ldquo;+&rdquo; button on the upper right, select the Trigger -&gt; Hotkey. Now a new window shows, type the Hotkey you want to use.</p>
+
+<h5 id="toc_2">Step 3: Add Action</h5>
+
+<p>Click the &ldquo;+&rdquo; button, this time select the Action -&gt; Launch Apps/ Files. Drop the app you want to open from Finder to Alfred.</p>
+
+<h5 id="toc_3">Step 4: Link the Trigger to the Action</h5>
+
+<p>Link the hotkey trigger to the launch apps action. Done!</p>
+
+<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-16-14633883160356.jpg" alt="A workflow to trigger the chrome and xcode"/></p>
+
+<p>最终效果是，在 Chrome 还没有打开的情况下，将启动 Chrome。如果 Chrome 已经启动，则切换到 Chrome。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[Swift] Convert custom class to NSData]]></title>

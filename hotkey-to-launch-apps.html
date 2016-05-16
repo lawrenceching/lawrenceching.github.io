@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	MX4 PRO DDMS 无法访问data文件夹 - IMLC.ME
+  	[OS X] 使用 Alfred 快捷键打开应用程序 - IMLC.ME
   	
 	</title>
 
@@ -125,22 +125,34 @@
 			<div class="mid-col-container"> <div id="content" class="inner">
 
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">MX4 PRO DDMS 无法访问data文件夹</h1>
+		<h1 class="title" itemprop="name">[OS X] 使用 Alfred 快捷键打开应用程序</h1>
 		<div class="entry-content" itemprop="articleBody">
-			<ol>
-<li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
-<li><p>在 Terminal 下定位到 sdk/platform-tools 文件夹下，运行</p></li>
-</ol>
+			<p>写着写着代码，终于忍受不了在Xcode、Emulator、Chrome、Dash等应用中切来切去的麻烦。Dock栏可不是那么好点的。于是花了一段时间查找Mac上有哪些App可以实现快捷键切换应用程序。<br/>
+最后，终于挑定了一款应用的时候，突然想起来 Alfred 来。于是尝试了一下，效果完美。</p>
 
-<pre><code>su
-chmod 777 /data
-</code></pre>
+<p><strong>Alfred 无愧神器之名：）</strong></p>
 
-<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且&hellip;我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
+<hr/>
 
-<ol>
-<li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
-</ol>
+<h5 id="toc_0">Step 1: Create Blank Workflow</h5>
+
+<p>Add a blank workflow, fill the name, description and other field Alfred required.</p>
+
+<h5 id="toc_1">Step 2: Add Hotkey Trigger</h5>
+
+<p>Click the &ldquo;+&rdquo; button on the upper right, select the Trigger -&gt; Hotkey. Now a new window shows, type the Hotkey you want to use.</p>
+
+<h5 id="toc_2">Step 3: Add Action</h5>
+
+<p>Click the &ldquo;+&rdquo; button, this time select the Action -&gt; Launch Apps/ Files. Drop the app you want to open from Finder to Alfred.</p>
+
+<h5 id="toc_3">Step 4: Link the Trigger to the Action</h5>
+
+<p>Link the hotkey trigger to the launch apps action. Done!</p>
+
+<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-16-14633883160356.jpg" alt="A workflow to trigger the chrome and xcode"/></p>
+
+<p>最终效果是，在 Chrome 还没有打开的情况下，将启动 Chrome。如果 Chrome 已经启动，则切换到 Chrome。</p>
 
 		</div>
 	</article>
