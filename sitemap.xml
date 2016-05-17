@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://www.imlc.me/</loc>
-  <lastmod>2016-05-16T17:49:07+08:00</lastmod>
+  <lastmod>2016-05-18T01:47:50+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/encrypt-files-before-sync.html</loc>
+  <lastmod>2016-05-18T00:38:45+08:00</lastmod>
 </url>
 
 <url>
@@ -68,7 +73,7 @@
 
 
 <url>
-  <loc>http://www.imlc.me/iOS.html</loc>
+  <loc>http://www.imlc.me/Uncategorized.html</loc>
 </url>
 
 <url>
@@ -76,11 +81,15 @@
 </url>
 
 <url>
-  <loc>http://www.imlc.me/JavaScriptAndJQuery.html</loc>
+  <loc>http://www.imlc.me/iOS.html</loc>
 </url>
 
 <url>
   <loc>http://www.imlc.me/paperreference.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/JavaScriptAndJQuery.html</loc>
 </url>
 
 
