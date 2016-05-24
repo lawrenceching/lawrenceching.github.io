@@ -130,6 +130,45 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-05-25T02:30:39+08:00" itemprop="datePublished">2016/5/25</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conversion-between-string-and-nsdate.html" itemprop="url">
+		Conversion between String and NSDate</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>The class NSDateFormatter is a easy-to-use tool. Just like SimpleDateFormat in Java.</p>
+
+<h4 id="toc_0">Convert String to NSDate</h4>
+
+<pre><code>let str = &quot;2016-06-01T00:00:00Z&quot;
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;
+let date = dateFormatter.dateFromString(str)
+</code></pre>
+
+<h4 id="toc_1">Convert NSDate to String</h4>
+
+<pre><code>let description = &quot;Time is \(dateFormatter.stringFromDate(date))&quot;
+</code></pre>
+
+<p>TAG: Convert, String, NSDate, NSDateFormatter</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-05-18T00:38:45+08:00" itemprop="datePublished">2016/5/18</time>
 			</div>
 			<div class="tags">posted in 
