@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-05-25T02:36:13+08:00</updated>
+  <updated>2016-05-27T01:33:59+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[UILabel 图标保持比例缩放]]></title>
+    <link href="http://www.imlc.me/14642837507079.html"/>
+    <updated>2016-05-27T01:29:10+08:00</updated>
+    <id>http://www.imlc.me/14642837507079.html</id>
+    <content type="html"><![CDATA[
+<p>Just set that:</p>
+
+<pre><code>button.imageView?.contentMode = .ScaleAspectFit
+</code></pre>
+
+<hr/>
+
+<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Conversion between String and NSDate]]></title>

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	iOS - IMLC.ME
+  	UILabel 图标保持比例缩放 - IMLC.ME
   	
 	</title>
 
@@ -124,24 +124,10 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-<div itemscope itemtype="http://schema.org/Blog">
 
-
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-05-27T01:29:10+08:00" itemprop="datePublished">2016/5/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14642837507079.html" itemprop="url">
-		UILabel 图标保持比例缩放</a></h1>
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">UILabel 图标保持比例缩放</h1>
 		<div class="entry-content" itemprop="articleBody">
-			
 			<p>Just set that:</p>
 
 <pre><code>button.imageView?.contentMode = .ScaleAspectFit
@@ -151,213 +137,27 @@
 
 <p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
 
-
-			
-			
 		</div>
-
 	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-05-25T02:30:39+08:00" itemprop="datePublished">2016/5/25</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="conversion-between-string-and-nsdate.html" itemprop="url">
-		Conversion between String and NSDate</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>The class NSDateFormatter is an easy-to-use tool. Just like SimpleDateFormat in Java.</p>
-
-<h4 id="toc_0">Convert String to NSDate</h4>
-
-<pre><code>let str = &quot;2016-06-01T00:00:00Z&quot;
-let dateFormatter = NSDateFormatter()
-dateFormatter.dateFormat = &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;
-let date = dateFormatter.dateFromString(str)
-</code></pre>
-
-<h4 id="toc_1">Convert NSDate to String</h4>
-
-<pre><code>let description = &quot;Time is \(dateFormatter.stringFromDate(date))&quot;
-</code></pre>
-
-<p>TAG: Convert, String, NSDate, NSDateFormatter</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-05-07T00:52:55+08:00" itemprop="datePublished">2016/5/7</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="swift-convert-custom-class-to-nsdata.html" itemprop="url">
-		[Swift] Convert custom class to NSData</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>It&rsquo;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
-
-<p>Here shows steps to do it.</p>
-
-<h5 id="toc_0">1. Define your class</h5>
-
-<pre><code>class Book: NSObject, NSCoding {
-    var id:Int
-    var name:String?
-    var author:String?
-    
-    private static let KeyId = &quot;key_id&quot;
-    private static let KeyName = &quot;key_name&quot;
-    private static let KeyAuthor = &quot;key_author&quot;
-    
-    init(id: Int){
-        self.id = id
-    }
-    
-    required init? (coder aDecoder: NSCoder){
-        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
-        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
-        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(id, forKey: Book.KeyId)
-        aCoder.encodeObject(name, forKey: Book.KeyName)
-        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
-    }
-}
-</code></pre>
-
-<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
-
-<h5 id="toc_1">2. Save data</h5>
-
-<pre><code>let book = Book(id: 1)
-book.name = &quot;The first book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let book2 = Book(id:2)
-book.name = &quot;The second book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let books = [book, book2]
-
-let ud = NSUserDefaults.standardUserDefaults()
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
-</code></pre>
-
-<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
-
-<h5 id="toc_2">3. Restore data</h5>
-
-<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
-    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
-    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
-    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
-    
-    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
-}
-</code></pre>
-
-<hr/>
-
-<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&rsquo;t give an another sample here.</p>
-
-<p>TAG: Swift, NSData, Convert, Custom class</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-04-17T13:11:38+08:00" itemprop="datePublished">2016/4/17</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="600.html" itemprop="url">
-		Imports TSMessages into Swift project</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>Following the document of TSMessages, I meet a trouble:<br/>
-Could not read TSMessages config file from main bundle with name<br/>
-As mentioned on the page GitHub issue, I fixed the first trouble I met.<br/>
-Change pod file to:</p>
-
-<pre><code>pod &#39;TSMessages&#39;, :git =&gt; &#39;https://github.com/KrauseFx/TSMessages.git&#39;
-</code></pre>
-
-<p>The problem has been fixed in the master branch but the author do not commit it to Pod yet.<br/>
- <br/>
-The second problem is that the easiest way to use TSMessages do not works.</p>
-
-<pre><code>[TSMessage showNotificationWithTitle:@&quot;Your Title&quot;
-                                subtitle:@&quot;A description&quot;
-                                    type:TSMessageNotificationTypeError];
-</code></pre>
-
-<p>in swift:</p>
-
-<pre><code>TSMessage.showNotificationWithTitle(&quot;Title&quot;, subtitle:&quot;subtitle&quot;, type:TSMessageNotificationType.Error)
-</code></pre>
-
-<p>Do nothing on my project.<br/>
-I has to use an another method and it works fine.</p>
-
-<pre><code>TSMessage.showNotificationInViewController(self, title: &quot;Title&quot;, subtitle: &quot;Subtitle&quot;, type: TSMessageNotificationType.Error)
-</code></pre>
-
-<p>I do not figure it out why.</p>
-
-<p>TAG: iOS, TSMessages, Swift</p>
-
-
-			
-			
-		</div>
-
-	</article>
-  
-
-</div>
-<nav id="pagenavi">
-	 
-	
-	<div class="center"><a href="archives.html">Blog Archives</a></div>
-
-</nav>
-
-</div>
-
-
-
-        </div>
+	<div class="share-comment">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lawrenceching"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+	</div>
+</div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
 Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
