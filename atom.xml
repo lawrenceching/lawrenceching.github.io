@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-06-07T23:25:26+08:00</updated>
+  <updated>2016-06-08T00:32:13+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -48,15 +48,24 @@
 
 // Do the conversion
 let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
+
+// Convert JSON to class instance
 let book3 = Mapper&lt;Book&gt;().map(JSON)!
+
 let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
 let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
 let books = [book1, book2, book3]
    
+// Convert array to JSON array string
 let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
-print(arrayJSON)
+
+// Convert JSON array back to the array
 let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
 </code></pre>
+
+<hr/>
+
+<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
 
 ]]></content>
   </entry>
@@ -106,6 +115,10 @@ hello2 {
 [2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
 [3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
 [4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
+
+<hr/>
+
+<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
 
 ]]></content>
   </entry>

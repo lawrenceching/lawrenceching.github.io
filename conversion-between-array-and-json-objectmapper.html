@@ -157,15 +157,24 @@
 
 // Do the conversion
 let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
+
+// Convert JSON to class instance
 let book3 = Mapper&lt;Book&gt;().map(JSON)!
+
 let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
 let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
 let books = [book1, book2, book3]
    
+// Convert array to JSON array string
 let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
-print(arrayJSON)
+
+// Convert JSON array back to the array
 let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
 </code></pre>
+
+<hr/>
+
+<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
 
 		</div>
 	</article>
