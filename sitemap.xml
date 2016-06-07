@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://www.imlc.me/</loc>
-  <lastmod>2016-05-27T01:34:53+08:00</lastmod>
+  <lastmod>2016-06-07T23:25:26+08:00</lastmod>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/gradle-task-parallel-execution.html</loc>
+  <lastmod>2016-06-07T23:11:38+08:00</lastmod>
 </url>
 
 <url>
@@ -83,15 +88,15 @@
 
 
 <url>
+  <loc>http://www.imlc.me/Android.html</loc>
+</url>
+
+<url>
   <loc>http://www.imlc.me/paperreference.html</loc>
 </url>
 
 <url>
   <loc>http://www.imlc.me/iOS.html</loc>
-</url>
-
-<url>
-  <loc>http://www.imlc.me/Android.html</loc>
 </url>
 
 <url>
