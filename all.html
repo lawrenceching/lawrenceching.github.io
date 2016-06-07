@@ -130,6 +130,67 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-06-08T00:00:26+08:00" itemprop="datePublished">2016/6/8</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conversion-between-array-and-json-objectmapper.html" itemprop="url">
+		Conversion between Array and JSON string using ObjectMapper</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
+
+<p>The code below shows how to convert swift array into JSON and also recover it from JSON.</p>
+
+<pre><code>class Book: Mappable{
+    var id:Int?
+    var title:String?
+    var category:[String]?
+    
+    init(id:Int, title:String, category:[String]){
+        self.id = id
+        self.title = title
+        self.category = category
+    }
+    
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id          &lt;- map[&quot;id&quot;]
+        title       &lt;- map[&quot;title&quot;]
+        category    &lt;- map[&quot;category&quot;]
+    }
+}
+
+
+// Do the conversion
+let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
+let book3 = Mapper&lt;Book&gt;().map(JSON)!
+let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
+let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
+let books = [book1, book2, book3]
+   
+let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
+print(arrayJSON)
+let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-06-07T23:11:38+08:00" itemprop="datePublished">2016/6/7</time>
 			</div>
 			<div class="tags">posted in 
