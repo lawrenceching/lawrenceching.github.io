@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-06-08T00:32:13+08:00</updated>
+  <updated>2016-06-08T00:33:25+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Alfred 拼音搜索]]></title>
+    <link href="http://www.imlc.me/alfred-chinese-pinyin-support.html"/>
+    <updated>2016-06-27T00:32:03+08:00</updated>
+    <id>http://www.imlc.me/alfred-chinese-pinyin-support.html</id>
+    <content type="html"><![CDATA[
+<p>可能因为水土不服的原因，Alfred 的中文拼音搜索真的不如英文搜索好用。在全英环境下几乎完美的搜索体验在中英混合的情况下还是有点小不舒心。Alfred 的拼音搜索需要特殊的小技巧：</p>
+
+<p>先输入<code>&#39;</code>（或者空格，将会自动转换成<code>&#39;</code>），然后输入拼音。各个字的拼音之间需要用空格分开。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Conversion between Array and JSON string using ObjectMapper]]></title>
