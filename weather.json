@@ -1,0 +1,14 @@
+{
+	"code": 0,
+	"message": "Success",
+	"data":[
+		{
+			"city":"Guangzhou",
+			"weather":"sunny"
+		},
+		{
+			"city":"Beijing",
+			"weather":"rainy"
+		}
+	]
+}
