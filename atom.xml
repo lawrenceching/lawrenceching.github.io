@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-06-27T00:40:45+08:00</updated>
+  <updated>2016-08-03T02:11:43+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Alfred Workflow for Surge for Mac configuration switching]]></title>
+    <link href="http://www.imlc.me/alfred-workflow-for-surge-for-mac-configuration-switching.html"/>
+    <updated>2016-08-03T01:49:03+08:00</updated>
+    <id>http://www.imlc.me/alfred-workflow-for-surge-for-mac-configuration-switching.html</id>
+    <content type="html"><![CDATA[
+<p>I write a workflow to switch Surge for Mac configuration.</p>
+
+<p>Different Surge configs use in different case. I need to keep different .surge.conf and move it to HOME folder and activate in Surge repeatly.</p>
+
+<p>So I write a workflow to help me.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[iOS] Header files not found after cocoaPods updated to 1.0]]></title>
+    <link href="http://www.imlc.me/ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html"/>
+    <updated>2016-08-02T01:39:56+08:00</updated>
+    <id>http://www.imlc.me/ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html</id>
+    <content type="html"><![CDATA[
+<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.</p>
+
+<p>Thands to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.</p>
+
+<p>What pod 1.0 do is that I don&rsquo;t need import headers explicitly any more. Pod do that. </p>
+
+<p>So what I need to do is DELETE all import statment which not found. That will fix everything.</p>
+
+<hr/>
+
+<p>TAG: pod, cocoaPods, iOS, Header files not found</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UIWebView in Navigation Controller]]></title>
+    <link href="http://www.imlc.me/uiwebview-in-navigation-controller.html"/>
+    <updated>2016-07-20T00:00:39+08:00</updated>
+    <id>http://www.imlc.me/uiwebview-in-navigation-controller.html</id>
+    <content type="html"><![CDATA[
+<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
+
+<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-07-20-14689449100296.jpg" alt="" class="mw_img_center" style="width:300px;display: block; clear:both; margin: 0 auto;"/></p>
+
+<p>One way to fix it is add code below to your source:</p>
+
+<pre><code>override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        webView.scrollView.contentInset = UIEdgeInsetsZero
+    }
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Design Custom View using .xib(storyboard)]]></title>
+    <link href="http://www.imlc.me/design-custom-view-using-xib-storyboard.html"/>
+    <updated>2016-07-17T02:31:17+08:00</updated>
+    <id>http://www.imlc.me/design-custom-view-using-xib-storyboard.html</id>
+    <content type="html"><![CDATA[
+<hr/>
+
+<p>Tag: iOS, Custom View, xib, storyboard, Swift</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Alfred 拼音搜索]]></title>
@@ -644,78 +714,6 @@ I has to use an another method and it works fine.</p>
 目前项目源代码托管在 <a href="https://coding.net/u/lawrenceching/p/reference-generator/git">Coding.net</a> 上。尚处于开发阶段。</p>
 
 <p>如果有什么问题可以直接到 Coding.net 上留言。</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Java Integer 缓存机制的小坑点]]></title>
-    <link href="http://www.imlc.me/605.html"/>
-    <updated>2016-04-16T23:52:11+08:00</updated>
-    <id>http://www.imlc.me/605.html</id>
-    <content type="html"><![CDATA[
-<p>Integer 是 Java 5 引入的新特性，该特性能节省内存和改善性能。同样被引入缓存机制的还有 Byte，Short，Long，Character，缓存范围都是在 [-128,127] （Character是在[0,127]）之间。</p>
-
-<p>但是有几点需要注意的是：<br/>
-1. 对 Integer 对象引入了 IntegerCache 类，其他封装类型也有对应的 XxxCache。<br/>
-2. 该缓存特性只有在 autoboxing 过程中使用，换言之，使用 constructor 创建的 Integer 并不能被缓存。<br/>
-3. 因为缓存机制的存在，在缓存范围内的对象都来自同一个缓存。带来的副作用是使用“==”地址比较运算符比较两个看似不一样的对象，得到的是 true。网上其他文章的说法是因而可以使用 == 来比较直接比较两个对象的值。但我觉得这样理解容易造成偏差。Java 规范并没有约定 [-128,127] 的范围内 == 用作值比较，这只是一个副作用。<br/>
-4. 只有 Integer 对象可以通过指定 JVM 启动参数来修改缓存上限。</p>
-
-<pre><code>-XX:AutoBoxCacheMax=size
-</code></pre>
-
-<p>所以说写代码的时候还是不要把==用作值比较。<br/>
- <br/>
-老实说这个缓存特性带来的不一致性要是导致了什么BUG实在很难排查。当用了这个特性写了点什么之后，难保后来者不会产生迷惑。所以日常编码中还是尽量避开这个点。<br/>
- <br/>
-简单到爆的实验代码：<br/>
-简单地验证Java Integer缓存特性</p>
-
-<pre><code>import com.sun.istack.internal.NotNull;
- 
-/**
- * Created by Lawrence on 15/11/9.
- */
-public class Main {
-    public static void main(String[] argv){
-        Integer int1 = 100;
-        Integer int2 = 100;
- 
-        if(int1==int2){
-            print(&quot;int1 is equal to int2&quot;);
-        } else {
-            print(&quot;int1 is not equal to int2&quot;);
-        }
-        // prints &quot;int1 is equal to int2&quot;
- 
-        Integer int3 = 2333;
-        Integer int4 = 2333;
- 
-        if(int3==int4){
-            print(&quot;int3 is equal to int4&quot;);
-        } else {
-            print(&quot;int3 is not equal to int4&quot;);
-        }
-        // prints &quot;int3 is not equal to int4&quot;
- 
-        Integer int5 = 100;
-        Integer int6 = new Integer(100);
- 
-        if(int5==int6){
-            print(&quot;int5 is equal to int6&quot;);
-        } else {
-            print(&quot;int5 is not equal to int6&quot;);
-        }
-        // prints &quot;int5 is not equal to int6&quot;
-    }
- 
-    public static void print(String str){
-        System.out.println(str);
-    }
- 
-}
-</code></pre>
 
 ]]></content>
   </entry>
