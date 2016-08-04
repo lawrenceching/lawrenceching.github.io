@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-08-03T02:11:43+08:00</updated>
+  <updated>2016-08-04T02:50:03+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -24,6 +24,8 @@
 <p>Different Surge configs use in different case. I need to keep different .surge.conf and move it to HOME folder and activate in Surge repeatly.</p>
 
 <p>So I write a workflow to help me.</p>
+
+<p><img src="http://cdn.imlc.me/2016-08-04-14702493466223.jpg" alt=""/></p>
 
 ]]></content>
   </entry>
