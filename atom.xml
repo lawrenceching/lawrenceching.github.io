@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-08-06T17:16:53+08:00</updated>
+  <updated>2016-08-06T17:19:38+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Conflict with angular-protractor and jQuery in TypeScript]]></title>
+    <link href="http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typeScript.html"/>
+    <updated>2016-09-15T15:41:05+08:00</updated>
+    <id>http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typeScript.html</id>
+    <content type="html"><![CDATA[
+<p>When I type <code>npm start</code> in my angular2 project, terminal shows:<br/>
+<code><br/>
+Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
+</code></p>
+
+<p>There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
+
+<p>Modify your jquery.d.ts file<br/>
+From:<br/>
+<code><br/>
+declare module &quot;jquery&quot; {<br/>
+    export = $;<br/>
+}<br/>
+declare var jQuery: JQueryStatic;<br/>
+declare var $: JQueryStatic;<br/>
+</code></p>
+
+<p>To:<br/>
+<code><br/>
+declare module &quot;jquery&quot; {<br/>
+    export = jQuery;<br/>
+}<br/>
+declare var jQuery: JQueryStatic;<br/>
+</code></p>
+
+<p>On the contrary, you can change protractor also.</p>
+
+<p>References:<br/>
+[1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Alfred Workflow for Surge for Mac configuration switching]]></title>
@@ -702,20 +741,6 @@ I has to use an another method and it works fine.</p>
 <p>I do not figure it out why.</p>
 
 <p>TAG: iOS, TSMessages, Swift</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[论文参考文献生成工具]]></title>
-    <link href="http://www.imlc.me/reference-generator.html"/>
-    <updated>2016-04-17T00:56:36+08:00</updated>
-    <id>http://www.imlc.me/reference-generator.html</id>
-    <content type="html"><![CDATA[
-<p>本工具根据 GB/T 7714-2005 的说明生成参考文献条目。<br/>
-目前项目源代码托管在 <a href="https://coding.net/u/lawrenceching/p/reference-generator/git">Coding.net</a> 上。尚处于开发阶段。</p>
-
-<p>如果有什么问题可以直接到 Coding.net 上留言。</p>
 
 ]]></content>
   </entry>

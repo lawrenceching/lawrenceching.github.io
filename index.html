@@ -130,6 +130,58 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2016-09-15T15:41:05+08:00" itemprop="datePublished">2016/9/15</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='JavaScriptAndJQuery.html'>JavaScript/JQuery</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conflict-with-angular-protractor-and-jquery-in-typeScript.html" itemprop="url">
+		Conflict with angular-protractor and jQuery in TypeScript</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>When I type <code>npm start</code> in my angular2 project, terminal shows:<br/>
+<code><br/>
+Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
+</code></p>
+
+<p>There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
+
+<p>Modify your jquery.d.ts file<br/>
+From:<br/>
+<code><br/>
+declare module &quot;jquery&quot; {<br/>
+    export = $;<br/>
+}<br/>
+declare var jQuery: JQueryStatic;<br/>
+declare var $: JQueryStatic;<br/>
+</code></p>
+
+<p>To:<br/>
+<code><br/>
+declare module &quot;jquery&quot; {<br/>
+    export = jQuery;<br/>
+}<br/>
+declare var jQuery: JQueryStatic;<br/>
+</code></p>
+
+<p>On the contrary, you can change protractor also.</p>
+
+<p>References:<br/>
+[1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-08-03T01:49:03+08:00" itemprop="datePublished">2016/8/3</time>
 			</div>
 			<div class="tags">posted in 
