@@ -142,30 +142,30 @@
 		Conflict with angular-protractor and jQuery in TypeScript</a></h1>
 		<div class="entry-content" itemprop="articleBody">
 			
-			<p>When I type <code>npm start</code> in my angular2 project, terminal shows:<br/>
-<code><br/>
-Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
-</code></p>
+			<p>When I type <code>npm start</code> in my angular2 project, terminal shows:</p>
+
+<pre><code>Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;
+</code></pre>
 
 <p>There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
 
 <p>Modify your jquery.d.ts file<br/>
-From:<br/>
-<code><br/>
-declare module &quot;jquery&quot; {<br/>
-    export = $;<br/>
-}<br/>
-declare var jQuery: JQueryStatic;<br/>
-declare var $: JQueryStatic;<br/>
-</code></p>
+From:</p>
 
-<p>To:<br/>
-<code><br/>
-declare module &quot;jquery&quot; {<br/>
-    export = jQuery;<br/>
-}<br/>
-declare var jQuery: JQueryStatic;<br/>
-</code></p>
+<pre><code>declare module &quot;jquery&quot; {
+    export = $;
+}
+declare var jQuery: JQueryStatic;
+declare var $: JQueryStatic;
+</code></pre>
+
+<p>To:</p>
+
+<pre><code>declare module &quot;jquery&quot; {
+    export = jQuery;
+}
+declare var jQuery: JQueryStatic;
+</code></pre>
 
 <p>On the contrary, you can change protractor also.</p>
 
