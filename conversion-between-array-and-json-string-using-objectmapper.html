@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	Conversion between Array and JSON string using ObjectMapper - IMLC.ME
   	
 	</title>
 
@@ -118,11 +118,55 @@
 			<div class="mid-col-container"> <div id="content" class="inner">
 
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
+		<h1 class="title" itemprop="name">Conversion between Array and JSON string using ObjectMapper</h1>
 		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
+			<p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
+<p>The code below shows how to convert swift array into JSON and also recover it from JSON.</p>
+
+<pre><code>class Book: Mappable{
+    var id:Int?
+    var title:String?
+    var category:[String]?
+    
+    init(id:Int, title:String, category:[String]){
+        self.id = id
+        self.title = title
+        self.category = category
+    }
+    
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id          &lt;- map[&quot;id&quot;]
+        title       &lt;- map[&quot;title&quot;]
+        category    &lt;- map[&quot;category&quot;]
+    }
+}
+
+
+// Do the conversion
+let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
+
+// Convert JSON to class instance
+let book3 = Mapper&lt;Book&gt;().map(JSON)!
+
+let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
+let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
+let books = [book1, book2, book3]
+   
+// Convert array to JSON array string
+let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
+
+// Convert JSON array back to the array
+let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
+</code></pre>
+
+<hr/>
+
+<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
 
 		</div>
 	</article>

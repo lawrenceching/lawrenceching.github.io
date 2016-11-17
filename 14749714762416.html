@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	MX4 PRO 无法连接 adb 问题的解决办法 - IMLC.ME
   	
 	</title>
 
@@ -118,11 +118,33 @@
 			<div class="mid-col-container"> <div id="content" class="inner">
 
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
+		<h1 class="title" itemprop="name">MX4 PRO 无法连接 adb 问题的解决办法</h1>
 		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
+			<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
+ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
+<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
+<strong>0x2a45</strong><br/>
+<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-adb_usb.ini.png" alt="adb_usb.ini"/></p>
+
+<p>保存退出。<br/>
+在命令行下依次输入：</p>
+
+<pre><code>adb kill-server
+adb devices
+</code></pre>
+
+<p>这时会显示<br/>
+<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
+
+<p>此时，adb 识别到手机，但是提示未认证。<br/>
+在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
+ <br/>
+如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
+可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
+ <br/>
+参考：<br/>
+<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
 
 		</div>
 	</article>

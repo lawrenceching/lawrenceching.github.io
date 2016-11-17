@@ -2,144 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>http://www.imlc.me/</loc>
-  <lastmod>2016-09-16T21:40:56+08:00</lastmod>
+  <lastmod>2016-11-17T23:44:41+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typeScript.html</loc>
-  <lastmod>2016-09-15T15:41:05+08:00</lastmod>
+  <loc>http://www.imlc.me/using-remote-desktop-in-mac-in-china.html</loc>
+  <lastmod>2016-11-17T23:08:48+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/alfred-workflow-for-surge-for-mac-configuration-switching.html</loc>
-  <lastmod>2016-08-03T01:49:03+08:00</lastmod>
+  <loc>http://www.imlc.me/fix-angular2-cannot-route-the-page-after-refresh.html</loc>
+  <lastmod>2016-10-03T19:47:21+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html</loc>
-  <lastmod>2016-08-02T01:39:56+08:00</lastmod>
+  <loc>http://www.imlc.me/header-files-not-found-after-cocoapods-updated-to-1.0.html</loc>
+  <lastmod>2016-09-29T21:52:14+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/uiwebview-in-navigation-controller.html</loc>
-  <lastmod>2016-07-20T00:00:39+08:00</lastmod>
+  <loc>http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typescript.html</loc>
+  <lastmod>2016-09-29T20:57:22+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/design-custom-view-using-xib-storyboard.html</loc>
-  <lastmod>2016-07-17T02:31:17+08:00</lastmod>
+  <loc>http://www.imlc.me/android-studio-can-not-find-org-apache-http-package-after-update-to-6.0.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/alfred-chinese-pinyin-support.html</loc>
-  <lastmod>2016-06-27T00:32:03+08:00</lastmod>
-</url>
-
-<url>
-  <loc>http://www.imlc.me/conversion-between-array-and-json-objectmapper.html</loc>
-  <lastmod>2016-06-08T00:00:26+08:00</lastmod>
-</url>
-
-<url>
-  <loc>http://www.imlc.me/gradle-task-parallel-execution.html</loc>
-  <lastmod>2016-06-07T23:11:38+08:00</lastmod>
-</url>
-
-<url>
-  <loc>http://www.imlc.me/14642837507079.html</loc>
-  <lastmod>2016-05-27T01:29:10+08:00</lastmod>
+  <loc>http://www.imlc.me/conversion-between-array-and-json-string-using-objectmapper.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
   <loc>http://www.imlc.me/conversion-between-string-and-nsdate.html</loc>
-  <lastmod>2016-05-25T02:30:39+08:00</lastmod>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/encrypt-files-before-sync.html</loc>
-  <lastmod>2016-05-18T00:38:45+08:00</lastmod>
+  <loc>http://www.imlc.me/java-integer-%E7%BC%93%E5%AD%98-%E6%9C%BA%E5%88%B6-%E5%9D%91%E7%82%B9.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/hotkey-to-launch-apps.html</loc>
-  <lastmod>2016-05-16T16:28:59+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714760420.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/swift-convert-custom-class-to-nsdata.html</loc>
-  <lastmod>2016-05-07T00:52:55+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714760806.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/536.html</loc>
-  <lastmod>2016-04-25T03:02:10+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714760916.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/532.html</loc>
-  <lastmod>2016-04-25T02:57:30+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714760995.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/save-load-object-in-localStorage.html</loc>
-  <lastmod>2016-04-24T13:57:10+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762202.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/javascript-an-approach-of-class-definition.html</loc>
-  <lastmod>2016-04-22T17:31:02+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762373.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/593.html</loc>
-  <lastmod>2016-04-18T12:00:18+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762416.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/596.html</loc>
-  <lastmod>2016-04-18T11:55:50+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762507.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/600.html</loc>
-  <lastmod>2016-04-17T13:11:38+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762605.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/reference-generator.html</loc>
-  <lastmod>2016-04-17T00:56:36+08:00</lastmod>
+  <loc>http://www.imlc.me/14749714762962.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/605.html</loc>
-  <lastmod>2016-04-16T23:52:11+08:00</lastmod>
-</url>
-
-
-<url>
-  <loc>http://www.imlc.me/myworks.html</loc>
-  <lastmod>2016-04-17T00:15:37+08:00</lastmod>
-</url>
-
-
-<url>
-  <loc>http://www.imlc.me/paperreference.html</loc>
+  <loc>http://www.imlc.me/uiwebview-in-navigation-controller.html</loc>
+  <lastmod>2016-09-27T18:17:56+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/iOS.html</loc>
+  <loc>http://www.imlc.me/14749714759806.html</loc>
+  <lastmod>2016-09-27T18:17:55+08:00</lastmod>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/Android.html</loc>
+  <loc>http://www.imlc.me/14749714759843.html</loc>
+  <lastmod>2016-09-27T18:17:55+08:00</lastmod>
+</url>
+
+
+
+<url>
+  <loc>http://www.imlc.me/java.html</loc>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/JavaScriptAndJQuery.html</loc>
+  <loc>http://www.imlc.me/android.html</loc>
 </url>
 
 <url>
-  <loc>http://www.imlc.me/Uncategorized.html</loc>
+  <loc>http://www.imlc.me/ios.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/swift.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/others.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/javascript-jquery.html</loc>
+</url>
+
+<url>
+  <loc>http://www.imlc.me/angular.html</loc>
 </url>
 
 

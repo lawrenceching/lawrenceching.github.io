@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	Mac ADB 环境变量配置 - IMLC.ME
   	
 	</title>
 
@@ -118,11 +118,43 @@
 			<div class="mid-col-container"> <div id="content" class="inner">
 
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
+		<h1 class="title" itemprop="name">Mac ADB 环境变量配置</h1>
 		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
+			<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
+<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
+
+<h3 id="toc_1">2. 创建 .bash_profile 文件</h3>
+
+<p> terminal 中输入</p>
+
+<pre><code>touch .bash_profile
+</code></pre>
+
+<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
+
+<pre><code>open -e .bash_profile
+</code></pre>
+
+<p>该命令会自动打开文本编辑器。</p>
+
+<p>(1) 如果你发现里面已经有内容了，请在 PATH 后面添加  </p>
+
+<p><code>:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>包括最前面的英文状态下的冒号。如果 PATH 后面的路径被双引号括了起来，那么请把上面这句添加到双引号的里面。</p>
+
+<p>(2) 如果你打开的文件是空白的，请输入<br/><br/>
+ <code>export PATH=${PATH}:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>保存后关闭。</p>
+
+<h3 id="toc_3">4. 添加环境变量</h3>
+
+<pre><code>source .bash_profile
+</code></pre>
+
+<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
 
 		</div>
 	</article>

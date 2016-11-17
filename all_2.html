@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	IMLC.ME
   	
 	</title>
 
@@ -116,25 +116,116 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
 
-	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
-		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
-
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:55+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
+			 
+			</div>
 		</div>
+		<h1 class="title" itemprop="name"><a href="14749714759843.html" itemprop="url">
+		[Swift] Convert custom class to NSData</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
+
+<p>Here shows steps to do it.</p>
+
+<h5 id="toc_0">1. Define your class</h5>
+
+<pre><code>class Book: NSObject, NSCoding {
+    var id:Int
+    var name:String?
+    var author:String?
+    
+    private static let KeyId = &quot;key_id&quot;
+    private static let KeyName = &quot;key_name&quot;
+    private static let KeyAuthor = &quot;key_author&quot;
+    
+    init(id: Int){
+        self.id = id
+    }
+    
+    required init? (coder aDecoder: NSCoder){
+        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
+        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
+        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(id, forKey: Book.KeyId)
+        aCoder.encodeObject(name, forKey: Book.KeyName)
+        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
+    }
+}
+</code></pre>
+
+<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
+
+<h5 id="toc_1">2. Save data</h5>
+
+<pre><code>let book = Book(id: 1)
+book.name = &quot;The first book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let book2 = Book(id:2)
+book.name = &quot;The second book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let books = [book, book2]
+
+let ud = NSUserDefaults.standardUserDefaults()
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
+</code></pre>
+
+<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
+
+<h5 id="toc_2">3. Restore data</h5>
+
+<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
+    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
+    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
+    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
+    
+    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
+}
+</code></pre>
+
+<hr/>
+
+<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
+
+<p>TAG: Swift, NSData, Convert, Custom class</p>
+
+
+			
+			
+		</div>
+
 	</article>
-	<div class="share-comment">
-	 
+  
 
-	  
+</div>
+<nav id="pagenavi">
+	 <a class="prev" href="all_1.html">Prev</a>  
+	
+	<div class="center"><a href="archives.html">Blog Archives</a></div>
 
-	  
+</nav>
 
-	</div>
-</div>        </div>
+</div>
+
+
+
+        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
 Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>

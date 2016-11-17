@@ -13,7 +13,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link href="atom.xml" rel="alternate" title="IMLC.ME" type="application/atom+xml">
-	<link rel="apple-touch-icon" href="asset/apple-icon/apple-icon.png"/>
 
 	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -77,42 +76,35 @@
 		<div class="left-col">
 			<div class="intrude-less">
 				<header id="header" class="inner">
-					<div class="profilepic">
-						<img src="asset/icon.jpg" style="width:160px;">
-					</div>
+				 
+					
 					<h1><a href="index.html">IMLC.ME</a></h1>
 					<p class="subtitle"></p>
 					<nav id="main-nav">
 						<ul class="main">
-							<li><a href="index.html">Home</a></li>
-						    <!-- <li><a href="all.html">Blog</a></li>-->	
-						    <li><a href="archives.html">Archives</a></li>
+						
+						  <li id=""><a target="self" href="index.html">Home</a></li>
+						
+						  <li id=""><a target="_self" href="archives.html">Archives</a></li>
+						
 						</ul>
 					</nav>
 
 					<nav id="sub-nav">
 						<div class="social">
 
-<!-- 
-			<a class="email" href="mailto:" title="Email">Email</a>
-			<a class="facebook" href="http://www.facebook.com/" title="Facebook">Facebook</a>
-			<a class="google" href="https://plus.google.com/" rel="author" title="Google+">Google+</a>
-			<a class="twitter" href="http://twitter.com/" title="Twitter">Twitter</a>
-			<a class="github" href="https://github.com/" title="GitHub">GitHub</a>
-			<a class="coderwall" href="https://coderwall.com/" title="Coderwall">Coderwall</a>
-		    <a class="stackoverflow" href="http://stackoverflow.com/users/" title="StackOverflow"></a>
-			<a class="linkedin" href="http://www.linkedin.com/in/" title="LinkedIn">LinkedIn</a>
-			<a class="pinterest" href="https://pinterest.com/" title="Pinterest">Pinterest</a>
-			<a class="delicious" href="http://delicious.com/" title="Delicious">Delicious</a>
-			<a class="pinboard" href="https://pinboard.in/u:" title="Pinboard">Pinboard</a>
-			<a class="douban" href="https://www.douban.com/people/" title="Douban">Douban</a>
-			<a class="quora" href="https://quora.com/" title="Quora">Quora</a>
-			<a class="instagram" href="https://instagram.com/" title="Instagram">Instagram</a>
-			<a class="behance" href="https://www.behance.net/" title="Behance">Behance</a>
-			<a class="facebook" href="http://www.facebook.com/" title="Facebook">Facebook</a>
-								<a class="twitter" href="http://twitter.com/" title="Twitter">Twitter</a>
-								<a class="github" href="https://github.com/" title="GitHub">GitHub</a>
--->	
+
+
+
+
+
+
+
+
+
+
+
+
 								
 
 								<a class="rss" href="atom.xml" title="RSS">RSS</a>
@@ -130,29 +122,22 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
-				<time datetime="2016-08-02T01:39:56+08:00" itemprop="datePublished">2016/8/2</time>
+				<time datetime="2016-09-29T21:52:14+08:00" itemprop="datePublished">2016/9/29</time>
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
 			 
 			</div>
 		</div>
-		<h1 class="title" itemprop="name"><a href="ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html" itemprop="url">
+		<h1 class="title" itemprop="name"><a href="header-files-not-found-after-cocoapods-updated-to-1.0.html" itemprop="url">
 		[iOS] Header files not found after cocoaPods updated to 1.0</a></h1>
 		<div class="entry-content" itemprop="articleBody">
 			
-			<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.</p>
-
-<p>Thands to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.</p>
-
-<p>What pod 1.0 do is that I don&rsquo;t need import headers explicitly any more. Pod do that. </p>
-
-<p>So what I need to do is DELETE all import statment which not found. That will fix everything.</p>
-
-<hr/>
-
-<p>TAG: pod, cocoaPods, iOS, Header files not found</p>
+			<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.<br/>
+Thanks to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.<br/>
+What pod 1.0 do is that I don’t need import headers explicitly any more. Pod do that.<br/>
+So what I need to do is DELETE all import statement which not found. That will fix everything.</p>
 
 
 			
@@ -164,172 +149,13 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
-				<time datetime="2016-07-20T00:00:39+08:00" itemprop="datePublished">2016/7/20</time>
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="uiwebview-in-navigation-controller.html" itemprop="url">
-		UIWebView in Navigation Controller</a></h1>
-		<div class="entry-content" itemprop="articleBody">
+			    <a class='category' href='swift.html'>Swift</a>&nbsp;
 			
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-07-20-14689449100296.jpg" alt="" class="mw_img_center" style="width:300px;display: block; clear:both; margin: 0 auto;"/></p>
-
-<p>One way to fix it is add code below to your source:</p>
-
-<pre><code>override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        webView.scrollView.contentInset = UIEdgeInsetsZero
-    }
-</code></pre>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-07-17T02:31:17+08:00" itemprop="datePublished">2016/7/17</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="design-custom-view-using-xib-storyboard.html" itemprop="url">
-		Design Custom View using .xib(storyboard)</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<hr/>
-
-<p>Tag: iOS, Custom View, xib, storyboard, Swift</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-06-08T00:00:26+08:00" itemprop="datePublished">2016/6/8</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="conversion-between-array-and-json-objectmapper.html" itemprop="url">
-		Conversion between Array and JSON string using ObjectMapper</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
-
-<p>The code below shows how to convert swift array into JSON and also recover it from JSON.</p>
-
-<pre><code>class Book: Mappable{
-    var id:Int?
-    var title:String?
-    var category:[String]?
-    
-    init(id:Int, title:String, category:[String]){
-        self.id = id
-        self.title = title
-        self.category = category
-    }
-    
-    required init?(_ map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        id          &lt;- map[&quot;id&quot;]
-        title       &lt;- map[&quot;title&quot;]
-        category    &lt;- map[&quot;category&quot;]
-    }
-}
-
-
-// Do the conversion
-let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
-
-// Convert JSON to class instance
-let book3 = Mapper&lt;Book&gt;().map(JSON)!
-
-let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
-let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
-let books = [book1, book2, book3]
-   
-// Convert array to JSON array string
-let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
-
-// Convert JSON array back to the array
-let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
-</code></pre>
-
-<hr/>
-
-<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-05-27T01:29:10+08:00" itemprop="datePublished">2016/5/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14642837507079.html" itemprop="url">
-		UILabel 图标保持比例缩放</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>Just set that:</p>
-
-<pre><code>button.imageView?.contentMode = .ScaleAspectFit
-</code></pre>
-
-<hr/>
-
-<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-05-25T02:30:39+08:00" itemprop="datePublished">2016/5/25</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
 			 
 			</div>
 		</div>
@@ -364,19 +190,50 @@ let date = dateFormatter.dateFromString(str)
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
-				<time datetime="2016-05-07T00:52:55+08:00" itemprop="datePublished">2016/5/7</time>
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
 			 
 			</div>
 		</div>
-		<h1 class="title" itemprop="name"><a href="swift-convert-custom-class-to-nsdata.html" itemprop="url">
+		<h1 class="title" itemprop="name"><a href="14749714760995.html" itemprop="url">
+		UILabel 图标保持比例缩放</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>Just set that:</p>
+
+<pre><code>button.imageView?.contentMode = .ScaleAspectFit
+</code></pre>
+
+<hr/>
+
+<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14749714762507.html" itemprop="url">
 		[Swift] Convert custom class to NSData</a></h1>
 		<div class="entry-content" itemprop="articleBody">
 			
-			<p>It&rsquo;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
+			<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
 
 <p>Here shows steps to do it.</p>
 
@@ -443,7 +300,7 @@ ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;boo
 
 <hr/>
 
-<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&rsquo;t give an another sample here.</p>
+<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
 
 <p>TAG: Swift, NSData, Convert, Custom class</p>
 
@@ -457,49 +314,114 @@ ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;boo
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
-				<time datetime="2016-04-17T13:11:38+08:00" itemprop="datePublished">2016/4/17</time>
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='iOS.html'>iOS</a>&nbsp;
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
 			 
 			</div>
 		</div>
-		<h1 class="title" itemprop="name"><a href="600.html" itemprop="url">
-		Imports TSMessages into Swift project</a></h1>
+		<h1 class="title" itemprop="name"><a href="uiwebview-in-navigation-controller.html" itemprop="url">
+		UIWebView in Navigation Controller</a></h1>
 		<div class="entry-content" itemprop="articleBody">
 			
-			<p>Following the document of TSMessages, I meet a trouble:<br/>
-Could not read TSMessages config file from main bundle with name<br/>
-As mentioned on the page GitHub issue, I fixed the first trouble I met.<br/>
-Change pod file to:</p>
+			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
 
-<pre><code>pod &#39;TSMessages&#39;, :git =&gt; &#39;https://github.com/KrauseFx/TSMessages.git&#39;
+<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:55+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14749714759843.html" itemprop="url">
+		[Swift] Convert custom class to NSData</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
+
+<p>Here shows steps to do it.</p>
+
+<h5 id="toc_0">1. Define your class</h5>
+
+<pre><code>class Book: NSObject, NSCoding {
+    var id:Int
+    var name:String?
+    var author:String?
+    
+    private static let KeyId = &quot;key_id&quot;
+    private static let KeyName = &quot;key_name&quot;
+    private static let KeyAuthor = &quot;key_author&quot;
+    
+    init(id: Int){
+        self.id = id
+    }
+    
+    required init? (coder aDecoder: NSCoder){
+        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
+        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
+        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(id, forKey: Book.KeyId)
+        aCoder.encodeObject(name, forKey: Book.KeyName)
+        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
+    }
+}
 </code></pre>
 
-<p>The problem has been fixed in the master branch but the author do not commit it to Pod yet.<br/>
- <br/>
-The second problem is that the easiest way to use TSMessages do not works.</p>
+<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
 
-<pre><code>[TSMessage showNotificationWithTitle:@&quot;Your Title&quot;
-                                subtitle:@&quot;A description&quot;
-                                    type:TSMessageNotificationTypeError];
+<h5 id="toc_1">2. Save data</h5>
+
+<pre><code>let book = Book(id: 1)
+book.name = &quot;The first book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let book2 = Book(id:2)
+book.name = &quot;The second book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let books = [book, book2]
+
+let ud = NSUserDefaults.standardUserDefaults()
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
 </code></pre>
 
-<p>in swift:</p>
+<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
 
-<pre><code>TSMessage.showNotificationWithTitle(&quot;Title&quot;, subtitle:&quot;subtitle&quot;, type:TSMessageNotificationType.Error)
+<h5 id="toc_2">3. Restore data</h5>
+
+<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
+    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
+    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
+    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
+    
+    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
+}
 </code></pre>
 
-<p>Do nothing on my project.<br/>
-I has to use an another method and it works fine.</p>
+<hr/>
 
-<pre><code>TSMessage.showNotificationInViewController(self, title: &quot;Title&quot;, subtitle: &quot;Subtitle&quot;, type: TSMessageNotificationType.Error)
-</code></pre>
+<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
 
-<p>I do not figure it out why.</p>
-
-<p>TAG: iOS, TSMessages, Swift</p>
+<p>TAG: Swift, NSData, Convert, Custom class</p>
 
 
 			
@@ -524,23 +446,15 @@ I has to use an another method and it works fine.</p>
         </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
-Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a> &nbsp;&nbsp; 
-备案号：粤ICP备15018861号-1
+Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
       </footer>
 		</div>
 	</div>
 
-<script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  
+    
 
-  ga('create', 'UA-57304811-3', 'auto');
-  ga('send', 'pageview');
 
-</script>
+
 </body>
 </html>

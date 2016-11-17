@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2016-09-15T15:48:14+08:00</updated>
+  <updated>2016-11-17T23:43:15+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -14,17 +14,80 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Mac 远程登录 Windows 10]]></title>
+    <link href="http://www.imlc.me/using-remote-desktop-in-mac-in-china.html"/>
+    <updated>2016-11-17T23:08:48+08:00</updated>
+    <id>http://www.imlc.me/using-remote-desktop-in-mac-in-china.html</id>
+    <content type="html"><![CDATA[
+<p>在中国，使用 Windows 的远程桌面服务有两个困难。</p>
+
+<ol>
+<li>官方的 Remote Desktop Client on Mac 不在中国销售。</li>
+<li>家庭版的 Windows 10 不包含远程桌面服务。</li>
+</ol>
+
+<p>解决方法是两个都找第三方解决方案。</p>
+
+<ol>
+<li>使用 Parallels Client 代替 Remote Desktop Client on Mac</li>
+<li>适用 rdpwrap 提供远程桌面服务</li>
+</ol>
+
+<hr/>
+
+<h3 id="toc_0">安装 Parallels Client</h3>
+
+<p>Parallels Client: <a href="https://itunes.apple.com/us/app/parallels-client/id600925318?mt=12">https://itunes.apple.com/us/app/parallels-client/id600925318?mt=12</a></p>
+
+<p>或者需要付费但是一样更好功能更加强大的 Parallels Access:<br/>
+<a href="http://www.parallels.com/cn/products/access/">http://www.parallels.com/cn/products/access/</a></p>
+
+<h3 id="toc_1">安装 rdpwrap</h3>
+
+<p>GitHub: <a href="https://github.com/stascorp/rdpwrap">https://github.com/stascorp/rdpwrap</a></p>
+
+<p>rdpwrap 是在家庭版 Windows 上提供远程桌买服务的一个开源项目。支持从 Windows Vista 到 Windows 10 系统。安装和使用说明请到 GitHub 主页查看。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fix angular2 can't route the page after refresh]]></title>
+    <link href="http://www.imlc.me/fix-angular2-cannot-route-the-page-after-refresh.html"/>
+    <updated>2016-10-03T19:47:21+08:00</updated>
+    <id>http://www.imlc.me/fix-angular2-cannot-route-the-page-after-refresh.html</id>
+    <content type="html"><![CDATA[
+<p>It&#39;s very easy to make a mistake on Angular2 router. After refresh the page, the page to be routed to can not load successfully. Chrome console tell me that browser failed to load css resources as the path of resources is incorrect.</p>
+
+<p>The solution is that put the <code>&lt;base href=&quot;/&quot;/&gt;</code> directly under the title tag. </p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[iOS] Header files not found after cocoaPods updated to 1.0]]></title>
+    <link href="http://www.imlc.me/header-files-not-found-after-cocoapods-updated-to-1.0.html"/>
+    <updated>2016-09-29T21:52:14+08:00</updated>
+    <id>http://www.imlc.me/header-files-not-found-after-cocoapods-updated-to-1.0.html</id>
+    <content type="html"><![CDATA[
+<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.<br/>
+Thanks to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.<br/>
+What pod 1.0 do is that I don’t need import headers explicitly any more. Pod do that.<br/>
+So what I need to do is DELETE all import statement which not found. That will fix everything.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Conflict with angular-protractor and jQuery in TypeScript]]></title>
-    <link href="http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typeScript.html"/>
-    <updated>2016-09-15T15:41:05+08:00</updated>
-    <id>http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typeScript.html</id>
+    <link href="http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typescript.html"/>
+    <updated>2016-09-29T20:57:22+08:00</updated>
+    <id>http://www.imlc.me/conflict-with-angular-protractor-and-jquery-in-typescript.html</id>
     <content type="html"><![CDATA[
 <p>When I type <code>npm start</code> in my angular2 project, terminal shows:</p>
 
-<pre><code>Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;
-</code></pre>
-
-<p>There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
+<p>Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
+There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
 
 <p>Modify your jquery.d.ts file<br/>
 From:</p>
@@ -44,107 +107,39 @@ declare var $: JQueryStatic;
 declare var jQuery: JQueryStatic;
 </code></pre>
 
-<p>On the contrary, you can change protractor also.</p>
-
-<p>References:<br/>
+<p>On the contrary, you can change protractor also.<br/>
+References:<br/>
 [1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
 
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Alfred Workflow for Surge for Mac configuration switching]]></title>
-    <link href="http://www.imlc.me/alfred-workflow-for-surge-for-mac-configuration-switching.html"/>
-    <updated>2016-08-03T01:49:03+08:00</updated>
-    <id>http://www.imlc.me/alfred-workflow-for-surge-for-mac-configuration-switching.html</id>
+    <title type="html"><![CDATA[Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题]]></title>
+    <link href="http://www.imlc.me/android-studio-can-not-find-org-apache-http-package-after-update-to-6.0.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/android-studio-can-not-find-org-apache-http-package-after-update-to-6.0.html</id>
     <content type="html"><![CDATA[
-<p>I write a workflow to switch Surge for Mac configuration.</p>
+<p>这么重要的问题竟然没有事先说明，太过分了。<br/>
+今天更新了 Android 6.0 的 SDK 后发现项目一片红，吓尿了。<br/>
+直接引用把：<a href="http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client">http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client</a><br/>
+Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your <strong>build.gradle</strong> file:</p>
 
-<p>Different Surge configs use in different case. I need to keep different .surge.conf and move it to HOME folder and activate in Surge repeatly.</p>
-
-<p>So I write a workflow to help me.</p>
-
-<p><img src="http://cdn.imlc.me/2016-08-04-14702493466223.jpg" alt=""/></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[iOS] Header files not found after cocoaPods updated to 1.0]]></title>
-    <link href="http://www.imlc.me/ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html"/>
-    <updated>2016-08-02T01:39:56+08:00</updated>
-    <id>http://www.imlc.me/ios-headers-files-not-found-after-cocoapods-updated-to-1.0.html</id>
-    <content type="html"><![CDATA[
-<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.</p>
-
-<p>Thands to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.</p>
-
-<p>What pod 1.0 do is that I don&rsquo;t need import headers explicitly any more. Pod do that. </p>
-
-<p>So what I need to do is DELETE all import statment which not found. That will fix everything.</p>
-
-<hr/>
-
-<p>TAG: pod, cocoaPods, iOS, Header files not found</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UIWebView in Navigation Controller]]></title>
-    <link href="http://www.imlc.me/uiwebview-in-navigation-controller.html"/>
-    <updated>2016-07-20T00:00:39+08:00</updated>
-    <id>http://www.imlc.me/uiwebview-in-navigation-controller.html</id>
-    <content type="html"><![CDATA[
-<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-07-20-14689449100296.jpg" alt="" class="mw_img_center" style="width:300px;display: block; clear:both; margin: 0 auto;"/></p>
-
-<p>One way to fix it is add code below to your source:</p>
-
-<pre><code>override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        webView.scrollView.contentInset = UIEdgeInsetsZero
-    }
+<pre><code>android {
+    useLibrary &#39;org.apache.http.legacy&#39;
+}
 </code></pre>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Design Custom View using .xib(storyboard)]]></title>
-    <link href="http://www.imlc.me/design-custom-view-using-xib-storyboard.html"/>
-    <updated>2016-07-17T02:31:17+08:00</updated>
-    <id>http://www.imlc.me/design-custom-view-using-xib-storyboard.html</id>
-    <content type="html"><![CDATA[
-<hr/>
-
-<p>Tag: iOS, Custom View, xib, storyboard, Swift</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Alfred 拼音搜索]]></title>
-    <link href="http://www.imlc.me/alfred-chinese-pinyin-support.html"/>
-    <updated>2016-06-27T00:32:03+08:00</updated>
-    <id>http://www.imlc.me/alfred-chinese-pinyin-support.html</id>
-    <content type="html"><![CDATA[
-<p>可能因为水土不服的原因，Alfred 的中文拼音搜索真的不如英文搜索好用。在全英环境下几乎完美的搜索体验在中英混合的情况下还是有点小不舒心。Alfred 的拼音搜索需要特殊的小技巧：</p>
-
-<p>先输入<code>&#39;</code>（或者空格，将会自动转换成<code>&#39;</code>），然后输入拼音。各个字的拼音之间需要用空格分开。</p>
-
-<p>但是即使这样，仍然会有搜索出错或者搜索不到的情况。：（<br/>
-相比之下，Spotlight 的拼音搜索就好很多了。还是不能使用 Alfred 完全代替 Spotlight 啊 T,T</p>
+<p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
 
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Conversion between Array and JSON string using ObjectMapper]]></title>
-    <link href="http://www.imlc.me/conversion-between-array-and-json-objectmapper.html"/>
-    <updated>2016-06-08T00:00:26+08:00</updated>
-    <id>http://www.imlc.me/conversion-between-array-and-json-objectmapper.html</id>
+    <link href="http://www.imlc.me/conversion-between-array-and-json-string-using-objectmapper.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/conversion-between-array-and-json-string-using-objectmapper.html</id>
     <content type="html"><![CDATA[
 <p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
 
@@ -198,80 +193,9 @@ let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Parallel Task execution Sample]]></title>
-    <link href="http://www.imlc.me/gradle-task-parallel-execution.html"/>
-    <updated>2016-06-07T23:11:38+08:00</updated>
-    <id>http://www.imlc.me/gradle-task-parallel-execution.html</id>
-    <content type="html"><![CDATA[
-<p>A very little snippet of Gradle parallel task execution. Let taskes run concurrently.</p>
-
-<p><strong>ATTENTION:</strong><br/>
-<code>gradle -Dorg.gradle.parallel.intra=true hello hello2 --parallel</code> Add argument &lsquo;-Dorg.gradle.parallel.intra=true&rsquo; to enforce Gradle run taskes parallelly as for <code>--parallel</code> is an incubating feature,</p>
-
-<pre><code>@ParallelizableTask
-class ParallelTask extends DefaultTask {
-     String title = &quot;Default Name&quot;
-     @TaskAction
-     def action1() {
-        for (int i=0 ;i &lt; 5; ++i) {
-            println &#39;The &#39;+ title + &quot; task is running&quot;
-       }
-     }
-}
-
-
-task hello(type: ParallelTask)
-
-hello {
-    title=&#39;1&#39;
-}
-
-
-
-task hello2(type: ParallelTask)
-
-hello2 {
-    title=&#39;2&#39;
-}
-
-</code></pre>
-
-<h4 id="toc_0">References</h4>
-
-<p>[1] <a href="https://discuss.gradle.org/t/using-parallelizabletask/14634">Using ParallelizableTask</a><br/>
-[2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
-[3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
-[4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
-
-<hr/>
-
-<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UILabel 图标保持比例缩放]]></title>
-    <link href="http://www.imlc.me/14642837507079.html"/>
-    <updated>2016-05-27T01:29:10+08:00</updated>
-    <id>http://www.imlc.me/14642837507079.html</id>
-    <content type="html"><![CDATA[
-<p>Just set that:</p>
-
-<pre><code>button.imageView?.contentMode = .ScaleAspectFit
-</code></pre>
-
-<hr/>
-
-<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Conversion between String and NSDate]]></title>
     <link href="http://www.imlc.me/conversion-between-string-and-nsdate.html"/>
-    <updated>2016-05-25T02:30:39+08:00</updated>
+    <updated>2016-09-27T18:17:56+08:00</updated>
     <id>http://www.imlc.me/conversion-between-string-and-nsdate.html</id>
     <content type="html"><![CDATA[
 <p>The class NSDateFormatter is an easy-to-use tool. Just like SimpleDateFormat in Java.</p>
@@ -295,292 +219,72 @@ let date = dateFormatter.dateFromString(str)
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[对国产网盘不能放心，加个密再与网盘同步]]></title>
-    <link href="http://www.imlc.me/encrypt-files-before-sync.html"/>
-    <updated>2016-05-18T00:38:45+08:00</updated>
-    <id>http://www.imlc.me/encrypt-files-before-sync.html</id>
+    <title type="html"><![CDATA[Java Integer 缓存机制的小坑点]]></title>
+    <link href="http://www.imlc.me/java-integer-%E7%BC%93%E5%AD%98-%E6%9C%BA%E5%88%B6-%E5%9D%91%E7%82%B9.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/java-integer-%E7%BC%93%E5%AD%98-%E6%9C%BA%E5%88%B6-%E5%9D%91%E7%82%B9.html</id>
     <content type="html"><![CDATA[
-<p>最近网盘行业风波不断，网盘供应商不是停止服务就是限制服务。当年网盘风头莫名其妙刮了起来，各大互联网公司用了疯狂赠送空间，不要钱地去推广，换来了今天人走茶凉，继续运营没有盈利，停止运营对不起用户的尴尬状况。国内的市场真的很浮躁，当年的网盘、微博、手游，现在的可穿戴设备、直播，土豪们一掷千金抢占市场，然后把整个行业给玩坏了。</p>
+<p>Integer 是 Java 5 引入的新特性，该特性能节省内存和改善性能。同样被引入缓存机制的还有 Byte，Short，Long，Character，缓存范围都是在 [-128,127] （Character是在[0,127]）之间。</p>
 
-<p>国内的巨头们鲜有老老实实做生意的，百度尤甚。当初因巨额的空间入了百度网盘的坑。把图片、视频、镜像文件等大尺寸资源备份到百度网盘；word、pdf、各种使用频率高而Size不大的文件同步到坚果云。之前一段时间用得是相当舒心。但是现在，由于最近的网盘整顿风波，加之发现百度网盘可以未经允许读取用户文件（老司机跟我说现在百度下不了小电影了，个人空间上的小电影会被百度检查出来），决定还是要逐步脱坑。</p>
+<p>但是有几点需要注意的是：<br/>
+1. 对 Integer 对象引入了 IntegerCache 类，其他封装类型也有对应的 XxxCache。<br/>
+2. 该缓存特性只有在 autoboxing 过程中使用，换言之，使用 constructor 创建的 Integer 并不能被缓存。<br/>
+3. 因为缓存机制的存在，在缓存范围内的对象都来自同一个缓存。带来的副作用是使用“==”地址比较运算符比较两个看似不一样的对象，得到的是 true。网上其他文章的说法是因而可以使用 == 来比较直接比较两个对象的值。但我觉得这样理解容易造成偏差。Java 规范并没有约定 [-128,127] 的范围内 == 用作值比较，这只是一个副作用。<br/>
+4. 只有 Integer 对象可以通过指定 JVM 启动参数来修改缓存上限。</p>
 
-<p>想来百度要死也不会在这几天死，先解决隐私问题。</p>
-
-<h4 id="toc_0">使用 VeraCrypt 创建虚拟加密磁盘</h4>
-
-<p>逛异次元的时候看到了这篇文章（<a href="http://www.iplaysoft.com/veracrypt.html">VeraCrypt - 最佳免费开源跨平台的文件加密工具 (支持U盘加密/硬盘分区加密)</a>），发现这是一个很不错的解决方案。</p>
-
-<p>VeraCrypt 会在电脑上创建一个虚拟的加密磁盘，该虚拟磁盘以单个文件的形式保存在本地硬盘上。使用各网盘的同步工具可以很轻松地同步整个虚拟磁盘。而需要访问该虚拟磁盘的时候，挂在该虚拟磁盘文件，输入密码，即刻执行文件的增删查改操作。VeraCrypt 为加密而生，AES 的加密强度还是让人放心。</p>
-
-<p>使用 VeraCrypt 创建加密磁盘的方法只略微增加了操作步骤，但是极大地提高了文件安全性，再也不用担心网盘供应商随意浏览你的文件了。同时，我们可以只把需要保密的文件丢入磁盘中，而电影、音乐、软件安装包等大文件，而且又不担心别人访问的资源，可以直接同步而不放入加密磁盘。这样因为加密而带来的不便就大大减少了。<br/>
-（某度没节操也不是一两天了，想着自己同步到网盘的文件被内部员工随意浏览，哪天出BUG了外部人员可以随意访问用户文件，或者某度又为了利益出卖了用户，种种的“意外”我就不得安心）。</p>
-
-<p>另外，VeraCrypt 提供了密钥、加密文件等多种验证方法，同时可以添加对整个硬盘加密或者对U盘加密，根据需要可以加密电脑上的其他文件。毕竟电脑只要联网，就有可能被入侵。还是要提高一下安全意识。</p>
-
-<h4 id="toc_1">使用 OS X 系统内置的加密DMG磁盘文件功能</h4>
-
-<p>如果只有简单的加密需求，其实系统内置的 DMG 磁盘文件功能更加方便。&quot;.dmg&quot; 文件相信大家都不陌生，dmg 文件常见于应用安装包。开发者将应用的可运行文件打包到虚拟磁盘中，供用户下载。用户下载到电脑上，直接双击挂载磁盘，即可访问虚拟磁盘中的文件。</p>
-
-<p>DMG 文件是可以加密的。如果我们使用加密的 DMG文件来保存我们的隐私文件，由于系统本身对该文件的支持，我们会获得比 VeraCrypt 更好的体验。</p>
-
-<h5 id="toc_2">Step 1: 创建一个空白映像文件</h5>
-
-<p>打开 Disk Utility (磁盘工具) 应用，按下 &ldquo;⌘N&rdquo; （或者点击菜单栏的文件 -&gt; 新建映像 -&gt; 空白映像）。</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-18-14635059507271.jpg" alt=""/></p>
-
-<p>加密方法可以选择 AES128 或 AES256，看个人喜好。</p>
-
-<p>映像格式需要解释一下。可选的格式有稀疏磁盘映像、读/写磁盘映像 和 DVD/CD 主映像。DVD那个不用管，读/写磁盘映像即是我们下载应用安装包的那个格式（.dmg），其实有可读写和只读两种形式。磁盘大小在创建时确定，此后不可变。</p>
-
-<p>而稀疏磁盘映像则是创建后磁盘大小可以根据磁盘储存文件的大小来动态调整（初次生成时，磁盘文件为创建时指定的文件大小。在挂载卸载后，磁盘随即调整自身尺寸）。该格式被用于系统自带的磁盘加密 FileVault 功能。</p>
-
-<p>而稀疏捆绑磁盘映像，该格式被用于 Time Machine 。更适用于文件备份。<br/>
-（其实我也不是很懂，具体请参考<a href="https://zh.wikipedia.org/wiki/%E7%A8%80%E7%96%8F%E7%A3%81%E7%9B%98%E6%98%A0%E5%83%8F">wikipedia-稀疏磁盘映像</a>）。</p>
-
-<p>显然，我们应该选稀疏磁盘映像，至于捆不捆绑，我觉得无所谓了。</p>
-
-<h5 id="toc_3">挂载该加密的磁盘文件</h5>
-
-<p>双击刚才创建的虚拟磁盘文件，按照系统提示输入密码，即可访问该磁盘。如果你启用了 KeyChain，那么系统会提示你是否保存密码。如果你保存了密码，下次挂载该磁盘，系统会自动读取密码，避免手动输入。</p>
-
-<p>为了方便，我选择了保存密码，酱紫我在本机就可以像未加密映像一样使用了。毕竟我只想我的文件在同步到网盘后不会被其他人读取而已。</p>
-
-<h5 id="toc_4">移动磁盘文件到自动同步目录</h5>
-
-<p>聪明的人在创建时即保存到同步目录了。不聪明的我们，事后把文件转移到百度云同步盘、坚果云同步盘、OneDrive、iCloud Drive 或 Dropbox。</p>
-
-<hr/>
-
-<p>TAG: 网盘, 加密, 同步, 稀疏磁盘映像</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[OS X] 使用 Alfred 快捷键打开应用程序]]></title>
-    <link href="http://www.imlc.me/hotkey-to-launch-apps.html"/>
-    <updated>2016-05-16T16:28:59+08:00</updated>
-    <id>http://www.imlc.me/hotkey-to-launch-apps.html</id>
-    <content type="html"><![CDATA[
-<p>写着写着代码，终于忍受不了在Xcode、Emulator、Chrome、Dash等应用中切来切去的麻烦。Dock栏可不是那么好点的。于是花了一段时间查找Mac上有哪些App可以实现快捷键切换应用程序。<br/>
-最后，终于挑定了一款应用的时候，突然想起来 Alfred 来。于是尝试了一下，效果完美。</p>
-
-<p><strong>Alfred 无愧神器之名：）</strong></p>
-
-<hr/>
-
-<h5 id="toc_0">Step 1: Create Blank Workflow</h5>
-
-<p>Add a blank workflow, fill the name, description and other field Alfred required.</p>
-
-<h5 id="toc_1">Step 2: Add Hotkey Trigger</h5>
-
-<p>Click the &ldquo;+&rdquo; button on the upper right, select the Trigger -&gt; Hotkey. Now a new window shows, type the Hotkey you want to use.</p>
-
-<h5 id="toc_2">Step 3: Add Action</h5>
-
-<p>Click the &ldquo;+&rdquo; button, this time select the Action -&gt; Launch Apps/ Files. Drop the app you want to open from Finder to Alfred.</p>
-
-<h5 id="toc_3">Step 4: Link the Trigger to the Action</h5>
-
-<p>Link the hotkey trigger to the launch apps action. Done!</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-16-14633883160356.jpg" alt="A workflow to trigger the chrome and xcode"/></p>
-
-<p>最终效果是，在 Chrome 还没有打开的情况下，将启动 Chrome。如果 Chrome 已经启动，则切换到 Chrome。</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Swift] Convert custom class to NSData]]></title>
-    <link href="http://www.imlc.me/swift-convert-custom-class-to-nsdata.html"/>
-    <updated>2016-05-07T00:52:55+08:00</updated>
-    <id>http://www.imlc.me/swift-convert-custom-class-to-nsdata.html</id>
-    <content type="html"><![CDATA[
-<p>It&rsquo;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
-
-<p>Here shows steps to do it.</p>
-
-<h5 id="toc_0">1. Define your class</h5>
-
-<pre><code>class Book: NSObject, NSCoding {
-    var id:Int
-    var name:String?
-    var author:String?
-    
-    private static let KeyId = &quot;key_id&quot;
-    private static let KeyName = &quot;key_name&quot;
-    private static let KeyAuthor = &quot;key_author&quot;
-    
-    init(id: Int){
-        self.id = id
-    }
-    
-    required init? (coder aDecoder: NSCoder){
-        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
-        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
-        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(id, forKey: Book.KeyId)
-        aCoder.encodeObject(name, forKey: Book.KeyName)
-        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
-    }
-}
+<pre><code>-XX:AutoBoxCacheMax=size
 </code></pre>
 
-<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
-
-<h5 id="toc_1">2. Save data</h5>
-
-<pre><code>let book = Book(id: 1)
-book.name = &quot;The first book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let book2 = Book(id:2)
-book.name = &quot;The second book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let books = [book, book2]
-
-let ud = NSUserDefaults.standardUserDefaults()
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
-</code></pre>
-
-<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
-
-<h5 id="toc_2">3. Restore data</h5>
-
-<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
-    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
-    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
-    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
-    
-    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
-}
-</code></pre>
-
-<hr/>
-
-<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&rsquo;t give an another sample here.</p>
-
-<p>TAG: Swift, NSData, Convert, Custom class</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MX4 PRO 无法连接 adb 问题的解决办法]]></title>
-    <link href="http://www.imlc.me/536.html"/>
-    <updated>2016-04-25T03:02:10+08:00</updated>
-    <id>http://www.imlc.me/536.html</id>
-    <content type="html"><![CDATA[
-<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
-ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
-
-<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
-<strong>0x2a45</strong><br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-adb_usb.ini.png" alt="adb_usb.ini"/></p>
-
-<p>保存退出。<br/>
-在命令行下依次输入：</p>
-
-<pre><code>adb kill-server
-adb devices
-</code></pre>
-
-<p>这时会显示<br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
-
-<p>此时，adb 识别到手机，但是提示未认证。<br/>
-在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
+<p>所以说写代码的时候还是不要把==用作值比较。<br/>
  <br/>
-如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
-可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
+老实说这个缓存特性带来的不一致性要是导致了什么BUG实在很难排查。当用了这个特性写了点什么之后，难保后来者不会产生迷惑。所以日常编码中还是尽量避开这个点。<br/>
  <br/>
-参考：<br/>
-<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
+简单到爆的实验代码：<br/>
+简单地验证Java Integer缓存特性</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mac ADB 环境变量配置]]></title>
-    <link href="http://www.imlc.me/532.html"/>
-    <updated>2016-04-25T02:57:30+08:00</updated>
-    <id>http://www.imlc.me/532.html</id>
-    <content type="html"><![CDATA[
-<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
-
-<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
-
-<h3 id="toc_1">2. 创建 .bash_profile 文件</h3>
-
-<p> terminal 中输入</p>
-
-<pre><code>touch .bash_profile
-</code></pre>
-
-<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
-
-<pre><code>open -e .bash_profile
-</code></pre>
-
-<p>该命令会自动打开文本编辑器。</p>
-
-<p>(1) 如果你发现里面已经有内容了，请在 PATH 后面添加  </p>
-
-<p><code>:/Users/android-sdk-macosx/platform-tools/</code>  </p>
-
-<p>包括最前面的英文状态下的冒号。如果 PATH 后面的路径被双引号括了起来，那么请把上面这句添加到双引号的里面。</p>
-
-<p>(2) 如果你打开的文件是空白的，请输入<br/><br/>
- <code>export PATH=${PATH}:/Users/android-sdk-macosx/platform-tools/</code>  </p>
-
-<p>保存后关闭。</p>
-
-<h3 id="toc_3">4. 添加环境变量</h3>
-
-<pre><code>source .bash_profile
-</code></pre>
-
-<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Save and load object in localStorage]]></title>
-    <link href="http://www.imlc.me/save-load-object-in-localStorage.html"/>
-    <updated>2016-04-24T13:57:10+08:00</updated>
-    <id>http://www.imlc.me/save-load-object-in-localStorage.html</id>
-    <content type="html"><![CDATA[
-<p>As for the reason only string can be stored in localStorage, an object need to be converted to string format (JSON text).</p>
-
-<h3 id="toc_0">Save object</h3>
-
-<pre><code>var books = [{id:3, name:&quot;From Zero To One&quot;}, {id:4, name:&quot;Head First Java&quot;}];
-localStorage.setItem(&quot;books&quot;, JSON.stringify(books));
-</code></pre>
-
-<h3 id="toc_1">Load object</h3>
-
-<pre><code>var booksJSON = localStorage.getItem(&quot;books&quot;);
-if( booksJSON == null ){
-    // No data stored in the localStorage
-    return;
+<pre><code>import com.sun.istack.internal.NotNull;
+ 
+/**
+ * Created by Lawrence on 15/11/9.
+ */
+public class Main {
+    public static void main(String[] argv){
+        Integer int1 = 100;
+        Integer int2 = 100;
+ 
+        if(int1==int2){
+            print(&quot;int1 is equal to int2&quot;);
+        } else {
+            print(&quot;int1 is not equal to int2&quot;);
+        }
+        // prints &quot;int1 is equal to int2&quot;
+ 
+        Integer int3 = 2333;
+        Integer int4 = 2333;
+ 
+        if(int3==int4){
+            print(&quot;int3 is equal to int4&quot;);
+        } else {
+            print(&quot;int3 is not equal to int4&quot;);
+        }
+        // prints &quot;int3 is not equal to int4&quot;
+ 
+        Integer int5 = 100;
+        Integer int6 = new Integer(100);
+ 
+        if(int5==int6){
+            print(&quot;int5 is equal to int6&quot;);
+        } else {
+            print(&quot;int5 is not equal to int6&quot;);
+        }
+        // prints &quot;int5 is not equal to int6&quot;
+    }
+ 
+    public static void print(String str){
+        System.out.println(str);
+    }
+ 
 }
-var books = JSON.parse(booksJSON);
-for(var i=0; i &lt; books.length; ++i) {
-    var book = books[i];
-    var id = book.id;
-    var name = book.name;
-}
-
 </code></pre>
 
 ]]></content>
@@ -588,9 +292,9 @@ for(var i=0; i &lt; books.length; ++i) {
   
   <entry>
     <title type="html"><![CDATA[JavaScript 定义 class 的一种解决方案]]></title>
-    <link href="http://www.imlc.me/javascript-an-approach-of-class-definition.html"/>
-    <updated>2016-04-22T17:31:02+08:00</updated>
-    <id>http://www.imlc.me/javascript-an-approach-of-class-definition.html</id>
+    <link href="http://www.imlc.me/14749714760420.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714760420.html</id>
     <content type="html"><![CDATA[
 <p>这是由荷兰程序员 Gabor de Mooij 提出的一种比较简单的方法。Gabor de Mooij 称之为 minimalist approach。现摘录如下：</p>
 
@@ -660,31 +364,114 @@ console.log(&quot;Foo id:&quot;+foo1.id);
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题]]></title>
-    <link href="http://www.imlc.me/593.html"/>
-    <updated>2016-04-18T12:00:18+08:00</updated>
-    <id>http://www.imlc.me/593.html</id>
+    <title type="html"><![CDATA[Parallel Task execution Sample]]></title>
+    <link href="http://www.imlc.me/14749714760806.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714760806.html</id>
     <content type="html"><![CDATA[
-<p>这么重要的问题竟然没有事先说明，太过分了。<br/>
-今天更新了 Android 6.0 的 SDK 后发现项目一片红，吓尿了。<br/>
-直接引用把：<a href="http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client">http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client</a><br/>
-Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your <strong>build.gradle</strong> file:</p>
+<p>A very little snippet of Gradle parallel task execution. Let taskes run concurrently.</p>
 
-<pre><code>android {
-    useLibrary &#39;org.apache.http.legacy&#39;
+<p><strong>ATTENTION:</strong><br/>
+<code>gradle -Dorg.gradle.parallel.intra=true hello hello2 --parallel</code> Add argument &#39;-Dorg.gradle.parallel.intra=true&#39; to enforce Gradle run taskes parallelly as for <code>--parallel</code> is an incubating feature,</p>
+
+<pre><code>@ParallelizableTask
+class ParallelTask extends DefaultTask {
+     String title = &quot;Default Name&quot;
+     @TaskAction
+     def action1() {
+        for (int i=0 ;i &lt; 5; ++i) {
+            println &#39;The &#39;+ title + &quot; task is running&quot;
+       }
+     }
 }
+
+
+task hello(type: ParallelTask)
+
+hello {
+    title=&#39;1&#39;
+}
+
+
+
+task hello2(type: ParallelTask)
+
+hello2 {
+    title=&#39;2&#39;
+}
+
 </code></pre>
 
-<p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
+<h4 id="toc_0">References</h4>
+
+<p>[1] <a href="https://discuss.gradle.org/t/using-parallelizabletask/14634">Using ParallelizableTask</a><br/>
+[2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
+[3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
+[4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
+
+<hr/>
+
+<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Save and load object in localStorage]]></title>
+    <link href="http://www.imlc.me/14749714760916.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714760916.html</id>
+    <content type="html"><![CDATA[
+<p>As for the reason only string can be stored in localStorage, an object need to be converted to string format (JSON text).</p>
+
+<h3 id="toc_0">Save object</h3>
+
+<pre><code>var books = [{id:3, name:&quot;From Zero To One&quot;}, {id:4, name:&quot;Head First Java&quot;}];
+localStorage.setItem(&quot;books&quot;, JSON.stringify(books));
+</code></pre>
+
+<h3 id="toc_1">Load object</h3>
+
+<pre><code>var booksJSON = localStorage.getItem(&quot;books&quot;);
+if( booksJSON == null ){
+    // No data stored in the localStorage
+    return;
+}
+var books = JSON.parse(booksJSON);
+for(var i=0; i &lt; books.length; ++i) {
+    var book = books[i];
+    var id = book.id;
+    var name = book.name;
+}
+
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UILabel 图标保持比例缩放]]></title>
+    <link href="http://www.imlc.me/14749714760995.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714760995.html</id>
+    <content type="html"><![CDATA[
+<p>Just set that:</p>
+
+<pre><code>button.imageView?.contentMode = .ScaleAspectFit
+</code></pre>
+
+<hr/>
+
+<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
 
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[MX4 PRO DDMS 无法访问data文件夹]]></title>
-    <link href="http://www.imlc.me/596.html"/>
-    <updated>2016-04-18T11:55:50+08:00</updated>
-    <id>http://www.imlc.me/596.html</id>
+    <link href="http://www.imlc.me/14749714762202.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762202.html</id>
     <content type="html"><![CDATA[
 <ol>
 <li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
@@ -695,7 +482,7 @@ Android 6.0 release removes support for the Apache HTTP client. If your app is u
 chmod 777 /data
 </code></pre>
 
-<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且&hellip;我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
+<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且...我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
 
 <ol>
 <li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
@@ -705,42 +492,289 @@ chmod 777 /data
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Imports TSMessages into Swift project]]></title>
-    <link href="http://www.imlc.me/600.html"/>
-    <updated>2016-04-17T13:11:38+08:00</updated>
-    <id>http://www.imlc.me/600.html</id>
+    <title type="html"><![CDATA[Mac ADB 环境变量配置]]></title>
+    <link href="http://www.imlc.me/14749714762373.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762373.html</id>
     <content type="html"><![CDATA[
-<p>Following the document of TSMessages, I meet a trouble:<br/>
-Could not read TSMessages config file from main bundle with name<br/>
-As mentioned on the page GitHub issue, I fixed the first trouble I met.<br/>
-Change pod file to:</p>
+<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
 
-<pre><code>pod &#39;TSMessages&#39;, :git =&gt; &#39;https://github.com/KrauseFx/TSMessages.git&#39;
+<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
+
+<h3 id="toc_1">2. 创建 .bash_profile 文件</h3>
+
+<p> terminal 中输入</p>
+
+<pre><code>touch .bash_profile
 </code></pre>
 
-<p>The problem has been fixed in the master branch but the author do not commit it to Pod yet.<br/>
+<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
+
+<pre><code>open -e .bash_profile
+</code></pre>
+
+<p>该命令会自动打开文本编辑器。</p>
+
+<p>(1) 如果你发现里面已经有内容了，请在 PATH 后面添加  </p>
+
+<p><code>:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>包括最前面的英文状态下的冒号。如果 PATH 后面的路径被双引号括了起来，那么请把上面这句添加到双引号的里面。</p>
+
+<p>(2) 如果你打开的文件是空白的，请输入<br/><br/>
+ <code>export PATH=${PATH}:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>保存后关闭。</p>
+
+<h3 id="toc_3">4. 添加环境变量</h3>
+
+<pre><code>source .bash_profile
+</code></pre>
+
+<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MX4 PRO 无法连接 adb 问题的解决办法]]></title>
+    <link href="http://www.imlc.me/14749714762416.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762416.html</id>
+    <content type="html"><![CDATA[
+<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
+ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
+
+<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
+<strong>0x2a45</strong><br/>
+<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-adb_usb.ini.png" alt="adb_usb.ini"/></p>
+
+<p>保存退出。<br/>
+在命令行下依次输入：</p>
+
+<pre><code>adb kill-server
+adb devices
+</code></pre>
+
+<p>这时会显示<br/>
+<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
+
+<p>此时，adb 识别到手机，但是提示未认证。<br/>
+在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
  <br/>
-The second problem is that the easiest way to use TSMessages do not works.</p>
+如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
+可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
+ <br/>
+参考：<br/>
+<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
 
-<pre><code>[TSMessage showNotificationWithTitle:@&quot;Your Title&quot;
-                                subtitle:@&quot;A description&quot;
-                                    type:TSMessageNotificationTypeError];
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[Swift] Convert custom class to NSData]]></title>
+    <link href="http://www.imlc.me/14749714762507.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762507.html</id>
+    <content type="html"><![CDATA[
+<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
+
+<p>Here shows steps to do it.</p>
+
+<h5 id="toc_0">1. Define your class</h5>
+
+<pre><code>class Book: NSObject, NSCoding {
+    var id:Int
+    var name:String?
+    var author:String?
+    
+    private static let KeyId = &quot;key_id&quot;
+    private static let KeyName = &quot;key_name&quot;
+    private static let KeyAuthor = &quot;key_author&quot;
+    
+    init(id: Int){
+        self.id = id
+    }
+    
+    required init? (coder aDecoder: NSCoder){
+        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
+        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
+        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(id, forKey: Book.KeyId)
+        aCoder.encodeObject(name, forKey: Book.KeyName)
+        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
+    }
+}
 </code></pre>
 
-<p>in swift:</p>
+<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
 
-<pre><code>TSMessage.showNotificationWithTitle(&quot;Title&quot;, subtitle:&quot;subtitle&quot;, type:TSMessageNotificationType.Error)
+<h5 id="toc_1">2. Save data</h5>
+
+<pre><code>let book = Book(id: 1)
+book.name = &quot;The first book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let book2 = Book(id:2)
+book.name = &quot;The second book&quot;
+book.author = &quot;IMLC.ME&quot;
+
+let books = [book, book2]
+
+let ud = NSUserDefaults.standardUserDefaults()
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
+ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
 </code></pre>
 
-<p>Do nothing on my project.<br/>
-I has to use an another method and it works fine.</p>
+<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
 
-<pre><code>TSMessage.showNotificationInViewController(self, title: &quot;Title&quot;, subtitle: &quot;Subtitle&quot;, type: TSMessageNotificationType.Error)
+<h5 id="toc_2">3. Restore data</h5>
+
+<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
+    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
+    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
+    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
+    
+    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
+}
 </code></pre>
 
-<p>I do not figure it out why.</p>
+<hr/>
 
-<p>TAG: iOS, TSMessages, Swift</p>
+<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
+
+<p>TAG: Swift, NSData, Convert, Custom class</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[对国产网盘不能放心，加个密再与网盘同步]]></title>
+    <link href="http://www.imlc.me/14749714762605.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762605.html</id>
+    <content type="html"><![CDATA[
+<p>最近网盘行业风波不断，网盘供应商不是停止服务就是限制服务。当年网盘风头莫名其妙刮了起来，各大互联网公司用了疯狂赠送空间，不要钱地去推广，换来了今天人走茶凉，继续运营没有盈利，停止运营对不起用户的尴尬状况。国内的市场真的很浮躁，当年的网盘、微博、手游，现在的可穿戴设备、直播，土豪们一掷千金抢占市场，然后把整个行业给玩坏了。</p>
+
+<p>国内的巨头们鲜有老老实实做生意的，百度尤甚。当初因巨额的空间入了百度网盘的坑。把图片、视频、镜像文件等大尺寸资源备份到百度网盘；word、pdf、各种使用频率高而Size不大的文件同步到坚果云。之前一段时间用得是相当舒心。但是现在，由于最近的网盘整顿风波，加之发现百度网盘可以未经允许读取用户文件（老司机跟我说现在百度下不了小电影了，个人空间上的小电影会被百度检查出来），决定还是要逐步脱坑。</p>
+
+<p>想来百度要死也不会在这几天死，先解决隐私问题。</p>
+
+<h4 id="toc_0">使用 VeraCrypt 创建虚拟加密磁盘</h4>
+
+<p>逛异次元的时候看到了这篇文章（<a href="http://www.iplaysoft.com/veracrypt.html">VeraCrypt - 最佳免费开源跨平台的文件加密工具 (支持U盘加密/硬盘分区加密)</a>），发现这是一个很不错的解决方案。</p>
+
+<p>VeraCrypt 会在电脑上创建一个虚拟的加密磁盘，该虚拟磁盘以单个文件的形式保存在本地硬盘上。使用各网盘的同步工具可以很轻松地同步整个虚拟磁盘。而需要访问该虚拟磁盘的时候，挂在该虚拟磁盘文件，输入密码，即刻执行文件的增删查改操作。VeraCrypt 为加密而生，AES 的加密强度还是让人放心。</p>
+
+<p>使用 VeraCrypt 创建加密磁盘的方法只略微增加了操作步骤，但是极大地提高了文件安全性，再也不用担心网盘供应商随意浏览你的文件了。同时，我们可以只把需要保密的文件丢入磁盘中，而电影、音乐、软件安装包等大文件，而且又不担心别人访问的资源，可以直接同步而不放入加密磁盘。这样因为加密而带来的不便就大大减少了。<br/>
+（某度没节操也不是一两天了，想着自己同步到网盘的文件被内部员工随意浏览，哪天出BUG了外部人员可以随意访问用户文件，或者某度又为了利益出卖了用户，种种的“意外”我就不得安心）。</p>
+
+<p>另外，VeraCrypt 提供了密钥、加密文件等多种验证方法，同时可以添加对整个硬盘加密或者对U盘加密，根据需要可以加密电脑上的其他文件。毕竟电脑只要联网，就有可能被入侵。还是要提高一下安全意识。</p>
+
+<h4 id="toc_1">使用 OS X 系统内置的加密DMG磁盘文件功能</h4>
+
+<p>如果只有简单的加密需求，其实系统内置的 DMG 磁盘文件功能更加方便。&quot;.dmg&quot; 文件相信大家都不陌生，dmg 文件常见于应用安装包。开发者将应用的可运行文件打包到虚拟磁盘中，供用户下载。用户下载到电脑上，直接双击挂载磁盘，即可访问虚拟磁盘中的文件。</p>
+
+<p>DMG 文件是可以加密的。如果我们使用加密的 DMG文件来保存我们的隐私文件，由于系统本身对该文件的支持，我们会获得比 VeraCrypt 更好的体验。</p>
+
+<h5 id="toc_2">Step 1: 创建一个空白映像文件</h5>
+
+<p>打开 Disk Utility (磁盘工具) 应用，按下 &quot;⌘N&quot; （或者点击菜单栏的文件 -&gt; 新建映像 -&gt; 空白映像）。</p>
+
+<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-18-14635059507271.jpg" alt=""/></p>
+
+<p>加密方法可以选择 AES128 或 AES256，看个人喜好。</p>
+
+<p>映像格式需要解释一下。可选的格式有稀疏磁盘映像、读/写磁盘映像 和 DVD/CD 主映像。DVD那个不用管，读/写磁盘映像即是我们下载应用安装包的那个格式（.dmg），其实有可读写和只读两种形式。磁盘大小在创建时确定，此后不可变。</p>
+
+<p>而稀疏磁盘映像则是创建后磁盘大小可以根据磁盘储存文件的大小来动态调整（初次生成时，磁盘文件为创建时指定的文件大小。在挂载卸载后，磁盘随即调整自身尺寸）。该格式被用于系统自带的磁盘加密 FileVault 功能。</p>
+
+<p>而稀疏捆绑磁盘映像，该格式被用于 Time Machine 。更适用于文件备份。<br/>
+（其实我也不是很懂，具体请参考<a href="https://zh.wikipedia.org/wiki/%E7%A8%80%E7%96%8F%E7%A3%81%E7%9B%98%E6%98%A0%E5%83%8F">wikipedia-稀疏磁盘映像</a>）。</p>
+
+<p>显然，我们应该选稀疏磁盘映像，至于捆不捆绑，我觉得无所谓了。</p>
+
+<h5 id="toc_3">挂载该加密的磁盘文件</h5>
+
+<p>双击刚才创建的虚拟磁盘文件，按照系统提示输入密码，即可访问该磁盘。如果你启用了 KeyChain，那么系统会提示你是否保存密码。如果你保存了密码，下次挂载该磁盘，系统会自动读取密码，避免手动输入。</p>
+
+<p>为了方便，我选择了保存密码，酱紫我在本机就可以像未加密映像一样使用了。毕竟我只想我的文件在同步到网盘后不会被其他人读取而已。</p>
+
+<h5 id="toc_4">移动磁盘文件到自动同步目录</h5>
+
+<p>聪明的人在创建时即保存到同步目录了。不聪明的我们，事后把文件转移到百度云同步盘、坚果云同步盘、OneDrive、iCloud Drive 或 Dropbox。</p>
+
+<hr/>
+
+<p>TAG: 网盘, 加密, 同步, 稀疏磁盘映像</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Alfred 拼音搜索]]></title>
+    <link href="http://www.imlc.me/14749714762962.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/14749714762962.html</id>
+    <content type="html"><![CDATA[
+<p>可能因为水土不服的原因，Alfred 的中文拼音搜索真的不如英文搜索好用。在全英环境下几乎完美的搜索体验在中英混合的情况下还是有点小不舒心。Alfred 的拼音搜索需要特殊的小技巧：</p>
+
+<p>先输入<code>&#39;</code>（或者空格，将会自动转换成<code>&#39;</code>），然后输入拼音。各个字的拼音之间需要用空格分开。</p>
+
+<p>但是即使这样，仍然会有搜索出错或者搜索不到的情况。：（<br/>
+相比之下，Spotlight 的拼音搜索就好很多了。还是不能使用 Alfred 完全代替 Spotlight 啊 T,T</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[UIWebView in Navigation Controller]]></title>
+    <link href="http://www.imlc.me/uiwebview-in-navigation-controller.html"/>
+    <updated>2016-09-27T18:17:56+08:00</updated>
+    <id>http://www.imlc.me/uiwebview-in-navigation-controller.html</id>
+    <content type="html"><![CDATA[
+<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
+
+<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[[OS X] 使用 Alfred 快捷键打开应用程序]]></title>
+    <link href="http://www.imlc.me/14749714759806.html"/>
+    <updated>2016-09-27T18:17:55+08:00</updated>
+    <id>http://www.imlc.me/14749714759806.html</id>
+    <content type="html"><![CDATA[
+<p>写着写着代码，终于忍受不了在Xcode、Emulator、Chrome、Dash等应用中切来切去的麻烦。Dock栏可不是那么好点的。于是花了一段时间查找Mac上有哪些App可以实现快捷键切换应用程序。<br/>
+最后，终于挑定了一款应用的时候，突然想起来 Alfred 来。于是尝试了一下，效果完美。</p>
+
+<p><strong>Alfred 无愧神器之名：）</strong></p>
+
+<hr/>
+
+<h5 id="toc_0">Step 1: Create Blank Workflow</h5>
+
+<p>Add a blank workflow, fill the name, description and other field Alfred required.</p>
+
+<h5 id="toc_1">Step 2: Add Hotkey Trigger</h5>
+
+<p>Click the &quot;+&quot; button on the upper right, select the Trigger -&gt; Hotkey. Now a new window shows, type the Hotkey you want to use.</p>
+
+<h5 id="toc_2">Step 3: Add Action</h5>
+
+<p>Click the &quot;+&quot; button, this time select the Action -&gt; Launch Apps/ Files. Drop the app you want to open from Finder to Alfred.</p>
+
+<h5 id="toc_3">Step 4: Link the Trigger to the Action</h5>
+
+<p>Link the hotkey trigger to the launch apps action. Done!</p>
+
+<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-16-14633883160356.jpg" alt="A workflow to trigger the chrome and xcode"/></p>
+
+<p>最终效果是，在 Chrome 还没有打开的情况下，将启动 Chrome。如果 Chrome 已经启动，则切换到 Chrome。</p>
 
 ]]></content>
   </entry>

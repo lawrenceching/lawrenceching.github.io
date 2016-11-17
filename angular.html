@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	Angular - IMLC.ME
   	
 	</title>
 
@@ -116,25 +116,98 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
 
-	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
-		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
-
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-10-03T19:47:21+08:00" itemprop="datePublished">2016/10/3</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='angular.html'>Angular</a>&nbsp;
+			 
+			</div>
 		</div>
+		<h1 class="title" itemprop="name"><a href="fix-angular2-cannot-route-the-page-after-refresh.html" itemprop="url">
+		Fix angular2 can't route the page after refresh</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>It&#39;s very easy to make a mistake on Angular2 router. After refresh the page, the page to be routed to can not load successfully. Chrome console tell me that browser failed to load css resources as the path of resources is incorrect.</p>
+
+<p>The solution is that put the <code>&lt;base href=&quot;/&quot;/&gt;</code> directly under the title tag. </p>
+
+
+			
+			
+		</div>
+
 	</article>
-	<div class="share-comment">
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-29T20:57:22+08:00" itemprop="datePublished">2016/9/29</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='angular.html'>Angular</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conflict-with-angular-protractor-and-jquery-in-typescript.html" itemprop="url">
+		Conflict with angular-protractor and jQuery in TypeScript</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>When I type <code>npm start</code> in my angular2 project, terminal shows:</p>
+
+<p>Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
+There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
+
+<p>Modify your jquery.d.ts file<br/>
+From:</p>
+
+<pre><code>declare module &quot;jquery&quot; {
+    export = $;
+}
+declare var jQuery: JQueryStatic;
+declare var $: JQueryStatic;
+</code></pre>
+
+<p>To:</p>
+
+<pre><code>declare module &quot;jquery&quot; {
+    export = jQuery;
+}
+declare var jQuery: JQueryStatic;
+</code></pre>
+
+<p>On the contrary, you can change protractor also.<br/>
+References:<br/>
+[1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
+
+
+			
+			
+		</div>
+
+	</article>
+  
+
+</div>
+<nav id="pagenavi">
 	 
+	
+	<div class="center"><a href="archives.html">Blog Archives</a></div>
 
-	  
+</nav>
 
-	  
+</div>
 
-	</div>
-</div>        </div>
+
+
+        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
 Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>

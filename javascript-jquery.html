@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	UIWebView in Navigation Controller - IMLC.ME
+  	JavaScript/JQuery - IMLC.ME
   	
 	</title>
 
@@ -116,25 +116,155 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
 
-	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-		<h1 class="title" itemprop="name">UIWebView in Navigation Controller</h1>
-		<div class="entry-content" itemprop="articleBody">
-			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
 
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
-
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='javascript-jquery.html'>JavaScript/JQuery</a>&nbsp;
+			 
+			</div>
 		</div>
+		<h1 class="title" itemprop="name"><a href="14749714760420.html" itemprop="url">
+		JavaScript 定义 class 的一种解决方案</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>这是由荷兰程序员 Gabor de Mooij 提出的一种比较简单的方法。Gabor de Mooij 称之为 minimalist approach。现摘录如下：</p>
+
+<h5 id="toc_0">定义一个 Foo 类</h5>
+
+<pre><code>var Foo = {
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;;
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+</code></pre>
+
+<h5 id="toc_1">创建一个 Foo 实例</h5>
+
+<pre><code>var foo = Foo.createNew();
+foo.bar();
+</code></pre>
+
+<h5 id="toc_2">类的继承</h5>
+
+<pre><code>var NewFoo = {
+    createNew = function(){
+        var instance = Foo.createNew();
+        instance.title = &quot;A new title&quot;;
+        instance.newBar = function(){
+            alert(instance.description);
+        };
+    }
+}
+</code></pre>
+
+<h5 id="toc_3">私有方法和属性</h5>
+
+<pre><code>var Foo = {
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;; //description 是私有的，只有通过 bar() 来访问
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+</code></pre>
+
+<h5 id="toc_4">静态成员变量</h5>
+
+<pre><code>var Foo = {
+    id: 101010; // id 在多个实例间共享
+    createNew: function(){
+        var instance = {};
+        instance.description = &quot;A new class instance&quot;; //description 是私有的，只有通过 bar() 来访问
+        instance.bar = function() { console.log(instance.description)};
+        return instance;
+    }
+}
+
+var foo1 = Foo.createNew();
+var foo2 = Foo.createNew();
+foo2.id = 233333;
+console.log(&quot;Foo id:&quot;+foo1.id);
+
+</code></pre>
+
+
+			
+			
+		</div>
+
 	</article>
-	<div class="share-comment">
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='javascript-jquery.html'>JavaScript/JQuery</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14749714760916.html" itemprop="url">
+		Save and load object in localStorage</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>As for the reason only string can be stored in localStorage, an object need to be converted to string format (JSON text).</p>
+
+<h3 id="toc_0">Save object</h3>
+
+<pre><code>var books = [{id:3, name:&quot;From Zero To One&quot;}, {id:4, name:&quot;Head First Java&quot;}];
+localStorage.setItem(&quot;books&quot;, JSON.stringify(books));
+</code></pre>
+
+<h3 id="toc_1">Load object</h3>
+
+<pre><code>var booksJSON = localStorage.getItem(&quot;books&quot;);
+if( booksJSON == null ){
+    // No data stored in the localStorage
+    return;
+}
+var books = JSON.parse(booksJSON);
+for(var i=0; i &lt; books.length; ++i) {
+    var book = books[i];
+    var id = book.id;
+    var name = book.name;
+}
+
+</code></pre>
+
+
+			
+			
+		</div>
+
+	</article>
+  
+
+</div>
+<nav id="pagenavi">
 	 
+	
+	<div class="center"><a href="archives.html">Blog Archives</a></div>
 
-	  
+</nav>
 
-	  
+</div>
 
-	</div>
-</div>        </div>
+
+
+        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
 Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
