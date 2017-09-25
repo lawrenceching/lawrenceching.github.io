@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>  
 	  
-  	Java - IMLC.ME
+  	How to serve one jersey resource or jetty servlet for different path - IMLC.ME
   	
 	</title>
 
@@ -119,24 +119,10 @@
 		</div>	
 		<div class="mid-col">
 			<div class="mid-col-container"> <div id="content" class="inner">
-<div itemscope itemtype="http://schema.org/Blog">
 
-
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2017-09-25T22:03:13+08:00" itemprop="datePublished">2017/9/25</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='java.html'>Java</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="15063481937597.html" itemprop="url">
-		How to serve one jersey resource or jetty servlet for different path</a></h1>
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<h1 class="title" itemprop="name">How to serve one jersey resource or jetty servlet for different path</h1>
 		<div class="entry-content" itemprop="articleBody">
-			
 			<p>Today I&#39;m trying to make an endpoint accessible in different paths. Such as I can go to <code>http://localhost/</code> and <code>http://localhost/hello</code> for a same hello message. </p>
 
 <p>I do got some solutions.</p>
@@ -394,193 +380,44 @@ public class MultipleContextHandlerTest {
 
 </code></pre>
 
-
-			
-			
 		</div>
-
 	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2017-05-06T01:20:05+08:00" itemprop="datePublished">2017/5/6</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='java.html'>Java</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="why-we-need-to-disable-trace-method-and-how-to-disable-trace-in-embedded-jetty.html" itemprop="url">
-		Why we need to disable TRACE method and how to disable TRACE in Embedded Jetty</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>This page show you why we need to disable TRACE HTTP method for security reason.  And provide a sample project to show you how to disable TRACE in embedded Jetty.</p>
-
-<h2 id="toc_0">Why we need to disable TRACE method</h2>
-
-<p>Allowing TRACE method will leads to Cross-Site Tracking (a.k.a XST) problem. XST was found in 2003. It’s a very old topic and I can’t get any new discussion after searched in Google. But it’s good to disable TRACE for our server to avoid any redundant endpoint exposes to the danger world. </p>
-
-<h3 id="toc_1">Avoid XST Attack</h3>
-
-<p>As we all know, server will echo back all information when it receive TRACE request. “All information” means the cookies, the credential data and the server version etc. When user is visiting a malicious website, a hacker can read malicious data by calling a cross-site TRACE request.</p>
-
-<h3 id="toc_2">Limit Information Expose to the World</h3>
-
-<p>In the other case, we run an API server which user will not access by browser directly. It’s good practice to limit the information expose to the external world. Information like version may tell others which issue is ok to use to hack. If we don’t need TRACE (at lease in production environment), so disable it.</p>
-
-<h2 id="toc_3">How to disable TRACE in Embedded Jetty</h2>
-
-<p>By default Jetty enables TRACE  and we need to disable it manually.<br/>
-This <a href="https://github.com/lawrenceching/jetty-disable-trace/blob/master/src/main/java/me/imlc/example/jetty_disable_trace/Main.java#L65">GitHub project</a> shows you how to disable TRACE for embedded Jetty.</p>
-
-<pre><code class="language-java">private Handler wrapWithSecurityHandler(Handler h){
-        Constraint disableTraceConstraint = new Constraint();
-        disableTraceConstraint.setName(&quot;Disable TRACE&quot;);
-        disableTraceConstraint.setAuthenticate(true);
-
-        ConstraintMapping mapping = new ConstraintMapping();
-        mapping.setConstraint(disableTraceConstraint);
-        mapping.setMethod(&quot;TRACE&quot;);
-        mapping.setPathSpec(&quot;/&quot;);
-
-        // omissionConstraint is to fix the warning log &quot;&quot;null has uncovered http methods for path: /
-        // No impact to disable TRACE if you do not add this constraint
-        // But if you&#39;re using the monitoring tool like Geneos, and your component requires keep production monitoring all green,
-        // You can try to add this omissionConstraint to fix the warning Jetty prints.
-        Constraint omissionConstraint = new Constraint();
-        ConstraintMapping omissionMapping = new ConstraintMapping();
-        omissionMapping.setConstraint(omissionConstraint);
-        omissionMapping.setMethod(&quot;*&quot;);
-        omissionMapping.setPathSpec(&quot;/&quot;);
+	<div class="share-comment">
+	 <!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"lawrenceching"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
 
 
-        ConstraintSecurityHandler handler = new ConstraintSecurityHandler();
-        handler.addConstraintMapping(mapping);
-        handler.addConstraintMapping(omissionMapping);
-        handler.setHandler(h);
-        return handler;
-    }
-</code></pre>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-<p>Also notice that I wrote omissionConstraint, applied to all method to fix a warning Jetty prints:<br/>
-<code>null has uncovered http methods for path: /</code></p>
+  ga('create', 'UA-57304811-3', 'auto');
+  ga('send', 'pageview');
 
-<p>If you’r not required to keep production monitoring all green, you can delete this redundant constraint and accept this warning. </p>
+</script>
 
-<h6 id="toc_4">References</h6>
+	  
 
-<p>[1] <a href="http://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf">CROSS-SITE TRACING (XST) - THE NEW TECHNIQUES AND EMERGING THREATS TO BYPASS CURRENT WEB SECURITY MEASURES USING TRACE AND XSS - Jeremiah Grossman</a><br/>
-[2] <a href="https://www.owasp.org/index.php/Cross_Site_Tracing">Cross Site Tracing - OWASP</a><br/>
-[3] <a href="http://stackoverflow.com/questions/29348328/java-embedded-jetty-is-accepting-http-trace-method">spring - Java embedded jetty is accepting HTTP TRACE method - Stack Overflow</a></p>
+	  
 
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='java.html'>Java</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="java-integer-%E7%BC%93%E5%AD%98-%E6%9C%BA%E5%88%B6-%E5%9D%91%E7%82%B9.html" itemprop="url">
-		Java Integer 缓存机制的小坑点</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>Integer 是 Java 5 引入的新特性，该特性能节省内存和改善性能。同样被引入缓存机制的还有 Byte，Short，Long，Character，缓存范围都是在 [-128,127] （Character是在[0,127]）之间。</p>
-
-<p>但是有几点需要注意的是：<br/>
-1. 对 Integer 对象引入了 IntegerCache 类，其他封装类型也有对应的 XxxCache。<br/>
-2. 该缓存特性只有在 autoboxing 过程中使用，换言之，使用 constructor 创建的 Integer 并不能被缓存。<br/>
-3. 因为缓存机制的存在，在缓存范围内的对象都来自同一个缓存。带来的副作用是使用“==”地址比较运算符比较两个看似不一样的对象，得到的是 true。网上其他文章的说法是因而可以使用 == 来比较直接比较两个对象的值。但我觉得这样理解容易造成偏差。Java 规范并没有约定 [-128,127] 的范围内 == 用作值比较，这只是一个副作用。<br/>
-4. 只有 Integer 对象可以通过指定 JVM 启动参数来修改缓存上限。</p>
-
-<pre><code>-XX:AutoBoxCacheMax=size
-</code></pre>
-
-<p>所以说写代码的时候还是不要把==用作值比较。<br/>
- <br/>
-老实说这个缓存特性带来的不一致性要是导致了什么BUG实在很难排查。当用了这个特性写了点什么之后，难保后来者不会产生迷惑。所以日常编码中还是尽量避开这个点。<br/>
- <br/>
-简单到爆的实验代码：<br/>
-简单地验证Java Integer缓存特性</p>
-
-<pre><code>import com.sun.istack.internal.NotNull;
- 
-/**
- * Created by Lawrence on 15/11/9.
- */
-public class Main {
-    public static void main(String[] argv){
-        Integer int1 = 100;
-        Integer int2 = 100;
- 
-        if(int1==int2){
-            print(&quot;int1 is equal to int2&quot;);
-        } else {
-            print(&quot;int1 is not equal to int2&quot;);
-        }
-        // prints &quot;int1 is equal to int2&quot;
- 
-        Integer int3 = 2333;
-        Integer int4 = 2333;
- 
-        if(int3==int4){
-            print(&quot;int3 is equal to int4&quot;);
-        } else {
-            print(&quot;int3 is not equal to int4&quot;);
-        }
-        // prints &quot;int3 is not equal to int4&quot;
- 
-        Integer int5 = 100;
-        Integer int6 = new Integer(100);
- 
-        if(int5==int6){
-            print(&quot;int5 is equal to int6&quot;);
-        } else {
-            print(&quot;int5 is not equal to int6&quot;);
-        }
-        // prints &quot;int5 is not equal to int6&quot;
-    }
- 
-    public static void print(String str){
-        System.out.println(str);
-    }
- 
-}
-</code></pre>
-
-
-			
-			
-		</div>
-
-	</article>
-  
-
-</div>
-<nav id="pagenavi">
-	 
-	
-	<div class="center"><a href="archives.html">Blog Archives</a></div>
-
-</nav>
-
-</div>
-
-
-
-        </div>
+	</div>
+</div>        </div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
 Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>

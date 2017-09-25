@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2017-05-06T01:22:25+08:00</updated>
+  <updated>2017-05-06T01:22:55+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,272 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to serve one jersey resource or jetty servlet for different path]]></title>
+    <link href="http://www.imlc.me/15063481937597.html"/>
+    <updated>2017-09-25T22:03:13+08:00</updated>
+    <id>http://www.imlc.me/15063481937597.html</id>
+    <content type="html"><![CDATA[
+<p>Today I&#39;m trying to make an endpoint accessible in different paths. Such as I can go to <code>http://localhost/</code> and <code>http://localhost/hello</code> for a same hello message. </p>
+
+<p>I do got some solutions.</p>
+
+<p>I&#39;m using Jersey over Jetty. But whether or not  you&#39;re using Jetty servlet or writing Jersey Resource, I think you will get some ideas.</p>
+
+<p>Ps: I copy the code from my GitLab Snippets and will keep it update. So If you find something wrong, pls comment in GitLab</p>
+
+<h3 id="toc_0">Using the regular expression in Jersey Resource</h3>
+
+<p><a href="https://gitlab.com/snippets/1676612">https://gitlab.com/snippets/1676612</a></p>
+
+<pre><code class="language-java">package me.imlc.example.jetty.multiplehandler;
+
+import com.sun.jersey.spi.container.servlet.ServletContainer;
+import me.imlc.example.jetty.multplehandler.HelloResource;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.Objects;
+
+import static org.junit.Assert.assertEquals;
+
+public class RegexpResourceTest {
+
+    private static Server server;
+    private static CloseableHttpClient client = HttpClients.createDefault();
+
+    @BeforeClass
+    public static void beforeAll() throws Exception {
+        ResourceConfig rc = new ResourceConfig(RegexpResource.class);
+
+        ServletHolder holder = new ServletHolder(new ServletContainer(rc));
+
+        server = new Server(8080);
+
+        ServletContextHandler contextHandler = new ServletContextHandler(server, &quot;/*&quot;);
+        contextHandler.addServlet(holder, &quot;/*&quot;);
+
+        server.start();
+    }
+
+
+    @Test
+    public void canAccessByRootPath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @Test
+    public void canAccessByServicePath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/service/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @AfterClass
+    public static void afterAll() throws Exception {
+        if(Objects.nonNull(server)) server.stop();
+        if(Objects.nonNull(client)) client.close();
+    }
+
+    @Path(&quot;/{a:(.*)|service}&quot;)
+    public static class RegexpResource {
+        @GET
+        @Produces(MediaType.TEXT_PLAIN)
+        public String hello() {
+            return &quot;Hello, Lynn.&quot;;
+        }
+    }
+}
+
+</code></pre>
+
+<h3 id="toc_1">Specify multiple paths for one servlet</h3>
+
+<p><a href="https://gitlab.com/snippets/1676613">https://gitlab.com/snippets/1676613</a></p>
+
+<pre><code class="language-java">package me.imlc.example.jetty.multiplehandler;
+
+import com.sun.jersey.spi.container.servlet.ServletContainer;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.Objects;
+
+import static org.junit.Assert.assertEquals;
+
+public class MultipleServletTest {
+
+    private static Server server;
+    private static CloseableHttpClient client = HttpClients.createDefault();
+
+    @BeforeClass
+    public static void beforeAll() throws Exception {
+        ResourceConfig rc = new ResourceConfig(RegexpResourceTest.RegexpResource.class);
+
+        ServletHolder holder = new ServletHolder(new ServletContainer(rc));
+
+        server = new Server(8080);
+
+        ServletContextHandler contextHandler = new ServletContextHandler(server, &quot;/*&quot;);
+        contextHandler.addServlet(holder, &quot;/*&quot;);
+        contextHandler.addServlet(holder, &quot;/service/*&quot;);
+
+        server.start();
+    }
+
+    @Test
+    public void canAccessByRootPath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @Test
+    public void canAccessByServicePath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/service/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @AfterClass
+    public static void afterAll() throws Exception {
+        if(Objects.nonNull(server)) server.stop();
+        if(Objects.nonNull(client)) client.close();
+    }
+
+    @Path(&quot;/hello&quot;)
+    public static class MultipleServletResource {
+        @GET
+        @Produces(MediaType.TEXT_PLAIN)
+        public String hello() {
+            return &quot;Hello, Lynn.&quot;;
+        }
+    }
+}
+
+</code></pre>
+
+<h3 id="toc_2">Serve one servlet in different context handler</h3>
+
+<p><a href="https://gitlab.com/snippets/1676615">https://gitlab.com/snippets/1676615</a></p>
+
+<pre><code class="language-java">package me.imlc.example.jetty.multiplehandler;
+
+import com.sun.jersey.spi.container.servlet.ServletContainer;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.eclipse.jetty.server.Handler;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.Objects;
+
+import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+
+import static org.junit.Assert.assertEquals;
+
+public class MultipleContextHandlerTest {
+    private static Server server;
+    private static CloseableHttpClient client = HttpClients.createDefault();
+
+    @BeforeClass
+    public static void beforeAll() throws Exception {
+        ResourceConfig rc = new ResourceConfig(MultipleContextHandlerResource.class);
+
+        ServletHolder holder = new ServletHolder(new ServletContainer(rc));
+
+        server = new Server(8080);
+
+        ServletContextHandler rootContext = new ServletContextHandler(server, &quot;/*&quot;);
+        rootContext.addServlet(holder, &quot;/*&quot;);
+
+        ServletContextHandler serviceContext = new ServletContextHandler(server, &quot;/service/*&quot;);
+        serviceContext.addServlet(holder, &quot;/*&quot;);
+
+        ContextHandlerCollection contextHandlerCollection = new ContextHandlerCollection();
+        contextHandlerCollection.setHandlers(new Handler[]{
+                rootContext, serviceContext
+        });
+
+        server.setHandler(contextHandlerCollection);
+
+        server.start();
+    }
+
+    @Test
+    public void canAccessByRootPath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @Test
+    public void canAccessByServicePath() throws Exception {
+        HttpGet get = new HttpGet(&quot;http://localhost:8080/service/hello&quot;);
+        String content = EntityUtils.toString(client.execute(get).getEntity());
+        assertEquals(content, &quot;Hello, Lynn.&quot;);
+    }
+
+    @AfterClass
+    public static void afterAll() throws Exception {
+        if(Objects.nonNull(server)) server.stop();
+        if(Objects.nonNull(client)) client.close();
+    }
+
+    @Path(&quot;/hello&quot;)
+    public static class MultipleContextHandlerResource {
+        @GET
+        @Produces(MediaType.TEXT_PLAIN)
+        public String hello() {
+            return &quot;Hello, Lynn.&quot;;
+        }
+    }
+}
+
+</code></pre>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Why we need to disable TRACE method and how to disable TRACE in Embedded Jetty]]></title>
@@ -794,19 +1060,6 @@ ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;boo
 
 <p>但是即使这样，仍然会有搜索出错或者搜索不到的情况。：（<br/>
 相比之下，Spotlight 的拼音搜索就好很多了。还是不能使用 Alfred 完全代替 Spotlight 啊 T,T</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UIWebView in Navigation Controller]]></title>
-    <link href="http://www.imlc.me/uiwebview-in-navigation-controller.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/uiwebview-in-navigation-controller.html</id>
-    <content type="html"><![CDATA[
-<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
-
-<p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
 
 ]]></content>
   </entry>
