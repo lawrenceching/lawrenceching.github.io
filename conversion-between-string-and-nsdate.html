@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>  
-	  
+	<title>
+	
   	Conversion between String and NSDate - IMLC.ME
   	
 	</title>
@@ -48,15 +48,20 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 	</style>
-	
+
 	<style type="text/css">
 	.container .left-col{ opacity: 1;}
 	#pagenavi a{ font-size: 1.3em;}
 	#pagenavi .next:before{ top: 3px;}
 	#pagenavi .prev:before{ top: 3px;}
 	#projects-nav {margin-left: 10px;}
+	#projects-nav li {
+		list-style: none;
+	}
+
 	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
 	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
+
 	#header .subtitle {
 		line-height: 1.2em;
 		padding-top: 8px;
@@ -66,7 +71,7 @@
 	.share-comment{ padding: 25px 0px; clear: both;}
 	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
 	</style>
-  
+
 
 </head>
 
@@ -81,7 +86,7 @@
 						<img src="/asset/icon.jpg" style="width:160px;">
 					</div>
             	
-					
+
 					<h1><a href="index.html">IMLC.ME</a></h1>
 					<p class="subtitle"></p>
 					<nav id="main-nav">
@@ -98,6 +103,8 @@
 						My Projects
 						<ul id="projects-nav">
 							<li><a target="_blank" href="https://gitlab.com/lawrence.ching/statichere"> - statichere</a></li>
+							<li><a target="_blank" href="http://Framework7vue-zse.imlc.me/kitchen-sink/"> - Framework7 Vue ZSE</a></li>
+							<li><a target="_blank" href="http://zira.imlc.me"> - Zira</a></li>
 						</ul>
 					</nav>
 
@@ -116,17 +123,18 @@
 <a target="_blank" class="github" target="_blank" href="https://github.com/lawrenceching" title="GitHub">GitHub</a>
 
 
-								
+
 
 								<a class="rss" href="atom.xml" title="RSS">RSS</a>
-							
+
 						</div>
 					</nav>
-				</header>				
+				</header>
 			</div>
-		</div>	
+		</div>
 		<div class="mid-col">
-			<div class="mid-col-container"> <div id="content" class="inner">
+			<div class="mid-col-container">
+ <div id="content" class="inner">
 
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 		<h1 class="title" itemprop="name">Conversion between String and NSDate</h1>
