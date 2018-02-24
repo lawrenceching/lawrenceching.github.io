@@ -146,6 +146,47 @@
 			</div>
 			<div class="tags">posted in 
 			
+			    <a class='category' href='swift.html'>Swift</a>&nbsp;
+			
+			    <a class='category' href='ios.html'>iOS</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conversion-between-string-and-nsdate.html" itemprop="url">
+		Conversion between String and NSDate</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>The class NSDateFormatter is an easy-to-use tool. Just like SimpleDateFormat in Java.</p>
+
+<h4 id="toc_0">Convert String to NSDate</h4>
+
+<pre><code>let str = &quot;2016-06-01T00:00:00Z&quot;
+let dateFormatter = NSDateFormatter()
+dateFormatter.dateFormat = &quot;yyyy-MM-dd&#39;T&#39;HH:mm:ssZ&quot;
+let date = dateFormatter.dateFromString(str)
+</code></pre>
+
+<h4 id="toc_1">Convert NSDate to String</h4>
+
+<pre><code>let description = &quot;Time is \(dateFormatter.stringFromDate(date))&quot;
+</code></pre>
+
+<p>TAG: Convert, String, NSDate, NSDateFormatter</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
 			    <a class='category' href='java.html'>Java</a>&nbsp;
 			 
 			</div>
@@ -681,82 +722,6 @@ ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;boo
 <p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
 
 <p>TAG: Swift, NSData, Convert, Custom class</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='others.html'>Others</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14749714762605.html" itemprop="url">
-		对国产网盘不能放心，加个密再与网盘同步</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>最近网盘行业风波不断，网盘供应商不是停止服务就是限制服务。当年网盘风头莫名其妙刮了起来，各大互联网公司用了疯狂赠送空间，不要钱地去推广，换来了今天人走茶凉，继续运营没有盈利，停止运营对不起用户的尴尬状况。国内的市场真的很浮躁，当年的网盘、微博、手游，现在的可穿戴设备、直播，土豪们一掷千金抢占市场，然后把整个行业给玩坏了。</p>
-
-<p>国内的巨头们鲜有老老实实做生意的，百度尤甚。当初因巨额的空间入了百度网盘的坑。把图片、视频、镜像文件等大尺寸资源备份到百度网盘；word、pdf、各种使用频率高而Size不大的文件同步到坚果云。之前一段时间用得是相当舒心。但是现在，由于最近的网盘整顿风波，加之发现百度网盘可以未经允许读取用户文件（老司机跟我说现在百度下不了小电影了，个人空间上的小电影会被百度检查出来），决定还是要逐步脱坑。</p>
-
-<p>想来百度要死也不会在这几天死，先解决隐私问题。</p>
-
-<h4 id="toc_0">使用 VeraCrypt 创建虚拟加密磁盘</h4>
-
-<p>逛异次元的时候看到了这篇文章（<a href="http://www.iplaysoft.com/veracrypt.html">VeraCrypt - 最佳免费开源跨平台的文件加密工具 (支持U盘加密/硬盘分区加密)</a>），发现这是一个很不错的解决方案。</p>
-
-<p>VeraCrypt 会在电脑上创建一个虚拟的加密磁盘，该虚拟磁盘以单个文件的形式保存在本地硬盘上。使用各网盘的同步工具可以很轻松地同步整个虚拟磁盘。而需要访问该虚拟磁盘的时候，挂在该虚拟磁盘文件，输入密码，即刻执行文件的增删查改操作。VeraCrypt 为加密而生，AES 的加密强度还是让人放心。</p>
-
-<p>使用 VeraCrypt 创建加密磁盘的方法只略微增加了操作步骤，但是极大地提高了文件安全性，再也不用担心网盘供应商随意浏览你的文件了。同时，我们可以只把需要保密的文件丢入磁盘中，而电影、音乐、软件安装包等大文件，而且又不担心别人访问的资源，可以直接同步而不放入加密磁盘。这样因为加密而带来的不便就大大减少了。<br/>
-（某度没节操也不是一两天了，想着自己同步到网盘的文件被内部员工随意浏览，哪天出BUG了外部人员可以随意访问用户文件，或者某度又为了利益出卖了用户，种种的“意外”我就不得安心）。</p>
-
-<p>另外，VeraCrypt 提供了密钥、加密文件等多种验证方法，同时可以添加对整个硬盘加密或者对U盘加密，根据需要可以加密电脑上的其他文件。毕竟电脑只要联网，就有可能被入侵。还是要提高一下安全意识。</p>
-
-<h4 id="toc_1">使用 OS X 系统内置的加密DMG磁盘文件功能</h4>
-
-<p>如果只有简单的加密需求，其实系统内置的 DMG 磁盘文件功能更加方便。&quot;.dmg&quot; 文件相信大家都不陌生，dmg 文件常见于应用安装包。开发者将应用的可运行文件打包到虚拟磁盘中，供用户下载。用户下载到电脑上，直接双击挂载磁盘，即可访问虚拟磁盘中的文件。</p>
-
-<p>DMG 文件是可以加密的。如果我们使用加密的 DMG文件来保存我们的隐私文件，由于系统本身对该文件的支持，我们会获得比 VeraCrypt 更好的体验。</p>
-
-<h5 id="toc_2">Step 1: 创建一个空白映像文件</h5>
-
-<p>打开 Disk Utility (磁盘工具) 应用，按下 &quot;⌘N&quot; （或者点击菜单栏的文件 -&gt; 新建映像 -&gt; 空白映像）。</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-18-14635059507271.jpg" alt=""/></p>
-
-<p>加密方法可以选择 AES128 或 AES256，看个人喜好。</p>
-
-<p>映像格式需要解释一下。可选的格式有稀疏磁盘映像、读/写磁盘映像 和 DVD/CD 主映像。DVD那个不用管，读/写磁盘映像即是我们下载应用安装包的那个格式（.dmg），其实有可读写和只读两种形式。磁盘大小在创建时确定，此后不可变。</p>
-
-<p>而稀疏磁盘映像则是创建后磁盘大小可以根据磁盘储存文件的大小来动态调整（初次生成时，磁盘文件为创建时指定的文件大小。在挂载卸载后，磁盘随即调整自身尺寸）。该格式被用于系统自带的磁盘加密 FileVault 功能。</p>
-
-<p>而稀疏捆绑磁盘映像，该格式被用于 Time Machine 。更适用于文件备份。<br/>
-（其实我也不是很懂，具体请参考<a href="https://zh.wikipedia.org/wiki/%E7%A8%80%E7%96%8F%E7%A3%81%E7%9B%98%E6%98%A0%E5%83%8F">wikipedia-稀疏磁盘映像</a>）。</p>
-
-<p>显然，我们应该选稀疏磁盘映像，至于捆不捆绑，我觉得无所谓了。</p>
-
-<h5 id="toc_3">挂载该加密的磁盘文件</h5>
-
-<p>双击刚才创建的虚拟磁盘文件，按照系统提示输入密码，即可访问该磁盘。如果你启用了 KeyChain，那么系统会提示你是否保存密码。如果你保存了密码，下次挂载该磁盘，系统会自动读取密码，避免手动输入。</p>
-
-<p>为了方便，我选择了保存密码，酱紫我在本机就可以像未加密映像一样使用了。毕竟我只想我的文件在同步到网盘后不会被其他人读取而已。</p>
-
-<h5 id="toc_4">移动磁盘文件到自动同步目录</h5>
-
-<p>聪明的人在创建时即保存到同步目录了。不聪明的我们，事后把文件转移到百度云同步盘、坚果云同步盘、OneDrive、iCloud Drive 或 Dropbox。</p>
-
-<hr/>
-
-<p>TAG: 网盘, 加密, 同步, 稀疏磁盘映像</p>
 
 
 			
