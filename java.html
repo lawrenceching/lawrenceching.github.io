@@ -142,6 +142,56 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-03-21T23:24:15+08:00" itemprop="datePublished">2018/3/21</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='java.html'>Java</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="remote-debugging-for-java-application.html" itemprop="url">
+		Remote Debugging for Java Application</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>It&#39;s an important feature that JVM provided and I&#39;m so surprised that I used it at the first time today.</p>
+
+<h2 id="toc_0">How to enable remote debugging</h2>
+
+<p>To enable it, you will just need to add below JVM arguments in command line:</p>
+
+<pre><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+</code></pre>
+
+<p>Then you can use your debugger to attach to remote JVM.</p>
+
+<p><code>suspend</code> is quite useful argument here. If <code>suspend</code> is <code>y</code>, JVM will suspend before main class is loaded until debugger attach to it. <code>n</code> otherwise. </p>
+
+<p>So set <code>suspend</code> to <code>y</code> if you need to debug application initialization phase.</p>
+
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/conninv.html">Check Official Document for detailed introduction</a></p>
+
+<h2 id="toc_1">Remote Debugging in IntelliJ IDEA</h2>
+
+<p>I believe all IDEs have that function to debug Java application remotely. I use IntelliJ here for demonstration.</p>
+
+<p><img src="media/15216458555103/Remote%20Debug%20Configuration%20in%20IntelliJ.png" alt="Remote Debug Configuration in IntelliJ"/><br/>
+Add a new configuration under Remote category, you will see IntelliJ provides command line arguments for you. That&#39;s exactly what I show in previous section.</p>
+
+<p>Change the host to your server&#39;s url, and launch your application with remote debug arguments, then you can debug as what you did on debugging local application.</p>
+
+<h1 id="toc_2">DO NOT REMOTE DEBUG YOUR PRODUCTION APPLICATION</h1>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2017-09-25T22:03:13+08:00" itemprop="datePublished">2017/9/25</time>
 			</div>
 			<div class="tags">posted in 

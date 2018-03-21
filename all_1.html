@@ -147,6 +147,76 @@
 			<div class="tags">posted in 
 			
 			    <a class='category' href='swift.html'>Swift</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="conversion-between-array-and-json-string-using-objectmapper.html" itemprop="url">
+		Conversion between Array and JSON string using ObjectMapper</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
+
+<p>The code below shows how to convert swift array into JSON and also recover it from JSON.</p>
+
+<pre><code>class Book: Mappable{
+    var id:Int?
+    var title:String?
+    var category:[String]?
+    
+    init(id:Int, title:String, category:[String]){
+        self.id = id
+        self.title = title
+        self.category = category
+    }
+    
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id          &lt;- map[&quot;id&quot;]
+        title       &lt;- map[&quot;title&quot;]
+        category    &lt;- map[&quot;category&quot;]
+    }
+}
+
+
+// Do the conversion
+let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
+
+// Convert JSON to class instance
+let book3 = Mapper&lt;Book&gt;().map(JSON)!
+
+let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
+let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
+let books = [book1, book2, book3]
+   
+// Convert array to JSON array string
+let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
+
+// Convert JSON array back to the array
+let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
+</code></pre>
+
+<hr/>
+
+<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='swift.html'>Swift</a>&nbsp;
 			
 			    <a class='category' href='ios.html'>iOS</a>&nbsp;
 			 
@@ -629,99 +699,6 @@ adb devices
  <br/>
 参考：<br/>
 <a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='ios.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14749714762507.html" itemprop="url">
-		[Swift] Convert custom class to NSData</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
-
-<p>Here shows steps to do it.</p>
-
-<h5 id="toc_0">1. Define your class</h5>
-
-<pre><code>class Book: NSObject, NSCoding {
-    var id:Int
-    var name:String?
-    var author:String?
-    
-    private static let KeyId = &quot;key_id&quot;
-    private static let KeyName = &quot;key_name&quot;
-    private static let KeyAuthor = &quot;key_author&quot;
-    
-    init(id: Int){
-        self.id = id
-    }
-    
-    required init? (coder aDecoder: NSCoder){
-        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
-        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
-        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(id, forKey: Book.KeyId)
-        aCoder.encodeObject(name, forKey: Book.KeyName)
-        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
-    }
-}
-</code></pre>
-
-<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
-
-<h5 id="toc_1">2. Save data</h5>
-
-<pre><code>let book = Book(id: 1)
-book.name = &quot;The first book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let book2 = Book(id:2)
-book.name = &quot;The second book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let books = [book, book2]
-
-let ud = NSUserDefaults.standardUserDefaults()
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
-</code></pre>
-
-<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
-
-<h5 id="toc_2">3. Restore data</h5>
-
-<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
-    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
-    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
-    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
-    
-    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
-}
-</code></pre>
-
-<hr/>
-
-<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
-
-<p>TAG: Swift, NSData, Convert, Custom class</p>
 
 
 			

@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-02-24T21:04:18+08:00</updated>
+  <updated>2018-02-24T22:41:45+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Remote Debugging for Java Application]]></title>
+    <link href="http://www.imlc.me/remote-debugging-for-java-application.html"/>
+    <updated>2018-03-21T23:24:15+08:00</updated>
+    <id>http://www.imlc.me/remote-debugging-for-java-application.html</id>
+    <content type="html"><![CDATA[
+<p>It&#39;s an important feature that JVM provided and I&#39;m so surprised that I used it at the first time today.</p>
+
+<h2 id="toc_0">How to enable remote debugging</h2>
+
+<p>To enable it, you will just need to add below JVM arguments in command line:</p>
+
+<pre><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+</code></pre>
+
+<p>Then you can use your debugger to attach to remote JVM.</p>
+
+<p><code>suspend</code> is quite useful argument here. If <code>suspend</code> is <code>y</code>, JVM will suspend before main class is loaded until debugger attach to it. <code>n</code> otherwise. </p>
+
+<p>So set <code>suspend</code> to <code>y</code> if you need to debug application initialization phase.</p>
+
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/conninv.html">Check Official Document for detailed introduction</a></p>
+
+<h2 id="toc_1">Remote Debugging in IntelliJ IDEA</h2>
+
+<p>I believe all IDEs have that function to debug Java application remotely. I use IntelliJ here for demonstration.</p>
+
+<p><img src="media/15216458555103/Remote%20Debug%20Configuration%20in%20IntelliJ.png" alt="Remote Debug Configuration in IntelliJ"/><br/>
+Add a new configuration under Remote category, you will see IntelliJ provides command line arguments for you. That&#39;s exactly what I show in previous section.</p>
+
+<p>Change the host to your server&#39;s url, and launch your application with remote debug arguments, then you can debug as what you did on debugging local application.</p>
+
+<h1 id="toc_2">DO NOT REMOTE DEBUG YOUR PRODUCTION APPLICATION</h1>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What is Cherry-Pick]]></title>
@@ -959,86 +996,6 @@ adb devices
  <br/>
 参考：<br/>
 <a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[Swift] Convert custom class to NSData]]></title>
-    <link href="http://www.imlc.me/14749714762507.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714762507.html</id>
-    <content type="html"><![CDATA[
-<p>It&#39;s necessary to convert custom object to NSData when using NSUserDefaults or NSKeyedArchiver. Furthermore, a dictionary or an array with custom class.</p>
-
-<p>Here shows steps to do it.</p>
-
-<h5 id="toc_0">1. Define your class</h5>
-
-<pre><code>class Book: NSObject, NSCoding {
-    var id:Int
-    var name:String?
-    var author:String?
-    
-    private static let KeyId = &quot;key_id&quot;
-    private static let KeyName = &quot;key_name&quot;
-    private static let KeyAuthor = &quot;key_author&quot;
-    
-    init(id: Int){
-        self.id = id
-    }
-    
-    required init? (coder aDecoder: NSCoder){
-        self.id = aDecoder.decodeIntegerForKey(Book.KeyId)
-        self.name = aDecoder.decodeObjectForKey(Book.KeyName) as? String
-        self.author = aDecoder.decodeObjectForKey(Book.KeyAuthor) as? String
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(id, forKey: Book.KeyId)
-        aCoder.encodeObject(name, forKey: Book.KeyName)
-        aCoder.encodeObject(author, forKey: Book.KeyAuthor)
-    }
-}
-</code></pre>
-
-<p>You must extend your class from NSObject and implement the NSCoding protocal. Thus, you get <code>init(coder:)</code> and <code>encodeWithCoder(aCode:)</code></p>
-
-<h5 id="toc_1">2. Save data</h5>
-
-<pre><code>let book = Book(id: 1)
-book.name = &quot;The first book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let book2 = Book(id:2)
-book.name = &quot;The second book&quot;
-book.author = &quot;IMLC.ME&quot;
-
-let books = [book, book2]
-
-let ud = NSUserDefaults.standardUserDefaults()
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book&quot;)
-ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;book-array&quot;)
-</code></pre>
-
-<p>The code above shows how to save <code>book</code> and <code>books</code> (an array) into NSUserDefaults.</p>
-
-<h5 id="toc_2">3. Restore data</h5>
-
-<pre><code>if let bookData = ud.objectForKey(&quot;book&quot;) as? NSData,
-    let bookArrayData = ud.objectForKey(&quot;book-array&quot;) as? NSData{
-    let restoredBook = NSKeyedUnarchiver.unarchiveObjectWithData(bookData) as? Book
-    let restoredBookArray = NSKeyedUnarchiver.unarchiveObjectWithData(bookArrayData) as? [Book]
-    
-    print(&quot;Restored book \(restoredBook.name!) and book array [\(restoredBookArray[0].name!),\(restoredBookArray[1].name!)]&quot;)
-}
-</code></pre>
-
-<hr/>
-
-<p>Saving and loading data with swift dictionary is very similar to array, I wouldn&#39;t give an another sample here.</p>
-
-<p>TAG: Swift, NSData, Convert, Custom class</p>
 
 ]]></content>
   </entry>

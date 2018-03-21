@@ -142,6 +142,56 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-03-21T23:24:15+08:00" itemprop="datePublished">2018/3/21</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='java.html'>Java</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="remote-debugging-for-java-application.html" itemprop="url">
+		Remote Debugging for Java Application</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>It&#39;s an important feature that JVM provided and I&#39;m so surprised that I used it at the first time today.</p>
+
+<h2 id="toc_0">How to enable remote debugging</h2>
+
+<p>To enable it, you will just need to add below JVM arguments in command line:</p>
+
+<pre><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+</code></pre>
+
+<p>Then you can use your debugger to attach to remote JVM.</p>
+
+<p><code>suspend</code> is quite useful argument here. If <code>suspend</code> is <code>y</code>, JVM will suspend before main class is loaded until debugger attach to it. <code>n</code> otherwise. </p>
+
+<p>So set <code>suspend</code> to <code>y</code> if you need to debug application initialization phase.</p>
+
+<p><a href="https://docs.oracle.com/javase/7/docs/technotes/guides/jpda/conninv.html">Check Official Document for detailed introduction</a></p>
+
+<h2 id="toc_1">Remote Debugging in IntelliJ IDEA</h2>
+
+<p>I believe all IDEs have that function to debug Java application remotely. I use IntelliJ here for demonstration.</p>
+
+<p><img src="media/15216458555103/Remote%20Debug%20Configuration%20in%20IntelliJ.png" alt="Remote Debug Configuration in IntelliJ"/><br/>
+Add a new configuration under Remote category, you will see IntelliJ provides command line arguments for you. That&#39;s exactly what I show in previous section.</p>
+
+<p>Change the host to your server&#39;s url, and launch your application with remote debug arguments, then you can debug as what you did on debugging local application.</p>
+
+<h1 id="toc_2">DO NOT REMOTE DEBUG YOUR PRODUCTION APPLICATION</h1>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-02-24T22:28:33+08:00" itemprop="datePublished">2018/2/24</time>
 			</div>
 			
@@ -758,76 +808,6 @@ Android 6.0 release removes support for the Apache HTTP client. If your app is u
 </code></pre>
 
 <p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='swift.html'>Swift</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="conversion-between-array-and-json-string-using-objectmapper.html" itemprop="url">
-		Conversion between Array and JSON string using ObjectMapper</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>ObjectMapper is a swift library like Gson in Java. Using ObjectMapper, I can easily convert basic classes into JSON format string or convert it inversely. </p>
-
-<p>The code below shows how to convert swift array into JSON and also recover it from JSON.</p>
-
-<pre><code>class Book: Mappable{
-    var id:Int?
-    var title:String?
-    var category:[String]?
-    
-    init(id:Int, title:String, category:[String]){
-        self.id = id
-        self.title = title
-        self.category = category
-    }
-    
-    required init?(_ map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        id          &lt;- map[&quot;id&quot;]
-        title       &lt;- map[&quot;title&quot;]
-        category    &lt;- map[&quot;category&quot;]
-    }
-}
-
-
-// Do the conversion
-let JSON = &quot;{\&quot;id\&quot;:3, \&quot;title\&quot;:\&quot;The Third Book\&quot;, \&quot;category\&quot;:[\&quot;TOP\&quot;, \&quot;TECH\&quot;]}&quot;
-
-// Convert JSON to class instance
-let book3 = Mapper&lt;Book&gt;().map(JSON)!
-
-let book1 = Book(id: 1, title: &quot;The First Book&quot;, category: [&quot;TECH&quot;])
-let book2 = Book(id: 2, title: &quot;The Second Book&quot;, category: [&quot;ART&quot;,&quot;MUSIC&quot;])
-let books = [book1, book2, book3]
-   
-// Convert array to JSON array string
-let arrayJSON = Mapper().toJSONString(books, prettyPrint: true)
-
-// Convert JSON array back to the array
-let bookArray = Mapper&lt;Book&gt;().mapArray(arrayJSON)
-</code></pre>
-
-<hr/>
-
-<p>TAG: ObjectMapper, JSON, Swift, Array, Convert, Conversion</p>
 
 
 			
