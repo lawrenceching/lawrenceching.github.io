@@ -146,6 +146,40 @@
 			</div>
 			<div class="tags">posted in 
 			
+			    <a class='category' href='android.html'>Android</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="android-studio-can-not-find-org-apache-http-package-after-update-to-6.0.html" itemprop="url">
+		Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>这么重要的问题竟然没有事先说明，太过分了。<br/>
+今天更新了 Android 6.0 的 SDK 后发现项目一片红，吓尿了。<br/>
+直接引用把：<a href="http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client">http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client</a><br/>
+Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your <strong>build.gradle</strong> file:</p>
+
+<pre><code>android {
+    useLibrary &#39;org.apache.http.legacy&#39;
+}
+</code></pre>
+
+<p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
 			    <a class='category' href='swift.html'>Swift</a>&nbsp;
 			 
 			</div>
@@ -651,54 +685,6 @@ chmod 777 /data
 </code></pre>
 
 <h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='android.html'>Android</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14749714762416.html" itemprop="url">
-		MX4 PRO 无法连接 adb 问题的解决办法</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
-ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
-
-<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
-<strong>0x2a45</strong><br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-adb_usb.ini.png" alt="adb_usb.ini"/></p>
-
-<p>保存退出。<br/>
-在命令行下依次输入：</p>
-
-<pre><code>adb kill-server
-adb devices
-</code></pre>
-
-<p>这时会显示<br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
-
-<p>此时，adb 识别到手机，但是提示未认证。<br/>
-在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
- <br/>
-如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
-可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
- <br/>
-参考：<br/>
-<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
 
 
 			

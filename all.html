@@ -142,6 +142,37 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-04-05T00:45:33+08:00" itemprop="datePublished">2018/4/5</time>
+			</div>
+			
+			 
+			
+		</div>
+		<h1 class="title" itemprop="name"><a href="15228603330284.html" itemprop="url">
+		来自阿里云云栖社区的 ElasticSearch 原理剖析</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>这是一系列来自阿里的 ElasticSearch 的原理剖析文章。文章质量优秀，干货十足。</p>
+
+<p>一是 ES 是非常流行的分布式搜索引擎，不管是日常运维还是生产环境都非常实用。<br/>
+二是 ES 也是一个典型的分布式系统。分布式系统避不开的集群、服务发现、Master 选举等话题在此系列文章中都有涉及。如果想了解如何开发一个高可用，可伸缩的分布式系统，ES 也是一个很好的例子。</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35291900">Elasticsearch分布式一致性原理剖析(一)-节点篇</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35294658">Elasticsearch分布式一致性原理剖析(二)-Meta篇</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35299145">Elasticsearch分布式一致性原理剖析(三)-Data篇</a></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-03-21T23:24:15+08:00" itemprop="datePublished">2018/3/21</time>
 			</div>
 			<div class="tags">posted in 
@@ -774,40 +805,6 @@ declare var jQuery: JQueryStatic;
 <p>On the contrary, you can change protractor also.<br/>
 References:<br/>
 [1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='android.html'>Android</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="android-studio-can-not-find-org-apache-http-package-after-update-to-6.0.html" itemprop="url">
-		Android Studio 更新 Android 6.0 之后无法找到 org.apache.http 包的问题</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>这么重要的问题竟然没有事先说明，太过分了。<br/>
-今天更新了 Android 6.0 的 SDK 后发现项目一片红，吓尿了。<br/>
-直接引用把：<a href="http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client">http://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client</a><br/>
-Android 6.0 release removes support for the Apache HTTP client. If your app is using this client and targets Android 2.3 (API level 9) or higher, use the <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> class instead. This API is more efficient because it reduces network use through transparent compression and response caching, and minimizes power consumption. To continue using the Apache HTTP APIs, you must first declare the following compile-time dependency in your <strong>build.gradle</strong> file:</p>
-
-<pre><code>android {
-    useLibrary &#39;org.apache.http.legacy&#39;
-}
-</code></pre>
-
-<p>大概意思就是，Android 6.0不再支持 Apache HTTP client。 请使用 <a href="http://developer.android.com/reference/java/net/HttpURLConnection.html">HttpURLConnection</a> 代替。想要继续使用 Apache HTTP client 的，请添加如上代码。</p>
 
 
 			

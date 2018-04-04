@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-03-22T00:07:39+08:00</updated>
+  <updated>2018-03-22T21:02:46+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[来自阿里云云栖社区的 ElasticSearch 原理剖析]]></title>
+    <link href="http://www.imlc.me/15228603330284.html"/>
+    <updated>2018-04-05T00:45:33+08:00</updated>
+    <id>http://www.imlc.me/15228603330284.html</id>
+    <content type="html"><![CDATA[
+<p>这是一系列来自阿里的 ElasticSearch 的原理剖析文章。文章质量优秀，干货十足。</p>
+
+<p>一是 ES 是非常流行的分布式搜索引擎，不管是日常运维还是生产环境都非常实用。<br/>
+二是 ES 也是一个典型的分布式系统。分布式系统避不开的集群、服务发现、Master 选举等话题在此系列文章中都有涉及。如果想了解如何开发一个高可用，可伸缩的分布式系统，ES 也是一个很好的例子。</p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35291900">Elasticsearch分布式一致性原理剖析(一)-节点篇</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35294658">Elasticsearch分布式一致性原理剖析(二)-Meta篇</a></p>
+
+<p><a href="https://zhuanlan.zhihu.com/p/35299145">Elasticsearch分布式一致性原理剖析(三)-Data篇</a></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Remote Debugging for Java Application]]></title>
@@ -961,41 +981,6 @@ chmod 777 /data
 </code></pre>
 
 <h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MX4 PRO 无法连接 adb 问题的解决办法]]></title>
-    <link href="http://www.imlc.me/14749714762416.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714762416.html</id>
-    <content type="html"><![CDATA[
-<p>死坑死坑，新买的手机竟然不能用来调试。今天终于被我查到解决办法了（应该说终于有大神写的解决办法被收录然后被我查到了）。<br/>
-ps:本解决办法同样适用于 MX4 &amp; 魅蓝</p>
-
-<p>在 Mac 下，修改 adb_usb.ini 文件（Mac 是在/Users/[username]/.android/adb_usb.ini 目录下，username 即是你的用户名；Windows 是在/Users/user/.android 目录下），往里面添加新的一行<br/>
-<strong>0x2a45</strong><br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-adb_usb.ini.png" alt="adb_usb.ini"/></p>
-
-<p>保存退出。<br/>
-在命令行下依次输入：</p>
-
-<pre><code>adb kill-server
-adb devices
-</code></pre>
-
-<p>这时会显示<br/>
-<img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-04-25-terminal_adb_devices.png" alt="terminal_adb_devices"/></p>
-
-<p>此时，adb 识别到手机，但是提示未认证。<br/>
-在点亮手机屏幕的情况下，用 adb 连接手机，手机会提示你认证这台电脑，确认即可。<br/>
- <br/>
-如果输入 adb 显示 command not found，这表示你的Mac 上未配置 adb 环境变量。<br/>
-可以参考<a href="/532.html">我的另一篇博文</a>进行配置。<br/>
- <br/>
-参考：<br/>
-<a href="http://blog.csdn.net/wispy316/article/details/43022349">wispy316的专栏</a></p>
 
 ]]></content>
   </entry>
