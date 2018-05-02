@@ -142,6 +142,72 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-05-02T20:47:19+08:00" itemprop="datePublished">2018/5/2</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='javascript.html'>JavaScript</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="note-a-debugging-of-vue-js-v-if.html" itemprop="url">
+		Note a debugging of Vue.js v-if</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>Today my workmate hit an issue that v-if didn&#39;t work for him.<br/>
+It turned out that Vue.js can&#39;t watch the property that you do not define at the beginning.</p>
+
+<h2 id="toc_0">Root Cause</h2>
+
+<p>It&#39;s not only relative to v-if. It impact all functions that used two-way data binding.</p>
+
+<p>On below demo, we have two section that both of them hope to change content by button clicking. Section 1 works good but section 2 didn&#39;t.</p>
+
+<p>It&#39;s because section2 object(in js) doesn&#39;t define content property.<br/>
+So after Vue runs up, the new property that you add afterward can&#39;t be watched by Vue. And then you will fine your change will not reflect to web page even if you change the value of the property.</p>
+
+<p>In this demo, I tried to change the content of section 2 but it didn&#39;t work. In my workmate&#39;s case, it change the value of a property but v-if was not triggered.</p>
+
+<p>Live Demo: <a href="https://jsfiddle.net/Lawrence/7eq3y5uv/">https://jsfiddle.net/Lawrence/7eq3y5uv/</a><br/>
+<iframe src="https://jsfiddle.net/Lawrence/7eq3y5uv/embedded/" width="800px" height="500px"><br/>
+</iframe></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2018-04-06T23:25:13+08:00" itemprop="datePublished">2018/4/6</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='java.html'>Java</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="15230283138027.html" itemprop="url">
+		Hello Spring Actuator</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h2 id="toc_0">Start Up The Service</h2>
+
+<h2 id="toc_1">Customize Health Check</h2>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-04-05T00:45:33+08:00" itemprop="datePublished">2018/4/5</time>
 			</div>
 			
@@ -729,82 +795,6 @@ This <a href="https://github.com/lawrenceching/jetty-disable-trace/blob/master/s
 			<p>It&#39;s very easy to make a mistake on Angular2 router. After refresh the page, the page to be routed to can not load successfully. Chrome console tell me that browser failed to load css resources as the path of resources is incorrect.</p>
 
 <p>The solution is that put the <code>&lt;base href=&quot;/&quot;/&gt;</code> directly under the title tag. </p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-29T21:52:14+08:00" itemprop="datePublished">2016/9/29</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='ios.html'>iOS</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="header-files-not-found-after-cocoapods-updated-to-1.0.html" itemprop="url">
-		[iOS] Header files not found after cocoaPods updated to 1.0</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>Days ago I update pod to version 1.0. Then found all header not found in my header bridge file. I spent 2 days to locate the reason. That is cocoaPods.<br/>
-Thanks to Git, I noticed that Header folder was be deleted after I run <code>pod install</code> which pod 0.x did not do that.<br/>
-What pod 1.0 do is that I don’t need import headers explicitly any more. Pod do that.<br/>
-So what I need to do is DELETE all import statement which not found. That will fix everything.</p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-29T20:57:22+08:00" itemprop="datePublished">2016/9/29</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='angular.html'>Angular</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="conflict-with-angular-protractor-and-jquery-in-typescript.html" itemprop="url">
-		Conflict with angular-protractor and jQuery in TypeScript</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>When I type <code>npm start</code> in my angular2 project, terminal shows:</p>
-
-<p>Subsequent variable declarations must have the same type.  Variable &#39;$&#39; must be of type &#39;JQueryStatic&#39;, but here has type &#39;cssSelectorHelper&#39;<br/>
-There is a conflict between angular-protractor and jQuery. One soluction I googled is marked down below:</p>
-
-<p>Modify your jquery.d.ts file<br/>
-From:</p>
-
-<pre><code>declare module &quot;jquery&quot; {
-    export = $;
-}
-declare var jQuery: JQueryStatic;
-declare var $: JQueryStatic;
-</code></pre>
-
-<p>To:</p>
-
-<pre><code>declare module &quot;jquery&quot; {
-    export = jQuery;
-}
-declare var jQuery: JQueryStatic;
-</code></pre>
-
-<p>On the contrary, you can change protractor also.<br/>
-References:<br/>
-[1] <a href="https://codedump.io/share/kQF7Ts1Iu5d/1/how-to-use-jquery-with-angular2">How to use jquery with angular2</a></p>
 
 
 			

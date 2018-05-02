@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-03-22T21:02:46+08:00</updated>
+  <updated>2018-05-02T20:59:58+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Note a debugging of Vue.js v-if]]></title>
+    <link href="http://www.imlc.me/note-a-debugging-of-vue-js-v-if.html"/>
+    <updated>2018-05-02T20:47:19+08:00</updated>
+    <id>http://www.imlc.me/note-a-debugging-of-vue-js-v-if.html</id>
+    <content type="html"><![CDATA[
+<p>Today my workmate hit an issue that v-if didn&#39;t work for him.<br/>
+It turned out that Vue.js can&#39;t watch the property that you do not define at the beginning.</p>
+
+<h2 id="toc_0">Root Cause</h2>
+
+<p>It&#39;s not only relative to v-if. It impact all functions that used two-way data binding.</p>
+
+<p>On below demo, we have two section that both of them hope to change content by button clicking. Section 1 works good but section 2 didn&#39;t.</p>
+
+<p>It&#39;s because section2 object(in js) doesn&#39;t define content property.<br/>
+So after Vue runs up, the new property that you add afterward can&#39;t be watched by Vue. And then you will fine your change will not reflect to web page even if you change the value of the property.</p>
+
+<p>In this demo, I tried to change the content of section 2 but it didn&#39;t work. In my workmate&#39;s case, it change the value of a property but v-if was not triggered.</p>
+
+<p>Live Demo: <a href="https://jsfiddle.net/Lawrence/7eq3y5uv/">https://jsfiddle.net/Lawrence/7eq3y5uv/</a><br/>
+<iframe src="https://jsfiddle.net/Lawrence/7eq3y5uv/embedded/" width="800px" height="500px"><br/>
+</iframe></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Spring Actuator]]></title>
+    <link href="http://www.imlc.me/15230283138027.html"/>
+    <updated>2018-04-06T23:25:13+08:00</updated>
+    <id>http://www.imlc.me/15230283138027.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">Start Up The Service</h2>
+
+<h2 id="toc_1">Customize Health Check</h2>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[来自阿里云云栖社区的 ElasticSearch 原理剖析]]></title>
@@ -912,75 +952,6 @@ for(var i=0; i &lt; books.length; ++i) {
 <hr/>
 
 <p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MX4 PRO DDMS 无法访问data文件夹]]></title>
-    <link href="http://www.imlc.me/14749714762202.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714762202.html</id>
-    <content type="html"><![CDATA[
-<ol>
-<li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
-<li><p>在 Terminal 下定位到 sdk/platform-tools 文件夹下，运行</p></li>
-</ol>
-
-<pre><code>su
-chmod 777 /data
-</code></pre>
-
-<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且...我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
-
-<ol>
-<li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mac ADB 环境变量配置]]></title>
-    <link href="http://www.imlc.me/14749714762373.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714762373.html</id>
-    <content type="html"><![CDATA[
-<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
-
-<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
-
-<h3 id="toc_1">2. 创建 .bash_profile 文件</h3>
-
-<p> terminal 中输入</p>
-
-<pre><code>touch .bash_profile
-</code></pre>
-
-<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
-
-<pre><code>open -e .bash_profile
-</code></pre>
-
-<p>该命令会自动打开文本编辑器。</p>
-
-<p>(1) 如果你发现里面已经有内容了，请在 PATH 后面添加  </p>
-
-<p><code>:/Users/android-sdk-macosx/platform-tools/</code>  </p>
-
-<p>包括最前面的英文状态下的冒号。如果 PATH 后面的路径被双引号括了起来，那么请把上面这句添加到双引号的里面。</p>
-
-<p>(2) 如果你打开的文件是空白的，请输入<br/><br/>
- <code>export PATH=${PATH}:/Users/android-sdk-macosx/platform-tools/</code>  </p>
-
-<p>保存后关闭。</p>
-
-<h3 id="toc_3">4. 添加环境变量</h3>
-
-<pre><code>source .bash_profile
-</code></pre>
-
-<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
 
 ]]></content>
   </entry>

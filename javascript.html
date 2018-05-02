@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>
 	
-  	JavaScript/JQuery - IMLC.ME
+  	JavaScript - IMLC.ME
   	
 	</title>
 
@@ -142,11 +142,51 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-05-02T20:47:19+08:00" itemprop="datePublished">2018/5/2</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='javascript.html'>JavaScript</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="note-a-debugging-of-vue-js-v-if.html" itemprop="url">
+		Note a debugging of Vue.js v-if</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>Today my workmate hit an issue that v-if didn&#39;t work for him.<br/>
+It turned out that Vue.js can&#39;t watch the property that you do not define at the beginning.</p>
+
+<h2 id="toc_0">Root Cause</h2>
+
+<p>It&#39;s not only relative to v-if. It impact all functions that used two-way data binding.</p>
+
+<p>On below demo, we have two section that both of them hope to change content by button clicking. Section 1 works good but section 2 didn&#39;t.</p>
+
+<p>It&#39;s because section2 object(in js) doesn&#39;t define content property.<br/>
+So after Vue runs up, the new property that you add afterward can&#39;t be watched by Vue. And then you will fine your change will not reflect to web page even if you change the value of the property.</p>
+
+<p>In this demo, I tried to change the content of section 2 but it didn&#39;t work. In my workmate&#39;s case, it change the value of a property but v-if was not triggered.</p>
+
+<p>Live Demo: <a href="https://jsfiddle.net/Lawrence/7eq3y5uv/">https://jsfiddle.net/Lawrence/7eq3y5uv/</a><br/>
+<iframe src="https://jsfiddle.net/Lawrence/7eq3y5uv/embedded/" width="800px" height="500px"><br/>
+</iframe></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='javascript-jquery.html'>JavaScript/JQuery</a>&nbsp;
+			    <a class='category' href='javascript.html'>JavaScript</a>&nbsp;
 			 
 			</div>
 		</div>
@@ -232,7 +272,7 @@ console.log(&quot;Foo id:&quot;+foo1.id);
 			</div>
 			<div class="tags">posted in 
 			
-			    <a class='category' href='javascript-jquery.html'>JavaScript/JQuery</a>&nbsp;
+			    <a class='category' href='javascript.html'>JavaScript</a>&nbsp;
 			 
 			</div>
 		</div>

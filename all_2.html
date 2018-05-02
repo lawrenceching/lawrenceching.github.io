@@ -150,6 +150,101 @@
 			 
 			</div>
 		</div>
+		<h1 class="title" itemprop="name"><a href="14749714762202.html" itemprop="url">
+		MX4 PRO DDMS 无法访问data文件夹</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<ol>
+<li><p>开启手机的Root权限。（开放Root权限会失去保修，慎重考虑）</p></li>
+<li><p>在 Terminal 下定位到 sdk/platform-tools 文件夹下，运行</p></li>
+</ol>
+
+<pre><code>su
+chmod 777 /data
+</code></pre>
+
+<p>因为 adb shell 的无法添加-R参数递归修改权限，所以用adb必须要一级一级文件夹修改权限，而且...我运行chmod后提示“Unable to chmod /data: Operation not permitted ”。所以..</p>
+
+<ol>
+<li>下载 Root Explorer，直接递归修改整个/data文件夹， done!</li>
+</ol>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='android.html'>Android</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14749714762373.html" itemprop="url">
+		Mac ADB 环境变量配置</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<h3 id="toc_0">1. 记录 adb 所在目录位置</h3>
+
+<p> 记住自己adb 程序的目录位置，如在我的电脑中是：/Users/android-sdk-macosx/platform-tools/</p>
+
+<h3 id="toc_1">2. 创建 .bash_profile 文件</h3>
+
+<p> terminal 中输入</p>
+
+<pre><code>touch .bash_profile
+</code></pre>
+
+<h3 id="toc_2">3. 打开 .bash_profile 文件</h3>
+
+<pre><code>open -e .bash_profile
+</code></pre>
+
+<p>该命令会自动打开文本编辑器。</p>
+
+<p>(1) 如果你发现里面已经有内容了，请在 PATH 后面添加  </p>
+
+<p><code>:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>包括最前面的英文状态下的冒号。如果 PATH 后面的路径被双引号括了起来，那么请把上面这句添加到双引号的里面。</p>
+
+<p>(2) 如果你打开的文件是空白的，请输入<br/><br/>
+ <code>export PATH=${PATH}:/Users/android-sdk-macosx/platform-tools/</code>  </p>
+
+<p>保存后关闭。</p>
+
+<h3 id="toc_3">4. 添加环境变量</h3>
+
+<pre><code>source .bash_profile
+</code></pre>
+
+<h3 id="toc_4">5. 在终端输入 adb，在设置正常的情况下会弹出一大堆的adb 使用提示。</h3>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='android.html'>Android</a>&nbsp;
+			 
+			</div>
+		</div>
 		<h1 class="title" itemprop="name"><a href="14749714762416.html" itemprop="url">
 		MX4 PRO 无法连接 adb 问题的解决办法</a></h1>
 		<div class="entry-content" itemprop="articleBody">
