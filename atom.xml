@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-05-02T20:59:58+08:00</updated>
+  <updated>2018-05-02T22:32:56+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -36,6 +36,14 @@ So after Vue runs up, the new property that you add afterward can&#39;t be watch
 <p>Live Demo: <a href="https://jsfiddle.net/Lawrence/7eq3y5uv/">https://jsfiddle.net/Lawrence/7eq3y5uv/</a><br/>
 <iframe src="https://jsfiddle.net/Lawrence/7eq3y5uv/embedded/" width="800px" height="500px"><br/>
 </iframe></p>
+
+<h2 id="toc_1">Look Deeper</h2>
+
+<p>When Vue.js starts, it will convert all data into observable. The key is how Vue.js do that here.</p>
+
+<p>Vue.js will bind <code>Watcher</code> on each properties of an object by defining <code>set</code> method using <a href="Object.defineProperty">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</a>. Therefore Vue.js can get updated if you change the value.</p>
+
+<p>Apparently, if you don&#39;t define an property for an object at the beginning, Vue.js can&#39;t watch it.</p>
 
 ]]></content>
   </entry>
