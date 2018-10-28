@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-05-02T22:36:35+08:00</updated>
+  <updated>2018-10-28T22:40:43+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,80 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[QCon 2018 Shanghai - Leading DevOps in the right way]]></title>
+    <link href="http://www.imlc.me/qcon-2018-shanghai-leading-devops-in-the-right-way.html"/>
+    <updated>2018-10-28T22:37:31+08:00</updated>
+    <id>http://www.imlc.me/qcon-2018-shanghai-leading-devops-in-the-right-way.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>Below content comes from <a href="https://2018.qconshanghai.com/presentation/896">QCon上海2018|全球软件开发大会</a><br/>
+You can download slideshow from <a href="http://ppt.geekbang.org/slide/download?cid=33&amp;pid=1851">大会演讲PPT合集</a></p>
+</blockquote>
+
+<p>In in presentation, Qiang introduced DevOps to us from a historical point of view. </p>
+
+<p>In 1970s, we develop our software in a so-called waterfall model.<br/>
+In 1990s, we have Agile.<br/>
+When it comes to 2010s, we made Continue Delivery.<br/>
+We drive our development in a model that is from per project to per requirement, we build, test, and deliver out software from per month to per day, per hour or even per minute</p>
+
+<p>Qiang said, we’re in a loop that he call it software delivery cycle. We make a plan, we code and build our software, we run the software,  we monitor our software, and then we start again with a new plan.</p>
+
+<p>Plan -&gt; Build -&gt; Run -&gt; Monitoring -&gt; Plan</p>
+
+<p>In this cycle, Agile help us to make plan become a build quickly(from Plan to Build). And DevOps helps on Build to Run.</p>
+
+<p>If we think about it from people point of view, Agile creates an efficient communication environment for project manager, developer and test engineer. Continue Integration(CI) quickly passes the software package to test engineer. And what DevOps solves, is to make developer tester, and operation and maintenance engineer cooperate better.</p>
+
+<p>Qiang highlighted a sentence: “There is not an authoritative definition for DevOps”. By this way, he think that both Agile and DevOps are the same thing. They’re looking for series of ways and practices  to improve the cooperate quality and efficiency for different roles in software development, in order to speed up the delivery.</p>
+
+<p>People and companies use tons of tools to make DevOps easier.<br/>
+[image:5882D3F7-3217-45D9-8139-C14D3E035122-20613-00005FABA85677C7/3341B206-FCAA-4C0B-8D4E-8750651FE599.png]<img src="media/15407374515050/3341B206-FCAA-4C0B-8D4E-8750651FE599.png" alt="3341B206-FCAA-4C0B-8D4E-8750651FE599"/></p>
+
+<p>(Above image comes from: <a href="https://xebialabs.com/periodic-table-of-devops-tools/">Periodic Table of DevOps Tools</a>)</p>
+
+<p>And companies also hire DevOps engineer, to try to apply DevOps in the development. However, sometimes and somehow tools and DevOps engineer may not able to help and even worst they will have a negative effect.</p>
+
+<p>People expect to deliver changes faster and faster, from 1 month to 1 day.  Generally people start DevOps quickly and easily. People starts with process automation(I don’t know what process is, from Lawrence), and then they will make automation test. People will gain a huge benefit from this 2 steps for sure. And people will try to create more and more automation tests which will not help to step onto next phase for DevOps. Qiang called it Overmuch Automation Test.</p>
+
+<p>So, how can we have a better DevOps?<br/>
+Qiang raises 2 key points:<br/>
+1. Understand <em>measurement</em> correctly<br/>
+2. Have 2nd evolution for DevOps</p>
+
+<h4 id="toc_0">Understand Measurement</h4>
+
+<p>Measurement have to be visible, timely and actable. And most of measurement is not quite actable. You can’t really take action immediately and directly when you check a measurement. And in order to turn measurement into action, you need lots of analysis and more and more other measurements. Things become complicated and you may not able to take a correct action from the result of analysis.</p>
+
+<p>And you will have to know:<br/>
+Measuring things has its cost.<br/>
+Measurement can’t tell everything to you.<br/>
+Dev lead should find a way to manage the thing that can’t be measured.</p>
+
+<h4 id="toc_1">Have 2nd evolution on DevOps</h4>
+
+<p>In the first evolution, people applies to DevOps without breaking the development model.<br/>
+And in second evolution,  we need to break the old world and create a new one(if need).</p>
+
+<p>One example is, to change the user from tester to developer for automation test.<br/>
+Before the change, test cases are created and run by tester. For the seek of that dev will willing to use it, we need to make the test cases to become:<br/>
+* Running fast<br/>
+* Easy to use<br/>
+* Result should be reliable<br/>
+* Test cases are up to date<br/>
+It does take time and money to achieve above 4 goals. </p>
+
+<p>(To explain more, above example is not only an IT problem. It’s already a common sense that Dev takes the responsibility to test, create automation test and maintain automation test in Evolve. But in other companies and if you’re in a role to push DevOps, you need to get human resource, money and priority from your boss. And you will break the daily workflow for your workmates which leads to antagonistic sentiments. Department structrue need to be changed as well sometimes and it’s a problem can be solved from bottom to top. from Lawrence)</p>
+
+<p>And Qiang introduces a concept - Small Business Unit(SBU) - to us.<br/>
+SBU is to have less communicate cost and more alignment. A SBU contains business people, project manager, developer, test engineer, and operate and maintenance engineer. And that requires you not only pay attention to your development infrastructure, but also to your software architecture, company structure, culture and incentive system.</p>
+
+<p>At the end, Qiang recommend his book: <em>Continue Delivery: 2.0</em>.</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Note a debugging of Vue.js v-if]]></title>
@@ -942,24 +1016,6 @@ for(var i=0; i &lt; books.length; ++i) {
 }
 
 </code></pre>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[UILabel 图标保持比例缩放]]></title>
-    <link href="http://www.imlc.me/14749714760995.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714760995.html</id>
-    <content type="html"><![CDATA[
-<p>Just set that:</p>
-
-<pre><code>button.imageView?.contentMode = .ScaleAspectFit
-</code></pre>
-
-<hr/>
-
-<p>TAG: iOS, Xcode, UILabel, UIButton, image, icon, ScaleAspectFit, Adjust</p>
 
 ]]></content>
   </entry>
