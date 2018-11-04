@@ -139,6 +139,89 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-11-04T19:50:03+08:00" itemprop="datePublished">2018/11/4</time>
+			</div>
+			
+			 
+			
+		</div>
+		<h1 class="title" itemprop="name"><a href="qcon2018-shanghai-serverless-aws-lambda.html" itemprop="url">
+		QCon 2018 Shanghai - Serverless and AWS Lambda Service</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<blockquote>
+<p>Below content is shared by <a href="https://2018.qconshanghai.com/presentation/1292">QCon上海2018|全球软件开发大会</a><br/>
+You can download the PPT from: <a href="http://ppt.geekbang.org/slide/download?cid=33&amp;pid=1703">大会演讲PPT合集</a></p>
+
+<p>To be honest, you can find everything in AWS Lambda home page:<br/>
+<a href="https://aws.amazon.com/lambda/?nc1=h_ls">AWS Lambda云计算服务介绍_如何使用AWS Lambda-AWS云服务</a></p>
+</blockquote>
+
+<p>What is Serverless? Serverless let you run code without thinking about servers. You don’t need to manage your physical server anymore. You can easily have a good scalability, high availability and fault tolerance. And pay only for the compute time you consume. And this features let you.</p>
+
+<h4 id="toc_0">Running code without thinking about servers</h4>
+
+<p>If you use AWS Lambda service, you don’t need to maintains your physical machine anymore. What you need to do, is to upload to code block(which we also call it lambda) to AWS, and AWS will run your code when a request comes in.</p>
+
+<h4 id="toc_1">Scalability</h4>
+
+<p>A lambda is a piece of code than runs independently. So there is no double  that you can scale up your service by running hundreds of, thousands of or billions of lambdas simultaneously, to serve your successful business. Scaling up/down is an automatic process therefore you only need focus on your own business.</p>
+
+<h4 id="toc_2">High Availability and Fault Tolerance</h4>
+
+<p>Same reason as above, serverless gives your an architecture with high availability and fault tolerance.</p>
+
+<h4 id="toc_3">Paying only for the compute time you consume</h4>
+
+<p>The money you pay depends on the duration your lambda runs. It significantly cuts down your cost. And you can manage your cost much clearly. You can understand which function consumes most of your money. And you can have the visibility to your code improvement. Because if you reduce your request processing time from 10s to 5s, you only need to pay half of the bill.</p>
+
+<h2 id="toc_4">How a Lambda Run</h2>
+
+<p>Running a lambda in AWS is trivial. Write the code in your computer, upload to AWS, set a HTTP url, that’s it.</p>
+
+<h4 id="toc_5">Event Driven</h4>
+
+<p>A lambda is triggered by every single HTTP request. This is a so-called event driven architecture. It also means the integration with other services is easy.</p>
+
+<h4 id="toc_6">Step Function</h4>
+
+<p>Things can become complicated if your lambda workflow grows. Try to image that your service is constructed by 10 or 15 lambdas and there are 4 or 5 if-else logic. This would not be an easy job to develop and maintain.</p>
+
+<p>This is the reason why we have AWS Step Function.<br/>
+<a href="https://aws.amazon.com/step-functions/">AWS Step Functions可视化工作流服务_分布式应用调节-AWS云服务</a></p>
+
+<h2 id="toc_7">The weaknesses</h2>
+
+<p>First thing need to highlight here, is that severless is not prefect solution and you can’t really say serverless is the future. So above words introduces what’s good for serverless and now it’s time to tell you what serverless can’t do.</p>
+
+<p>Firstly, a time-sensitive service can’t be served by serverless(as they’re driven by HTTP API).</p>
+
+<p>Secondly, cold start issue. When the first time a lambda is called, AWS need to download your scripts, build the environment you need, then run it. So at this moment you have to warn up your service by ourselves if this is not acceptable for you or your business.</p>
+
+<p>Thirdly, your lambda can’t run for long. It’s not a limitation and a technical issue for AWS Lambda Service. It’s about the cost performance. If your program need to run 24 hours, holding an EC2 instance costs you less.</p>
+
+<p>And the last, we do need more a more third party services adapt to serverless which we don’t have right now.</p>
+
+<hr/>
+
+<ul>
+<li><p>You can get almost everything in this page:<a href="https://aws.amazon.com/lambda/">AWS Lambda云计算服务介绍_如何使用AWS Lambda-AWS云服务</a></p></li>
+<li><p>AWS is not the only company provides serverless service.<br/>
+Microsoft Azure: <a href="https://azure.microsoft.com/en-us/services/functions/">https://azure.microsoft.com/en-us/services/functions/</a><br/>
+Google Cloud Platform: <a href="https://cloud.google.com/functions/">Cloud Functions - 事件驱动型无服务器计算  |  Cloud Functions       |  Google Cloud</a><br/>
+Aliyun: <a href="https://www.alibabacloud.com/en?spm=5176.137990.1146454.9.55fb224erTPz9r">An integrated suite of cloud products, services and solutions | Alibaba Cloud</a></p></li>
+</ul>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-10-28T22:37:31+08:00" itemprop="datePublished">2018/10/28</time>
 			</div>
 			
@@ -807,57 +890,6 @@ This <a href="https://github.com/lawrenceching/jetty-disable-trace/blob/master/s
 <p>[1] <a href="http://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf">CROSS-SITE TRACING (XST) - THE NEW TECHNIQUES AND EMERGING THREATS TO BYPASS CURRENT WEB SECURITY MEASURES USING TRACE AND XSS - Jeremiah Grossman</a><br/>
 [2] <a href="https://www.owasp.org/index.php/Cross_Site_Tracing">Cross Site Tracing - OWASP</a><br/>
 [3] <a href="http://stackoverflow.com/questions/29348328/java-embedded-jetty-is-accepting-http-trace-method">spring - Java embedded jetty is accepting HTTP TRACE method - Stack Overflow</a></p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-11-17T23:08:48+08:00" itemprop="datePublished">2016/11/17</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='others.html'>Others</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="using-remote-desktop-in-mac-in-china.html" itemprop="url">
-		Mac 远程登录 Windows 10</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>在中国，使用 Windows 的远程桌面服务有两个困难。</p>
-
-<ol>
-<li>官方的 Remote Desktop Client on Mac 不在中国销售。</li>
-<li>家庭版的 Windows 10 不包含远程桌面服务。</li>
-</ol>
-
-<p>解决方法是两个都找第三方解决方案。</p>
-
-<ol>
-<li>使用 Parallels Client 代替 Remote Desktop Client on Mac</li>
-<li>适用 rdpwrap 提供远程桌面服务</li>
-</ol>
-
-<hr/>
-
-<h3 id="toc_0">安装 Parallels Client</h3>
-
-<p>Parallels Client: <a href="https://itunes.apple.com/us/app/parallels-client/id600925318?mt=12">https://itunes.apple.com/us/app/parallels-client/id600925318?mt=12</a></p>
-
-<p>或者需要付费但是一样更好功能更加强大的 Parallels Access:<br/>
-<a href="http://www.parallels.com/cn/products/access/">http://www.parallels.com/cn/products/access/</a></p>
-
-<h3 id="toc_1">安装 rdpwrap</h3>
-
-<p>GitHub: <a href="https://github.com/stascorp/rdpwrap">https://github.com/stascorp/rdpwrap</a></p>
-
-<p>rdpwrap 是在家庭版 Windows 上提供远程桌买服务的一个开源项目。支持从 Windows Vista 到 Windows 10 系统。安装和使用说明请到 GitHub 主页查看。</p>
 
 
 			
