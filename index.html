@@ -139,6 +139,142 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2018-11-06T22:13:35+08:00" itemprop="datePublished">2018/11/6</time>
+			</div>
+			
+			 
+			
+		</div>
+		<h1 class="title" itemprop="name"><a href="QCon-2018-Shanghai-Frontend-Practice-in-Ant-Financial.html" itemprop="url">
+		QCon 2018 Shanghai - Frontend Practice in Ant Financial</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<blockquote>
+<p>This presentation is shared by <a href="https://2018.qconshanghai.com/presentation/817">QCon上海2018|全球软件开发大会</a><br/><br/>
+You can download the PPT from <a href="http://ppt.geekbang.org/slide/download?cid=33&amp;pid=1816">大会演讲PPT合集</a>  </p>
+</blockquote>
+
+<h2 id="toc_0">Business Nature</h2>
+
+<ul>
+<li>Mobile is the first priority</li>
+<li>Stable backend model, flexible frontend presentation</li>
+<li>High Stability for business</li>
+</ul>
+
+<h2 id="toc_1">Frontend Architecture</h2>
+
+<p>Below graph display the history of frontend architecture in Ant Financial.<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%889.10.29.png" alt="屏幕快照 2018-11-04 下午9.10.29"/></p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%8810.26.07%20-%20translated.png" alt="屏幕快照 2018-11-04 下午10.26.07 - translated"/></p>
+
+<p>The frontend needs to be served in multiple channels. Not only traditional web UI, but also Little Program/H5 in various apps.  Below graph introduces you how Ant Finance releases its change from source code to production.</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.07.13.png" alt="屏幕快照 2018-11-05 下午10.07.13"/></p>
+
+<p>How to process offline H5 page</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.10.21.png" alt="屏幕快照 2018-11-05 下午10.10.21"/></p>
+
+<p>It’s quite important these years to provide your service In-App. We have two ways channel (In China - Lawrence):<br/>
+1. Little Program<br/>
+Lightweight HTML app designs for running inside giant app like Wechat, Taobao, Alipay. Very similar to PWA. Little Program can access native function like using camera which Wechat will be a bridge  for that.<br/>
+2. H5<br/>
+H5 stands for HTML 5 web page. When people compare it with Little Program, H5 represents the HTML 5 web app which will be loaded by WebView(embedded browser in native app).</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.20.22.png" alt="屏幕快照 2018-11-05 下午10.20.22"/></p>
+
+<p>Below image shows the differences of development for H5, Little Program and PC Web Page.</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.40.24.png" alt="屏幕快照 2018-11-05 下午10.40.24"/></p>
+
+<p>As the business grows, it’s a big challenge to develop the service. In a tradition frontend architecture model, UX API changes frequently, however service API is stable relatively. The question is, our API should be UI-oriented or should be generic.</p>
+
+<p>And the answer is, Backend For Frontend(aka BFF).<br/>
+<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.46.57.png" alt="屏幕快照 2018-11-05 下午10.46.57"/></p>
+
+<p>In a tradition model, we basically have 3 layers: UI, business service, then infrastructure. <br/>
+In BFF model, we still have 3 layers, the differences are:<br/>
+In the 2nd layer, now we have BFFs which are designed for UI. BFF provides  API that perfectly fit to UI. And we can have multiple BFF services designed for individual clients.<br/>
+In the 3rd layer, we move Business Layer down. We treat Business Layer as some kind of infrastructure that provides generic business API. </p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8811.44.36.png" alt="屏幕快照 2018-11-05 下午11.44.36"/></p>
+
+<p>In general, frontend and BFF development are completed by the same developer. From the development of employee point of view, there are some benefits:<br/>
+1. Frontend developer has the opportunity to learn server side development skills<br/>
+2. Expand the scope of knowledge<br/>
+3. Improve communication skills<br/>
+4. More reasonable division of labor</p>
+
+<blockquote>
+<p>Following content is the open source solution Ant Finance creates. I would not repeat it, instead, I will paste the url links to GitHub or official home page.  </p>
+</blockquote>
+
+<h3 id="toc_2">Egg.js</h3>
+
+<p><a href="https://github.com/eggjs/egg/">GitHub - eggjs/egg: 🥚 Born to build better enterprise frameworks and apps with Node.js &amp; Koa</a><br/>
+<a href="https://eggjs.org/en/index.html">egg - Born to build better enterprise frameworks and apps</a></p>
+
+<p><a href="https://github.com/eggjs/awesome-egg">GitHub - eggjs/awesome-egg: Awesome Egg.js Web Framework and Plugin.</a></p>
+
+<p>Egg.js is a Node.js web development framework. It provides enterprise level features to speed up the development. It’s the core to BFF.</p>
+
+<p>It’s worth to highlight that Egg.js is not only a web framework. It’s a solution to develop, build, run, monitor and maintain your Node.js application in production environment. For example, Egg.js embeds in a security mechanism to avoid security problem systematically, we all know that developer is not trustable: <a href="https://eggjs.org/en/core/security.html">Security - Born to build better enterprise frameworks and apps</a>.<br/>
+And Egg.js provides a solution to run application in cluster:<br/>
+<a href="https://eggjs.org/en/advanced/cluster-client.html">Multi-Process Development Model Enhancement - Born to build better enterprise frameworks and apps</a>.</p>
+
+<p>Worth to have a look even if you’re not a fan to Egg.js itself.</p>
+
+<h3 id="toc_3">sofa-rpc and sofa-rpc-node</h3>
+
+<p><a href="https://github.com/alipay/sofa-rpc">GitHub - alipay/sofa-rpc: SOFARPC is a high-performance, high-extensibility, production-level Java RPC  framework.</a></p>
+
+<p><a href="https://github.com/alipay/sofa-rpc-node">GitHub - alipay/sofa-rpc-node: SOFARPC Node is a high-performance, high-extensibility, production-level Nodejs RPC framework.</a></p>
+
+<ul>
+<li>Supports multiple language</li>
+<li>Automated serialization and deserialization</li>
+<li>Transparent to developer to call JavaScript from Java or call Java from JavaScript</li>
+<li>Support ProtoBuf and Hessian</li>
+</ul>
+
+<h2 id="toc_4">High Quality Development</h2>
+
+<h3 id="toc_5">Development Steps</h3>
+
+<p><img src="media/15415136154959/%E2%80%9C%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.19.13%E2%80%9D%E7%9A%84%E5%89%AF%E6%9C%AC.png" alt="“屏幕快照 2018-11-06 下午9.19.13”的副本"/></p>
+
+<h3 id="toc_6">Development Management</h3>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.44.18.png" alt="屏幕快照 2018-11-06 下午9.44.18"/></p>
+
+<h3 id="toc_7">Change Management</h3>
+
+<ul>
+<li>Should be able to <strong>gated launch</strong></li>
+<li>Should be able to <strong>monitor</strong></li>
+<li>Should be able to <strong>roll back</strong>
+<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.49.18.png" alt="屏幕快照 2018-11-06 下午9.49.18"/></li>
+</ul>
+
+<h3 id="toc_8">Monitor</h3>
+
+<h4 id="toc_9">Backend Monitor</h4>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.56.02.png" alt="屏幕快照 2018-11-06 下午9.56.02"/></p>
+
+<h4 id="toc_10">Frontend Monitor</h4>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2018-11-04T19:50:03+08:00" itemprop="datePublished">2018/11/4</time>
 			</div>
 			
@@ -809,87 +945,6 @@ public class MultipleContextHandlerTest {
 }
 
 </code></pre>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2017-05-06T01:20:05+08:00" itemprop="datePublished">2017/5/6</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='java.html'>Java</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="why-we-need-to-disable-trace-method-and-how-to-disable-trace-in-embedded-jetty.html" itemprop="url">
-		Why we need to disable TRACE method and how to disable TRACE in Embedded Jetty</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>This page show you why we need to disable TRACE HTTP method for security reason.  And provide a sample project to show you how to disable TRACE in embedded Jetty.</p>
-
-<h2 id="toc_0">Why we need to disable TRACE method</h2>
-
-<p>Allowing TRACE method will leads to Cross-Site Tracking (a.k.a XST) problem. XST was found in 2003. It’s a very old topic and I can’t get any new discussion after searched in Google. But it’s good to disable TRACE for our server to avoid any redundant endpoint exposes to the danger world. </p>
-
-<h3 id="toc_1">Avoid XST Attack</h3>
-
-<p>As we all know, server will echo back all information when it receive TRACE request. “All information” means the cookies, the credential data and the server version etc. When user is visiting a malicious website, a hacker can read malicious data by calling a cross-site TRACE request.</p>
-
-<h3 id="toc_2">Limit Information Expose to the World</h3>
-
-<p>In the other case, we run an API server which user will not access by browser directly. It’s good practice to limit the information expose to the external world. Information like version may tell others which issue is ok to use to hack. If we don’t need TRACE (at lease in production environment), so disable it.</p>
-
-<h2 id="toc_3">How to disable TRACE in Embedded Jetty</h2>
-
-<p>By default Jetty enables TRACE  and we need to disable it manually.<br/>
-This <a href="https://github.com/lawrenceching/jetty-disable-trace/blob/master/src/main/java/me/imlc/example/jetty_disable_trace/Main.java#L65">GitHub project</a> shows you how to disable TRACE for embedded Jetty.</p>
-
-<pre><code class="language-java">private Handler wrapWithSecurityHandler(Handler h){
-        Constraint disableTraceConstraint = new Constraint();
-        disableTraceConstraint.setName(&quot;Disable TRACE&quot;);
-        disableTraceConstraint.setAuthenticate(true);
-
-        ConstraintMapping mapping = new ConstraintMapping();
-        mapping.setConstraint(disableTraceConstraint);
-        mapping.setMethod(&quot;TRACE&quot;);
-        mapping.setPathSpec(&quot;/&quot;);
-
-        // omissionConstraint is to fix the warning log &quot;&quot;null has uncovered http methods for path: /
-        // No impact to disable TRACE if you do not add this constraint
-        // But if you&#39;re using the monitoring tool like Geneos, and your component requires keep production monitoring all green,
-        // You can try to add this omissionConstraint to fix the warning Jetty prints.
-        Constraint omissionConstraint = new Constraint();
-        ConstraintMapping omissionMapping = new ConstraintMapping();
-        omissionMapping.setConstraint(omissionConstraint);
-        omissionMapping.setMethod(&quot;*&quot;);
-        omissionMapping.setPathSpec(&quot;/&quot;);
-
-
-        ConstraintSecurityHandler handler = new ConstraintSecurityHandler();
-        handler.addConstraintMapping(mapping);
-        handler.addConstraintMapping(omissionMapping);
-        handler.setHandler(h);
-        return handler;
-    }
-</code></pre>
-
-<p>Also notice that I wrote omissionConstraint, applied to all method to fix a warning Jetty prints:<br/>
-<code>null has uncovered http methods for path: /</code></p>
-
-<p>If you’r not required to keep production monitoring all green, you can delete this redundant constraint and accept this warning. </p>
-
-<h6 id="toc_4">References</h6>
-
-<p>[1] <a href="http://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf">CROSS-SITE TRACING (XST) - THE NEW TECHNIQUES AND EMERGING THREATS TO BYPASS CURRENT WEB SECURITY MEASURES USING TRACE AND XSS - Jeremiah Grossman</a><br/>
-[2] <a href="https://www.owasp.org/index.php/Cross_Site_Tracing">Cross Site Tracing - OWASP</a><br/>
-[3] <a href="http://stackoverflow.com/questions/29348328/java-embedded-jetty-is-accepting-http-trace-method">spring - Java embedded jetty is accepting HTTP TRACE method - Stack Overflow</a></p>
 
 
 			

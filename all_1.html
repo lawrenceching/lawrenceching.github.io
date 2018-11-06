@@ -139,6 +139,87 @@
 	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="meta">
 			<div class="date">
+				<time datetime="2017-05-06T01:20:05+08:00" itemprop="datePublished">2017/5/6</time>
+			</div>
+			<div class="tags">posted in 
+			
+			    <a class='category' href='java.html'>Java</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="why-we-need-to-disable-trace-method-and-how-to-disable-trace-in-embedded-jetty.html" itemprop="url">
+		Why we need to disable TRACE method and how to disable TRACE in Embedded Jetty</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>This page show you why we need to disable TRACE HTTP method for security reason.  And provide a sample project to show you how to disable TRACE in embedded Jetty.</p>
+
+<h2 id="toc_0">Why we need to disable TRACE method</h2>
+
+<p>Allowing TRACE method will leads to Cross-Site Tracking (a.k.a XST) problem. XST was found in 2003. It’s a very old topic and I can’t get any new discussion after searched in Google. But it’s good to disable TRACE for our server to avoid any redundant endpoint exposes to the danger world. </p>
+
+<h3 id="toc_1">Avoid XST Attack</h3>
+
+<p>As we all know, server will echo back all information when it receive TRACE request. “All information” means the cookies, the credential data and the server version etc. When user is visiting a malicious website, a hacker can read malicious data by calling a cross-site TRACE request.</p>
+
+<h3 id="toc_2">Limit Information Expose to the World</h3>
+
+<p>In the other case, we run an API server which user will not access by browser directly. It’s good practice to limit the information expose to the external world. Information like version may tell others which issue is ok to use to hack. If we don’t need TRACE (at lease in production environment), so disable it.</p>
+
+<h2 id="toc_3">How to disable TRACE in Embedded Jetty</h2>
+
+<p>By default Jetty enables TRACE  and we need to disable it manually.<br/>
+This <a href="https://github.com/lawrenceching/jetty-disable-trace/blob/master/src/main/java/me/imlc/example/jetty_disable_trace/Main.java#L65">GitHub project</a> shows you how to disable TRACE for embedded Jetty.</p>
+
+<pre><code class="language-java">private Handler wrapWithSecurityHandler(Handler h){
+        Constraint disableTraceConstraint = new Constraint();
+        disableTraceConstraint.setName(&quot;Disable TRACE&quot;);
+        disableTraceConstraint.setAuthenticate(true);
+
+        ConstraintMapping mapping = new ConstraintMapping();
+        mapping.setConstraint(disableTraceConstraint);
+        mapping.setMethod(&quot;TRACE&quot;);
+        mapping.setPathSpec(&quot;/&quot;);
+
+        // omissionConstraint is to fix the warning log &quot;&quot;null has uncovered http methods for path: /
+        // No impact to disable TRACE if you do not add this constraint
+        // But if you&#39;re using the monitoring tool like Geneos, and your component requires keep production monitoring all green,
+        // You can try to add this omissionConstraint to fix the warning Jetty prints.
+        Constraint omissionConstraint = new Constraint();
+        ConstraintMapping omissionMapping = new ConstraintMapping();
+        omissionMapping.setConstraint(omissionConstraint);
+        omissionMapping.setMethod(&quot;*&quot;);
+        omissionMapping.setPathSpec(&quot;/&quot;);
+
+
+        ConstraintSecurityHandler handler = new ConstraintSecurityHandler();
+        handler.addConstraintMapping(mapping);
+        handler.addConstraintMapping(omissionMapping);
+        handler.setHandler(h);
+        return handler;
+    }
+</code></pre>
+
+<p>Also notice that I wrote omissionConstraint, applied to all method to fix a warning Jetty prints:<br/>
+<code>null has uncovered http methods for path: /</code></p>
+
+<p>If you’r not required to keep production monitoring all green, you can delete this redundant constraint and accept this warning. </p>
+
+<h6 id="toc_4">References</h6>
+
+<p>[1] <a href="http://www.cgisecurity.com/whitehat-mirror/WH-WhitePaper_XST_ebook.pdf">CROSS-SITE TRACING (XST) - THE NEW TECHNIQUES AND EMERGING THREATS TO BYPASS CURRENT WEB SECURITY MEASURES USING TRACE AND XSS - Jeremiah Grossman</a><br/>
+[2] <a href="https://www.owasp.org/index.php/Cross_Site_Tracing">Cross Site Tracing - OWASP</a><br/>
+[3] <a href="http://stackoverflow.com/questions/29348328/java-embedded-jetty-is-accepting-http-trace-method">spring - Java embedded jetty is accepting HTTP TRACE method - Stack Overflow</a></p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
 				<time datetime="2016-11-17T23:08:48+08:00" itemprop="datePublished">2016/11/17</time>
 			</div>
 			<div class="tags">posted in 
@@ -597,72 +678,6 @@ foo2.id = 233333;
 console.log(&quot;Foo id:&quot;+foo1.id);
 
 </code></pre>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='others.html'>Others</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14749714760806.html" itemprop="url">
-		Parallel Task execution Sample</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>A very little snippet of Gradle parallel task execution. Let taskes run concurrently.</p>
-
-<p><strong>ATTENTION:</strong><br/>
-<code>gradle -Dorg.gradle.parallel.intra=true hello hello2 --parallel</code> Add argument &#39;-Dorg.gradle.parallel.intra=true&#39; to enforce Gradle run taskes parallelly as for <code>--parallel</code> is an incubating feature,</p>
-
-<pre><code>@ParallelizableTask
-class ParallelTask extends DefaultTask {
-     String title = &quot;Default Name&quot;
-     @TaskAction
-     def action1() {
-        for (int i=0 ;i &lt; 5; ++i) {
-            println &#39;The &#39;+ title + &quot; task is running&quot;
-       }
-     }
-}
-
-
-task hello(type: ParallelTask)
-
-hello {
-    title=&#39;1&#39;
-}
-
-
-
-task hello2(type: ParallelTask)
-
-hello2 {
-    title=&#39;2&#39;
-}
-
-</code></pre>
-
-<h4 id="toc_0">References</h4>
-
-<p>[1] <a href="https://discuss.gradle.org/t/using-parallelizabletask/14634">Using ParallelizableTask</a><br/>
-[2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
-[3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
-[4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
-
-<hr/>
-
-<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
 
 
 			

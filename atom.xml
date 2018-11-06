@@ -4,7 +4,7 @@
   <title><![CDATA[IMLC.ME]]></title>
   <link href="http://www.imlc.me/atom.xml" rel="self"/>
   <link href="http://www.imlc.me/"/>
-  <updated>2018-10-28T23:01:47+08:00</updated>
+  <updated>2018-11-04T19:50:43+08:00</updated>
   <id>http://www.imlc.me/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[QCon 2018 Shanghai - Frontend Practice in Ant Financial]]></title>
+    <link href="http://www.imlc.me/QCon-2018-Shanghai-Frontend-Practice-in-Ant-Financial.html"/>
+    <updated>2018-11-06T22:13:35+08:00</updated>
+    <id>http://www.imlc.me/QCon-2018-Shanghai-Frontend-Practice-in-Ant-Financial.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>This presentation is shared by <a href="https://2018.qconshanghai.com/presentation/817">QCon上海2018|全球软件开发大会</a><br/><br/>
+You can download the PPT from <a href="http://ppt.geekbang.org/slide/download?cid=33&amp;pid=1816">大会演讲PPT合集</a>  </p>
+</blockquote>
+
+<h2 id="toc_0">Business Nature</h2>
+
+<ul>
+<li>Mobile is the first priority</li>
+<li>Stable backend model, flexible frontend presentation</li>
+<li>High Stability for business</li>
+</ul>
+
+<h2 id="toc_1">Frontend Architecture</h2>
+
+<p>Below graph display the history of frontend architecture in Ant Financial.<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%889.10.29.png" alt="屏幕快照 2018-11-04 下午9.10.29"/></p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-04%20%E4%B8%8B%E5%8D%8810.26.07%20-%20translated.png" alt="屏幕快照 2018-11-04 下午10.26.07 - translated"/></p>
+
+<p>The frontend needs to be served in multiple channels. Not only traditional web UI, but also Little Program/H5 in various apps.  Below graph introduces you how Ant Finance releases its change from source code to production.</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.07.13.png" alt="屏幕快照 2018-11-05 下午10.07.13"/></p>
+
+<p>How to process offline H5 page</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.10.21.png" alt="屏幕快照 2018-11-05 下午10.10.21"/></p>
+
+<p>It’s quite important these years to provide your service In-App. We have two ways channel (In China - Lawrence):<br/>
+1. Little Program<br/>
+Lightweight HTML app designs for running inside giant app like Wechat, Taobao, Alipay. Very similar to PWA. Little Program can access native function like using camera which Wechat will be a bridge  for that.<br/>
+2. H5<br/>
+H5 stands for HTML 5 web page. When people compare it with Little Program, H5 represents the HTML 5 web app which will be loaded by WebView(embedded browser in native app).</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.20.22.png" alt="屏幕快照 2018-11-05 下午10.20.22"/></p>
+
+<p>Below image shows the differences of development for H5, Little Program and PC Web Page.</p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.40.24.png" alt="屏幕快照 2018-11-05 下午10.40.24"/></p>
+
+<p>As the business grows, it’s a big challenge to develop the service. In a tradition frontend architecture model, UX API changes frequently, however service API is stable relatively. The question is, our API should be UI-oriented or should be generic.</p>
+
+<p>And the answer is, Backend For Frontend(aka BFF).<br/>
+<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8810.46.57.png" alt="屏幕快照 2018-11-05 下午10.46.57"/></p>
+
+<p>In a tradition model, we basically have 3 layers: UI, business service, then infrastructure. <br/>
+In BFF model, we still have 3 layers, the differences are:<br/>
+In the 2nd layer, now we have BFFs which are designed for UI. BFF provides  API that perfectly fit to UI. And we can have multiple BFF services designed for individual clients.<br/>
+In the 3rd layer, we move Business Layer down. We treat Business Layer as some kind of infrastructure that provides generic business API. </p>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-05%20%E4%B8%8B%E5%8D%8811.44.36.png" alt="屏幕快照 2018-11-05 下午11.44.36"/></p>
+
+<p>In general, frontend and BFF development are completed by the same developer. From the development of employee point of view, there are some benefits:<br/>
+1. Frontend developer has the opportunity to learn server side development skills<br/>
+2. Expand the scope of knowledge<br/>
+3. Improve communication skills<br/>
+4. More reasonable division of labor</p>
+
+<blockquote>
+<p>Following content is the open source solution Ant Finance creates. I would not repeat it, instead, I will paste the url links to GitHub or official home page.  </p>
+</blockquote>
+
+<h3 id="toc_2">Egg.js</h3>
+
+<p><a href="https://github.com/eggjs/egg/">GitHub - eggjs/egg: 🥚 Born to build better enterprise frameworks and apps with Node.js &amp; Koa</a><br/>
+<a href="https://eggjs.org/en/index.html">egg - Born to build better enterprise frameworks and apps</a></p>
+
+<p><a href="https://github.com/eggjs/awesome-egg">GitHub - eggjs/awesome-egg: Awesome Egg.js Web Framework and Plugin.</a></p>
+
+<p>Egg.js is a Node.js web development framework. It provides enterprise level features to speed up the development. It’s the core to BFF.</p>
+
+<p>It’s worth to highlight that Egg.js is not only a web framework. It’s a solution to develop, build, run, monitor and maintain your Node.js application in production environment. For example, Egg.js embeds in a security mechanism to avoid security problem systematically, we all know that developer is not trustable: <a href="https://eggjs.org/en/core/security.html">Security - Born to build better enterprise frameworks and apps</a>.<br/>
+And Egg.js provides a solution to run application in cluster:<br/>
+<a href="https://eggjs.org/en/advanced/cluster-client.html">Multi-Process Development Model Enhancement - Born to build better enterprise frameworks and apps</a>.</p>
+
+<p>Worth to have a look even if you’re not a fan to Egg.js itself.</p>
+
+<h3 id="toc_3">sofa-rpc and sofa-rpc-node</h3>
+
+<p><a href="https://github.com/alipay/sofa-rpc">GitHub - alipay/sofa-rpc: SOFARPC is a high-performance, high-extensibility, production-level Java RPC  framework.</a></p>
+
+<p><a href="https://github.com/alipay/sofa-rpc-node">GitHub - alipay/sofa-rpc-node: SOFARPC Node is a high-performance, high-extensibility, production-level Nodejs RPC framework.</a></p>
+
+<ul>
+<li>Supports multiple language</li>
+<li>Automated serialization and deserialization</li>
+<li>Transparent to developer to call JavaScript from Java or call Java from JavaScript</li>
+<li>Support ProtoBuf and Hessian</li>
+</ul>
+
+<h2 id="toc_4">High Quality Development</h2>
+
+<h3 id="toc_5">Development Steps</h3>
+
+<p><img src="media/15415136154959/%E2%80%9C%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.19.13%E2%80%9D%E7%9A%84%E5%89%AF%E6%9C%AC.png" alt="“屏幕快照 2018-11-06 下午9.19.13”的副本"/></p>
+
+<h3 id="toc_6">Development Management</h3>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.44.18.png" alt="屏幕快照 2018-11-06 下午9.44.18"/></p>
+
+<h3 id="toc_7">Change Management</h3>
+
+<ul>
+<li>Should be able to <strong>gated launch</strong></li>
+<li>Should be able to <strong>monitor</strong></li>
+<li>Should be able to <strong>roll back</strong>
+<img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.49.18.png" alt="屏幕快照 2018-11-06 下午9.49.18"/></li>
+</ul>
+
+<h3 id="toc_8">Monitor</h3>
+
+<h4 id="toc_9">Backend Monitor</h4>
+
+<p><img src="media/15415136154959/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-11-06%20%E4%B8%8B%E5%8D%889.56.02.png" alt="屏幕快照 2018-11-06 下午9.56.02"/></p>
+
+<h4 id="toc_10">Frontend Monitor</h4>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[QCon 2018 Shanghai - Serverless and AWS Lambda Service]]></title>
@@ -1001,59 +1126,6 @@ foo2.id = 233333;
 console.log(&quot;Foo id:&quot;+foo1.id);
 
 </code></pre>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Parallel Task execution Sample]]></title>
-    <link href="http://www.imlc.me/14749714760806.html"/>
-    <updated>2016-09-27T18:17:56+08:00</updated>
-    <id>http://www.imlc.me/14749714760806.html</id>
-    <content type="html"><![CDATA[
-<p>A very little snippet of Gradle parallel task execution. Let taskes run concurrently.</p>
-
-<p><strong>ATTENTION:</strong><br/>
-<code>gradle -Dorg.gradle.parallel.intra=true hello hello2 --parallel</code> Add argument &#39;-Dorg.gradle.parallel.intra=true&#39; to enforce Gradle run taskes parallelly as for <code>--parallel</code> is an incubating feature,</p>
-
-<pre><code>@ParallelizableTask
-class ParallelTask extends DefaultTask {
-     String title = &quot;Default Name&quot;
-     @TaskAction
-     def action1() {
-        for (int i=0 ;i &lt; 5; ++i) {
-            println &#39;The &#39;+ title + &quot; task is running&quot;
-       }
-     }
-}
-
-
-task hello(type: ParallelTask)
-
-hello {
-    title=&#39;1&#39;
-}
-
-
-
-task hello2(type: ParallelTask)
-
-hello2 {
-    title=&#39;2&#39;
-}
-
-</code></pre>
-
-<h4 id="toc_0">References</h4>
-
-<p>[1] <a href="https://discuss.gradle.org/t/using-parallelizabletask/14634">Using ParallelizableTask</a><br/>
-[2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
-[3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
-[4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
-
-<hr/>
-
-<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
 
 ]]></content>
   </entry>

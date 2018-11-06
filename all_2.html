@@ -143,6 +143,72 @@
 			</div>
 			<div class="tags">posted in 
 			
+			    <a class='category' href='others.html'>Others</a>&nbsp;
+			 
+			</div>
+		</div>
+		<h1 class="title" itemprop="name"><a href="14749714760806.html" itemprop="url">
+		Parallel Task execution Sample</a></h1>
+		<div class="entry-content" itemprop="articleBody">
+			
+			<p>A very little snippet of Gradle parallel task execution. Let taskes run concurrently.</p>
+
+<p><strong>ATTENTION:</strong><br/>
+<code>gradle -Dorg.gradle.parallel.intra=true hello hello2 --parallel</code> Add argument &#39;-Dorg.gradle.parallel.intra=true&#39; to enforce Gradle run taskes parallelly as for <code>--parallel</code> is an incubating feature,</p>
+
+<pre><code>@ParallelizableTask
+class ParallelTask extends DefaultTask {
+     String title = &quot;Default Name&quot;
+     @TaskAction
+     def action1() {
+        for (int i=0 ;i &lt; 5; ++i) {
+            println &#39;The &#39;+ title + &quot; task is running&quot;
+       }
+     }
+}
+
+
+task hello(type: ParallelTask)
+
+hello {
+    title=&#39;1&#39;
+}
+
+
+
+task hello2(type: ParallelTask)
+
+hello2 {
+    title=&#39;2&#39;
+}
+
+</code></pre>
+
+<h4 id="toc_0">References</h4>
+
+<p>[1] <a href="https://discuss.gradle.org/t/using-parallelizabletask/14634">Using ParallelizableTask</a><br/>
+[2] <a href="https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/ParallelizableTask.html">Annotation Type ParallelizableTask</a><br/>
+[3] <a href="https://github.com/gradle/gradle/blob/master/design-docs/parallel-task-execution.md">parallel-task-execution.md</a><br/>
+[4] <a href="https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:parallel_execution">Chapter 24. Multi-project Builds</a></p>
+
+<hr/>
+
+<p>TAG: Gradle, Parallel Execution, Task, Simultaneously, Concurrently, Synchronously</p>
+
+
+			
+			
+		</div>
+
+	</article>
+ 
+	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="meta">
+			<div class="date">
+				<time datetime="2016-09-27T18:17:56+08:00" itemprop="datePublished">2016/9/27</time>
+			</div>
+			<div class="tags">posted in 
+			
 			    <a class='category' href='javascript.html'>JavaScript</a>&nbsp;
 			 
 			</div>
@@ -572,55 +638,6 @@ ud.setObject(NSKeyedArchiver.archivedDataWithRootObject(book), forKey: &quot;boo
 			<p>I embeded my common view controller which contains a UIWebView in navigation controller. Before I do that, my UIWebView worked prefectly. After that, a blank area places both above and under my html content.</p>
 
 <p><img src="media/14689440398591/14689449100296.jpg" alt=""/></p>
-
-
-			
-			
-		</div>
-
-	</article>
- 
-	<article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-		<div class="meta">
-			<div class="date">
-				<time datetime="2016-09-27T18:17:55+08:00" itemprop="datePublished">2016/9/27</time>
-			</div>
-			<div class="tags">posted in 
-			
-			    <a class='category' href='others.html'>Others</a>&nbsp;
-			 
-			</div>
-		</div>
-		<h1 class="title" itemprop="name"><a href="14749714759806.html" itemprop="url">
-		[OS X] 使用 Alfred 快捷键打开应用程序</a></h1>
-		<div class="entry-content" itemprop="articleBody">
-			
-			<p>写着写着代码，终于忍受不了在Xcode、Emulator、Chrome、Dash等应用中切来切去的麻烦。Dock栏可不是那么好点的。于是花了一段时间查找Mac上有哪些App可以实现快捷键切换应用程序。<br/>
-最后，终于挑定了一款应用的时候，突然想起来 Alfred 来。于是尝试了一下，效果完美。</p>
-
-<p><strong>Alfred 无愧神器之名：）</strong></p>
-
-<hr/>
-
-<h5 id="toc_0">Step 1: Create Blank Workflow</h5>
-
-<p>Add a blank workflow, fill the name, description and other field Alfred required.</p>
-
-<h5 id="toc_1">Step 2: Add Hotkey Trigger</h5>
-
-<p>Click the &quot;+&quot; button on the upper right, select the Trigger -&gt; Hotkey. Now a new window shows, type the Hotkey you want to use.</p>
-
-<h5 id="toc_2">Step 3: Add Action</h5>
-
-<p>Click the &quot;+&quot; button, this time select the Action -&gt; Launch Apps/ Files. Drop the app you want to open from Finder to Alfred.</p>
-
-<h5 id="toc_3">Step 4: Link the Trigger to the Action</h5>
-
-<p>Link the hotkey trigger to the launch apps action. Done!</p>
-
-<p><img src="http://7xt24f.com1.z0.glb.clouddn.com/2016-05-16-14633883160356.jpg" alt="A workflow to trigger the chrome and xcode"/></p>
-
-<p>最终效果是，在 Chrome 还没有打开的情况下，将启动 Chrome。如果 Chrome 已经启动，则切换到 Chrome。</p>
 
 
 			
