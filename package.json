@@ -1,0 +1,25 @@
+{
+  "name": "lawrenceching.github.io",
+  "version": "1.0.0",
+  "description": "Blog of Lawrence Ching",
+  "main": "index.js",
+  "scripts": {
+    "build": "node bin/generate-html.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawrenceching/lawrenceching.github.io.git"
+  },
+  "author": "Lawrence Ching",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lawrenceching/lawrenceching.github.io/issues"
+  },
+  "homepage": "https://github.com/lawrenceching/lawrenceching.github.io#readme",
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "jsdom": "^15.0.0",
+    "showdown": "^1.9.0"
+  }
+}
