@@ -4,7 +4,7 @@
   "description": "Blog of Lawrence Ching",
   "main": "index.js",
   "scripts": {
-    "build": "node bin/generate-html.js",
+    "build": "node bin/generate-html.js && node bin/generate-index-html.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

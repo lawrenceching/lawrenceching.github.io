@@ -7,12 +7,9 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const Path = require('path');
 
-
-
-
 (async function generate() {
 
-    const template = await fse.readFile('bin/template.html', 'utf8')
+    const template = await fse.readFile('bin/template.html', 'utf8');
 
     const files = await fse.readdir('src');
 
@@ -34,7 +31,7 @@ const Path = require('path');
             })
             .then(html => {
                 const dom = new JSDOM(html);
-                const title = dom.window.document.querySelector('h1').textContent
+                const title = dom.window.document.querySelector('h1').textContent;
                 console.log('Generate HTML: ' + html);
                 const target = `${basename}.html`;
 
