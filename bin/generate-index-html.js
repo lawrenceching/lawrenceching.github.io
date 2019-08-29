@@ -12,6 +12,9 @@ const path = require('path');
     mdFiles.forEach(file => {
 
         const path = `src/${file}`;
+        var stats = fse.statSync(path);
+        var mtime = stats.mtime;
+
         promises.push(fse.readFile(path, 'utf8')
             .then(content => {
                 return content.split('\n')[0]
@@ -24,17 +27,22 @@ const path = require('path');
                     title,
                     markdownFile: file,
                     htmlFile: file.replace('md', 'html'),
+                    lastModifiedTime: mtime
                 }
             }));
 
     });
 
+
     const titles = await Promise.all(promises);
-    const artiles = titles.map(article => `
+    const artiles = titles.map(article => {
+        const lastModifiedTime = article.lastModifiedTime;
+        const datePublished = `${lastModifiedTime.getFullYear()}/${lastModifiedTime.getMonth()}/${lastModifiedTime.getDay()}`
+        return `
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
                         <div class="meta">
                             <div class="date">
-                                <time datetime="2018-11-06T22:13:35+08:00" itemprop="datePublished">2018/11/6</time>
+                                <time datetime="${lastModifiedTime.toISOString()}" itemprop="datePublished">${datePublished}</time>
                             </div>
 
 
@@ -42,7 +50,8 @@ const path = require('path');
                         </div>
                         <h1 class="title" itemprop="name"><a href="${article.htmlFile}" itemprop="url">${article.title}</a></h1>
                     </article>
-    `)
+    `
+    })
         .join('\n');
 
 

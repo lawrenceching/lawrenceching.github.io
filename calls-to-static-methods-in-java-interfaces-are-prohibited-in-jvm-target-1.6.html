@@ -17,6 +17,8 @@
     <link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
     <script src="asset/javascripts/jquery.min.js"></script>
     <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link rel="stylesheet" href="likebutton.css">
+    <script src="https://kit.fontawesome.com/dd521f1e57.js"></script>
     <link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet"
           type="text/css">
     <script>hljs.initHighlightingOnLoad();</script>
@@ -211,6 +213,17 @@
 &lt;/plugin&gt;
 </code></pre>
                     </div>
+                    <div class="like-content">
+
+                         <span>
+                           Did you like this page? Pressing like below is the best way to inspire me.
+                         </span>
+
+                        <button class="btn-secondary like-review">
+                            <i class="fa fa-heart" aria-hidden="true"></i> Like
+                        </button>
+
+                    </div>
                 </article>
             </div>
         </div>
@@ -238,6 +251,14 @@
 
     ga('create', 'UA-57304811-3', 'auto');
     ga('send', 'pageview');
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.querySelector("div.like-content button").addEventListener('click', function() {
+            document.querySelector("div.like-content button").innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i> You liked this';
+            document.querySelector("div.like-content button .fa-heart").classList.add('animate-like');
+        })
+    });
 
 </script>
 </body>
