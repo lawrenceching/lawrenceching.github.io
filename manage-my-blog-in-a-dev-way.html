@@ -188,17 +188,9 @@ Nothing worth to talk, it’s easy to get it done if you’re a dev but if you�
 <a href="https://github.com/lawrenceching/lawrenceching.github.io">https://github.com/lawrenceching/lawrenceching.github.io</a></p>
                     </div>
                     <div class="like-content">
-
-                         <span>
-                           Did you like this page? Pressing like below is the best way to inspire me.
-                         </span>
-
-                        <button class="btn-secondary like-review">
-                            <i class="fa fa-heart" aria-hidden="true"></i> Like
-                        </button>
-
+                        <span>Did you like this page? Pressing like below is the best way to inspire me.</span>
+                        <button class="btn-secondary like-review"></button>
                         <img src="wechat_reward_code.jpeg" width="300px"/>
-
                     </div>
                 </article>
             </div>
@@ -227,15 +219,7 @@ Nothing worth to talk, it’s easy to get it done if you’re a dev but if you�
 
     ga('create', 'UA-57304811-3', 'auto');
     ga('send', 'pageview');
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-        document.querySelector("div.like-content button").addEventListener('click', function() {
-            document.querySelector("div.like-content button").innerHTML = '<i class="fa fa-heart" aria-hidden="true"></i> You liked this';
-            document.querySelector("div.like-content button .fa-heart").classList.add('animate-like');
-        })
-    });
-
 </script>
+<script type="text/javascript" src="likebutton.js"></script>
 </body>
 </html>
