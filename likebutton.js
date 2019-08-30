@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function sendLikeToServer() {
-        return fetch('http://like.imlc.me/api/v1/likes', {
+        return fetch('https://like.imlc.me/api/v1/likes', {
             method: 'POST'
         });
     }
 
 
-    fetch('http://like.imlc.me/api/v1/likes')
+    fetch('https://like.imlc.me/api/v1/likes')
         .then(function (response) {
             return response.json();
         })
